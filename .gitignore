@@ -166,4 +166,4 @@ cython_debug/
 ./data/imdb/
 ./data/tmdb/
 ./data/tropes/
-*.csv
+./data/*.csv
