@@ -167,6 +167,7 @@ cython_debug/
 /data/tmdb/*
 /data/tropes/*
 /data/*.csv
+/data/*.txt
 
 # macOS
 
