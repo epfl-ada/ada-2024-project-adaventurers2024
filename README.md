@@ -18,11 +18,17 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ## Datasets
 
-| *Dataset*                                                                                                             | *Description*                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | A collection of IMDb data subsets available for personal and non-commercial use                     |
-| [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | A dataset of 30K tropes and 1.9M examples across film, television, and literature from tvtropes.org |
-| [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | A comprehensive dataset of movies from The Movie Database (TMDB)                                    |
+| Dataset                                                          | Description                                                                                                           |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/) | 42K movie plot summaries from Wikipedia with metadata including box office, genre, characters, and actor demographics |
+
+### Proposed Additional Datasets
+
+| Dataset                                                                                                             | Description                                                                            |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | Movie and TV show data including titles, ratings, crew, cast, episodes (updated daily) |
+| [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | 30K narrative tropes with 1.9M examples, linked to IMDb and Goodreads metadata         |
+| [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | 1M movies with metadata including cast, crew, budget, revenue, and popularity metrics  |
 
 ## Methods
 
