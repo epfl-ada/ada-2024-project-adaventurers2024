@@ -18,13 +18,11 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ## Datasets
 
-!! Do we need to add descriptions for each dataset here? !!
-
-| Name                     | Link                                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------ |
-| IMDb                     | [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)              |
-| Tropes                   | [TV Tropes](https://github.com/dhruvilgala/tvtropes)                                             |
-| TMDB Movies Dataset 2024 | [Kaggle Dataset](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) |
+| *Dataset*                                                                                                             | *Description*                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | A collection of IMDb data subsets available for personal and non-commercial use                     |
+| [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | A dataset of 30K tropes and 1.9M examples across film, television, and literature from tvtropes.org |
+| [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | A comprehensive dataset of movies from The Movie Database (TMDB)                                    |
 
 ## Methods
 
@@ -76,4 +74,3 @@ TBD
 ├── pip_requirements.txt        <- File for installing python dependencies
 └── README.md
 ```
-
