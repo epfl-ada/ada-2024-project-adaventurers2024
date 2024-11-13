@@ -162,10 +162,10 @@ cython_debug/
 #.idea/
 
 # Ignore dataset
-/data/cmu/
-/data/imdb/
-/data/tmdb/
-/data/tropes/
+/data/cmu/*
+/data/imdb/*
+/data/tmdb/*
+/data/tropes/*
 /data/*.csv
 
 # macOS
