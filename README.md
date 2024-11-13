@@ -4,7 +4,7 @@
 
 In this project, we aim to explore the underlying reasons for a movie's failure by examining several key factors, including ratings, number of reviews, revenue, and the influence of demographics. We will investigate how actor diversity, director-actor collaborations, and narrative structures affect a movie's performance across different countries and languages. In particular, we analyze the role of character tropes and thematic content, assessing their impact on both critical acclaim and box office success. By exploring how combinations of common tropes resonate with audiences, and observing trends in thematic content over time, we aim to uncover patterns that contribute to or detract from movie success.
 
-## Research Questions
+<!-- ## Research Questions
 
 1. [Metrics ] What metrics (e.g., low ratings, limited number of ratings, revenue vs budget) best indicate movie failure?
 2. [Actor   ] How do actor demographics and lack of diversity impact audience disengagement and contribute to box office underperformance?
@@ -14,7 +14,35 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 6. [Timing  ] How does poor release timing (e.g., season, holiday periods) affect a movie's likelihood of failing?
 7. [Tropes  ] How do overused or poorly executed character tropes contribute to a movie's box office failure?
 8. [Tropes  ] How has the thematic content of movie plots evolved, and what themes have historically failed to resonate with audiences?
-9. [Tropes  ] How does portraying controversial social issues or outdated themes affect a movie's acceptance and potential failure across demographics?
+9. [Tropes  ] How does portraying controversial social issues or outdated themes affect a movie's acceptance and potential failure across demographics? -->
+
+## Research Questions
+
+### 📊 Metrics & Performance
+
+1. What **metrics** (e.g., low ratings, limited number of ratings, revenue vs budget) best indicate movie failure?
+
+### 👥 Cast & Crew Analysis
+
+2. How do **actor demographics** and lack of diversity impact audience disengagement and contribute to box office underperformance?
+
+3. What role do **director-actor collaborations** play in a movie's failure, and are there specific patterns in these partnerships that correlate with unsuccessful films?
+
+4. Is thematic consistency in **director filmographies** a predictor of failure/success?
+
+### 🎬 Genre & Market Factors
+
+5. How does **genre choice** influence a movie's failure, particularly in different cultural contexts?
+
+6. How does poor **release timing** (e.g., season, holiday periods) affect a movie's likelihood of failing?
+
+### 📖 Narrative & Thematic Elements
+
+7. How do overused or poorly executed character **tropes** contribute to a movie's box office failure?
+
+8. How has the **thematic content** of movie plots evolved, and what themes have historically failed to resonate with audiences?
+
+9. How does portraying **controversial topics** affect a movie's acceptance and potential failure across demographics?
 
 ## Datasets
 
@@ -42,14 +70,14 @@ Team meeting via Zoom at 6:30 PM on Wednesday, 13/11/2024.
 
 ## Proposed Timeline
 
-| Deliverable                        | Expected Date  |
-| ---------------------------------- | -------------- |
-| Data preprocessing (AZ & AO & JX)  | 12/11/2024     |
-| Gantt Chart (RW)                   | 12/11/2024     |
-| Data analysis (Everyone)           | 14/11/2024     |
-| Setup Web (RL)                     | 22/11/2024     |
-| Group visualizations (Everyone)    | 13/12/2024     |
-| Storytelling (Everyone)            | 19/12/2024     |
+| Deliverable                       | Expected Date |
+| --------------------------------- | ------------- |
+| Data preprocessing (AZ & AO & JX) | 12/11/2024    |
+| Gantt Chart (RW)                  | 12/11/2024    |
+| Data analysis (Everyone)          | 14/11/2024    |
+| Setup Web (RL)                    | 22/11/2024    |
+| Group visualizations (Everyone)   | 13/12/2024    |
+| Storytelling (Everyone)           | 19/12/2024    |
 
 ## Organization within the team
 
