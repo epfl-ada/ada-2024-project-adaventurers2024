@@ -1,4 +1,4 @@
-# Decoding Box-Office Bombs
+# Decoding Box-Office Bombs 🎬💣
 
 ## Abstract
 
@@ -12,11 +12,13 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 4. [Director] Is thematic consistency in director filmographies a predictor of failure/success?
 5. [Genre   ] How does genre choice influence a movie's failure, particularly in different cultural contexts?
 6. [Timing  ] How does poor release timing (e.g., season, holiday periods) affect a movie's likelihood of failing?
-7. [Tropes  ] How do overused or poorly executed character tropes contribute to a movie's box office failure?
-8. [Tropes  ] How has the thematic content of movie plots evolved, and what themes have historically failed to resonate with audiences?
-9. [Tropes  ] How does portraying controversial social issues or outdated themes affect a movie's acceptance and potential failure across demographics? -->
+7. [Tropes  ] Which trope combinations consistently lead to negative reception by genre?
+8. [Tropes  ] What recurring plot patterns appear most frequently in critically panned films?
+-->
 
 ## Research Questions
+
+Our research questions are organized around four main categories, which are designed to address the following sub-questions:
 
 ### 📊 Metrics & Performance
 
@@ -38,17 +40,13 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ### 📖 Narrative & Thematic Elements
 
-7. How do overused or poorly executed character **tropes** contribute to a movie's box office failure?
+7. Which **trope combinations** consistently lead to negative reception by genre?
 
-8. How has the **thematic content** of movie plots evolved, and what themes have historically failed to resonate with audiences?
-
-9. How does portraying **controversial topics** affect a movie's acceptance and potential failure across demographics?
+8. What recurring **plot patterns** appear most frequently in critically panned films?
 
 ## Datasets
 
-| Dataset                                                          | Description                                                                                                           |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/) | 42K movie plot summaries from Wikipedia with metadata including box office, genre, characters, and actor demographics |
+For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/), which contains 42K movie plot summaries from Wikipedia with metadata including genre, characters, and actor demographics. To complement this dataset, we will utilize additional datasets to enhance our analysis.
 
 ### Proposed Additional Datasets
 
@@ -60,28 +58,40 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ## Methods
 
-Team meeting via Zoom at 6:30 PM on Wednesday, 13/11/2024.
+### 1. Data Preprocessing
 
-### Data Processing
+To create our main dataset that addresses our research questions, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue information for only 8,401 movies and missing budget data. To fill these gaps, we merged the TMDB dataset, which provides more complete information on revenue and other field. We used the movie title and release year as common identifiers for merging the datasets, as the release date format varied (yy-mm-dd, yy-mm, or yy). The resulting merged dataset contains 49,516 movies with 27 columns, including vote average, vote count, runtime, budget, IMDb id, and more.
 
-### ADA
+The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge them with the Tropes dataset. Since each movie can be associated with multiple tropes, the resulting merged dataframe contains more than 200k rows.
 
-### Potiential Methods to Handle RQ
+Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
+
+To reproduce the preprocessed files that contain the information previously described, navigate to `src/scripts` and run the following script:
+
+```
+python preprocess_data.py
+```
+
+### 2. Exploratory Data Analysis
+
+
+
+### 3. Potiential methods to handle research questions
+
+
 
 ## Proposed Timeline
 
 | Deliverable                       | Expected Date |
 | --------------------------------- | ------------- |
-| Data preprocessing (AZ & AO & JX) | 12/11/2024    |
-| Gantt Chart (RW)                  | 12/11/2024    |
+| Data preprocessing (AO & JX)      | 13/11/2024    |
+| Gantt Chart (RW)                  | 13/11/2024    |
 | Data analysis (Everyone)          | 14/11/2024    |
 | Setup Web (RL)                    | 22/11/2024    |
 | Group visualizations (Everyone)   | 13/12/2024    |
 | Storytelling (Everyone)           | 19/12/2024    |
 
 ## Organization within the team
-
-?? A list of internal milestones up until project Milestone P3. ??
 
 - JX: Questions 2, 3, 4
 - RL: Questions 5, 6
