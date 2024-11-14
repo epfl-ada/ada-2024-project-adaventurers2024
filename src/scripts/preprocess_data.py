@@ -6,7 +6,6 @@ from pathlib import Path
 
 def preprocess_data(
     cmu_movie_metadata_path: Path =  '../../data/cmu/movie.metadata.tsv',
-    cmu_plot_summaries_path: Path = '../../data/cmu/plot_summaries.txt',
     cmu_character_metadata_path: Path = '../../data/cmu/character.metadata.tsv',
     tropes_path: Path = '../../data/tropes/tropes.csv',
     imdb_movie_tropes_path: Path = '../../data/tropes/film_imdb_match.csv',
@@ -18,8 +17,25 @@ def preprocess_data(
     tmdb_path: Path = '../../data/tmdb/TMDB_movie_dataset_v11.csv',
     output_dir: Path = '../../data'
 ):
+    """
+    Preprocess data for decoding box-office bombs using CMU, IMDb, tropes and TMDb datasets
+
+    Args:
+        cmu_movie_metadata_path (Path): path to the CMU movie metadata file
+        cmu_character_metadata_path (Path): path to the CMU character metadata file
+        tropes_path (Path): path to the tropes dataset
+        imdb_movie_tropes_path (Path): path to the IMDb movie tropes dataset
+        imdb_title_basics_path (Path): path to the IMDb title basics dataset
+        imdb_title_ratings_path (Path): path to the IMDb title ratings dataset
+        imdb_title_crew_path (Path): path to the IMDb title crew dataset
+        imdb_name_basics_path (Path): path to the IMDb name basics dataset
+        imdb_title_principals_path (Path): path to the IMDb title principals dataset
+        tmdb_path (Path): path to the TMDb dataset
+        output_dir (Path): path to save the preprocessed data
+    """
+
     print("Preprocessing df_cmu_movie_metadata...")
-    df_cmu_movie_metadata = preprocess_cmu_movie_metadata(cmu_movie_metadata_path, cmu_plot_summaries_path)
+    df_cmu_movie_metadata = preprocess_cmu_movie_metadata(cmu_movie_metadata_path)
 
     print("Preprocessing df_tmdb...")
     df_tmdb = preprocess_tmdb_data(tmdb_path)
@@ -46,6 +62,9 @@ def preprocess_data(
     df_cmu_tmdb = merge_cmu_movie_metadata_and_tmdb(df_cmu_movie_metadata, df_tmdb)
     save_data_csv(df_cmu_tmdb, f"{output_dir}/cmu_tmdb.csv")
 
+    df_cmu_tropes = pd.merge(df_cmu_tmdb, df_imdb_movie_tropes, how='inner', left_on='imdb_id', right_on='imdb_id')
+    save_data_csv(df_cmu_tropes, f"{output_dir}/cmu_tropes.csv")
+
     df_movie_actors = merge_cmu_and_imdb_directors_actors(
         df_cmu_character_metadata,
         df_cmu_movie_metadata,
@@ -54,7 +73,17 @@ def preprocess_data(
     save_data_csv(df_movie_actors, f"{output_dir}/movie_actors.csv")
 
 
-def preprocess_cmu_movie_metadata(cmu_movie_metadata_path, cmu_plot_summaries_path):
+def preprocess_cmu_movie_metadata(cmu_movie_metadata_path):
+    """
+    Rename columns of the CMU movie metadata, remove rows with missing release date,
+    and extract year from each release date
+
+    Args:
+        cmu_movie_metadata_path (Path): path to the CMU movie metadata file
+    Returns:
+        df_cmu_movie_metadata (pd.DataFrame): preprocessed CMU movie metadata
+    """
+
     df_cmu_movie_metadata = pd.read_csv(cmu_movie_metadata_path, sep='\t', header=None)
     df_cmu_movie_metadata.columns = ['wikipedia_movie_id', 'freebase_movie_id', 'name', 'release_date', 'revenue', 'runtime', 'languages', 'countries', 'genres']
 
@@ -65,6 +94,16 @@ def preprocess_cmu_movie_metadata(cmu_movie_metadata_path, cmu_plot_summaries_pa
 
 
 def preprocess_character_metadata(cmu_character_metadata_path):
+    """
+    Rename columns of the CMU character metadata, remove rows with missing release date,
+    and extract year from each release date
+
+    Args:
+        cmu_character_metadata_path (Path): path to the CMU character metadata file
+    Returns:
+        df_cmu_character_metadata (pd.DataFrame): preprocessed CMU character metadata
+    """
+
     df_cmu_character_metadata = pd.read_csv(cmu_character_metadata_path, sep='\t', header=None)
     df_cmu_character_metadata.columns = [
         "wikipedia_movie_id", "freebase_movie_id", "release_date", "character_name",
@@ -76,11 +115,20 @@ def preprocess_character_metadata(cmu_character_metadata_path):
     # Drop rows with missing release date, and extract year from each release date
     df_cmu_character_metadata.dropna(subset=['release_date'], inplace=True)
     df_cmu_character_metadata['release_year'] = df_cmu_character_metadata['release_date'].apply(extract_year)
-
     return df_cmu_character_metadata
 
 
 def preprocess_tropes(tropes_path, imdb_movie_tropes_path):
+    """
+    Rename tropes dataset columns and merge with IMDb movie tropes to add more information
+
+    Args:
+        tropes_path (Path): path to the tropes dataset
+        imdb_movie_tropes_path (Path): path to the IMDb movie tropes dataset
+    Returns:
+        df_imdb_movie_tropes (pd.DataFrame): merged IMDb movie tropes dataset with tropes dataset
+    """
+
     df_tropes = pd.read_csv(tropes_path, index_col=0)
     df_tropes.columns = ['trope_id', 'trope', 'description']
 
@@ -88,7 +136,6 @@ def preprocess_tropes(tropes_path, imdb_movie_tropes_path):
     df_imdb_movie_tropes.columns = ['title', 'trope', 'example', 'clean_title', 'tconst', 'trope_id', 'title_id']
     df_imdb_movie_tropes = df_imdb_movie_tropes.drop(columns=['trope'])
 
-    # Merge imdb movie tropes with tropes to add more information
     df_imdb_movie_tropes = df_imdb_movie_tropes.merge(df_tropes, how='inner', left_on='trope_id', right_on='trope_id')
     df_imdb_movie_tropes = df_imdb_movie_tropes[['tconst', 'title_id', 'clean_title', 'trope_id', 'trope', 'description', 'example']]
     df_imdb_movie_tropes.rename(columns={'tconst': 'imdb_id'}, inplace=True)
@@ -104,6 +151,22 @@ def preprocess_imdb_data(
     df_cmu_movie_metadata,
     df_imdb_tropes
 ):
+    """
+    Load IMDb datasets, merge them, and extract relevant columns for analysis
+
+    Args:
+        imdb_title_basics_path (Path): path to the IMDb title basics dataset
+        imdb_title_ratings_path (Path): path to the IMDb title ratings dataset
+        imdb_title_crew_path (Path): path to the IMDb title crew dataset
+        imdb_name_basics_path (Path): path to the IMDb name basics dataset
+        imdb_title_principals_path (Path): path to the IMDb title principals dataset
+        df_cmu_movie_metadata (pd.DataFrame): CMU movie metadata
+        df_imdb_tropes (pd.DataFrame): IMDb movie tropes dataset
+    Returns:
+        df_imdb_movie_tropes (pd.DataFrame): merged IMDb movie tropes dataset with tropes dataset
+        df_imdb_directors_actors (pd.DataFrame): IMDb directors and actors dataset
+        df_imdb_complete (pd.DataFrame): complete IMDb dataset for analyzing directors and revenue in CMU dataset
+    """
     # Load title.basics for movie details
     df_imdb_title_basics = pd.read_csv(imdb_title_basics_path, sep='\t')
     df_imdb_title_basics = df_imdb_title_basics[df_imdb_title_basics['titleType'] == 'movie'] 
@@ -172,6 +235,16 @@ def preprocess_imdb_data(
 
 
 def preprocess_tmdb_data(tmdb_path):
+    """
+    Load TMDb dataset, filter released movies, drop movies with missing release date, and extract 
+    year from each release date
+
+    Args:
+        tmdb_path (Path): path to the TMDb dataset
+    Returns:
+        df_tmdb (pd.DataFrame): preprocessed TMDb dataset
+    """
+
     df_tmdb = pd.read_csv(tmdb_path)
     df_tmdb['release_year'] = df_tmdb['release_date'].apply(extract_year)
 
@@ -216,7 +289,15 @@ def extract_year(date):
 
 
 def merge_cmu_movie_metadata_and_tmdb(df_cmu_movie_metadata, df_tmdb):
-    # Merge CMU movie metadata with TMDB dataset to fill in missing information such as revenue which has a lot of missing values
+    """
+    Join CMU movie metadata with TMDb dataset to fill in missing information such as revenue which has a lot of missing values
+
+    Args:
+        df_cmu_movie_metadata (pd.DataFrame): CMU movie metadata
+        df_tmdb (pd.DataFrame): TMDb dataset
+    Returns:
+        df_cmu_tmdb (pd.DataFrame): merged CMU movie metadata and TMDb dataset
+    """
     df_cmu_movie_metadata_selected = df_cmu_movie_metadata[['wikipedia_movie_id', 'freebase_movie_id', 'name', 'release_year']]
     df_cmu_tmdb = pd.merge(
         df_tmdb,
@@ -236,6 +317,17 @@ def merge_cmu_and_imdb_directors_actors(
     df_cmu_movie_metadata,
     df_imdb_directors_actors
 ):
+    """
+    Merge CMU movie character metadata with IMDb directors and actors dataset
+
+    Args:
+        df_cmu_character_metadata (pd.DataFrame): CMU character metadata
+        df_cmu_movie_metadata (pd.DataFrame): CMU movie metadata
+        df_imdb_directors_actors (pd.DataFrame): IMDb directors and actors dataset
+    Returns:
+        df_movie_actors (pd.DataFrame): merged CMU movie character metadata and IMDb directors and actors dataset
+    """
+
     df_cmu_movie_character = pd.merge(df_cmu_character_metadata, df_cmu_movie_metadata, on=['wikipedia_movie_id', 'freebase_movie_id', 'release_year'], how='inner')
 
     # Merge the result with movie ratings
