@@ -80,15 +80,15 @@ This research question investigates the relationship between a director’s film
 
 #### Genre Influence on Movie Failure (RQ4)
 
-We employed several analytical approaches to understand genre impact on movie failure. First, we used violin plots with symmetric log scaling to visualize profit distribution across genres, capturing both the central tendency and spread of financial performance. To understand cultural reception, we analyzed the relationship between ratings and popularity (measured by vote count) using scatter plots with logarithmic scaling for vote counts. We tracked genre performance over time using 5-year moving averages to identify long-term trends in audience reception. Finally, we calculated and compared genre-specific success and failure rates to identify which genres carry the highest risk of significant financial loss.
+
 
 #### Release Timing Impact on Failure (RQ5)
 
-To investigate how release timing affects movie failure, we analyzed the distribution of profits and ratings across different temporal categories using violin plots. We compared failure rates across seasons and months to identify particularly risky release periods. To account for industry evolution, we examined the temporal trends of success and failure rates alongside movie release volume using a dual-axis visualization combining line graphs for rates and bar charts for release counts. This allowed us to identify historical patterns in optimal release timing while controlling for changes in industry output volume.
 
-#### Tropes Negative Reception by Genre (RQ6)
 
-To investigate the relationship between narrative tropes and audience reception within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated filmss. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception.
+#### Tropes Negative Reception (RQ6, RQ7)
+
+To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis.  For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated films. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception. Our next steps include completing the previous analysis for all the genres and trying combinations of tropes to see if there is a pattern that leads to negative reception.
 
 ## Proposed Timeline
 
