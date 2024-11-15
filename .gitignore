@@ -170,6 +170,7 @@ cython_debug/
 /data/*.txt
 /rq1.ipynb
 /rq2.ipynb
+/rq3.ipynb
 
 # macOS
 
