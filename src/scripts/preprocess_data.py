@@ -66,6 +66,7 @@ def preprocess_data(
     df_cmu_tmdb = merge_cmu_movie_metadata_and_tmdb(df_cmu_movie_metadata, df_tmdb)
     save_data_csv(df_cmu_tmdb, f"{output_dir}/cmu_tmdb.csv")
 
+    df_imdb_movie_tropes.drop(columns=["genres"], inplace=True)
     df_cmu_tropes = merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes)
     save_data_csv(df_cmu_tropes, f"{output_dir}/cmu_tropes.csv")
 
@@ -497,7 +498,7 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
             "revenue",
             "budget",
             "release_year",
-            "genres_x",
+            "genres",
             "trope",
         ]
     ]

@@ -43,7 +43,7 @@ def rq7(df_cmu_tropes, movie_genre, vote_threshold=6):
     """
     Plot the top 10 tropes more common in low-rated films of a specific genre
     """
-    df_genre_tropes = df_cmu_tropes[df_cmu_tropes['genres_y'].str.contains(movie_genre)]
+    df_genre_tropes = df_cmu_tropes[df_cmu_tropes['genres'].str.contains(movie_genre)]
     df_genre_tropes = df_genre_tropes[df_genre_tropes['vote_count'] > 100]
 
     print(f'There are {len(df_genre_tropes.id.unique())} {movie_genre.lower()} films in the dataset')
