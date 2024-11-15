@@ -6,8 +6,6 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ## Research Questions
 
-Our research questions are organized around four main categories, which are designed to address the following sub-questions:
-
 ### 📊 Metrics & Performance
 
 1. What **metrics** (e.g., low ratings, limited number of ratings, revenue vs budget) best indicate movie failure?
@@ -38,20 +36,18 @@ For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.
 
 | Dataset                                                                                                             | Description                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | Movie and TV show data including titles, ratings, crew, cast, episodes (updated daily)                                                                                                                                                                                   |
-| [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | 30K narrative tropes with 1.9M examples, linked to IMDb and Goodreads metadata                                                                                                                                                                                           |
-| [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | 1M movies with metadata including cast, crew, budget, revenue, and popularity metrics                                                                                                                                                                                    |
+| [IMDb Non-Commercial](https://developer.imdb.com/non-commercial-datasets/)                                 | Movie and TV show data including titles, ratings, crew, and cast.                                                                                                                                                                                |
+| [TV Tropes](https://github.com/dhruvilgala/tvtropes)                                                        | 30K narrative tropes with 1.9M examples, linked to IMDb metadata                                                                                                                                                                                           |
+| [TMDB (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | 1M movies with metadata including cast, crew, budget, and revenue.                                                                                                                                                                                   |
 | Mappings of ethnicity IDs to corresponding names                                                                    | We used an SPARQL query to retrieve ethnicity IDs and their names from Wikidata |
 
 ## Methods
 
 ### 1. Data Preprocessing
 
-To create our main dataset that addresses our research questions, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue information for only 8,401 movies and missing budget data. To fill these gaps, we merged the TMDB dataset, which provides more complete information on revenue and other field. We used the movie title and release year as common identifiers for merging the datasets, as the release date format varied (yy-mm-dd, yy-mm, or yy). The resulting merged dataset contains 49,516 movies with 27 columns, including vote average, vote count, runtime, budget, IMDb id, and more.
+To create our main dataset, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue data and missing budgets. To address this, we merged it with the TMDB dataset using movie titles and release years as common identifiers, despite varying date formats. The resulting dataset includes 49,516 movies with 27 columns, covering fields like vote average, budget, and IMDb ids. The IMDb id is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset. Additionally, we created a file linking directors and actors to movies, using data from IMDb and CMU, to support cast and crew analysis.
 
-The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset, and obtain multiple tropes associated with a movie. Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
-
-To reproduce the preprocessed files that contain the information previously described, download corresponding datasets, put in `./data` following the structure shown at the bottom, navigate to `src/scripts` and run the following script:
+To reproduce these preprocessed files, place the necessary datasets in the `data` folder, navigate to `src/scripts`, and run:
 
 ```
 python preprocess_data.py
@@ -69,15 +65,15 @@ Current analysis examines metric distributions (ratings, revenue, profit ratios)
 
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
 
-To address how actors' demographics diversity impact movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
+To address how actors' demographics diversity impacts movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
 
 $\text{Failure Metric} = \beta_0 + \beta_1 \times \text{Gender Diversity} + \beta_2 \times \text{Ethnic Diversity} + \beta_3 \times \text{Age Diversity} + \epsilon$.
 
-Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visulization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable filtering and highlighting specific movie samples.
+Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visualization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable filtering and highlighting specific movie samples.
 
 #### Impact of Directors' Filmography on Film Failure (RQ3)
 
-This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterised through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
+This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterized through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
 
 #### Genre Influence on Movie Failure (RQ4)
 
@@ -89,7 +85,7 @@ Current analysis employs violin plots for seasonal and monthly distributions, te
 
 #### Tropes Negative Reception (RQ6, RQ7)
 
-To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated films. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception. Our next steps include completing the previous analysis for all the genres and trying combinations of tropes to see if there is a pattern that leads to negative reception.
+To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We calculated a ratio of trope occurrence in low-rated films compared to high-rated films. The results were visualized using bar plots showing the top 10 tropes that might contribute to negative audience reception. Next steps include completing the plots for all genres and analyzing combinations of tropes.
 
 ## Proposed Timeline
 
@@ -138,7 +134,6 @@ To investigate the relationship between narrative tropes and audience reception,
 │   │       TMDB_movie_dataset_v11.csv
 │   │
 │   └───tropes
-│           .DS_Store
 │           .gitattributes
 │           film_imdb_match.csv
 │           film_tropes.csv
