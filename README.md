@@ -2,7 +2,7 @@
 
 ## Abstract
 
-In this project, we aim to explore the underlying reasons for a movie's failure by examining several key factors, including ratings, number of reviews, revenue, and the influence of demographics. We will investigate how actor diversity, director-actor collaborations, and narrative structures affect a movie's performance across different countries and languages. In particular, we analyze the role of character tropes and thematic content, assessing their impact on both critical acclaim and box office success. By exploring how combinations of common tropes resonate with audiences, and observing trends in thematic content over time, we aim to uncover patterns that contribute to or detract from movie success.
+In this project, we aim to explore the reasons for a movie's failure by analyzing over 42,000 films, looking at everything from box office numbers to plot patterns. Using data from Wikipedia summaries, IMDb, and TV Tropes, we're investigating what really makes a movie stumble - whether it's poor timing, problematic storytelling, or casting choices. We're particularly interested in how factors like cast diversity, director's track records, and genre selections influence a film's success or failure. By analyzing numbers on movie budgets, audience ratings, and overused plot devices, we aim to uncover patterns that are problematic for films.
 
 ## Research Questions
 
@@ -45,7 +45,7 @@ Our main dataset is the [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/pe
 
 ### 1. Data Preprocessing
 
-To create our main dataset, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue data and missing budgets. To address this, we merged it with the TMDB dataset using movie titles and release years as common identifiers, despite varying date formats. The resulting dataset includes 49,516 movies with 27 columns, covering fields like vote average, budget, and IMDb ids. The IMDb id is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset. Additionally, we created a file linking directors and actors to movies, using data from IMDb and CMU, to support cast and crew analysis.
+To create our main dataset, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue data. To address this, we merged it with the TMDB dataset using movie titles and release years as common identifiers. The resulting dataset includes 49,516 movies. The IMDb ID column is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset. Additionally, we created a file linking directors and actors to movies, using data from IMDb and CMU, to support cast and crew analysis.
 
 To reproduce these preprocessed files, place the necessary datasets in the `data` folder, navigate to `src/scripts`, and run:
 
@@ -55,13 +55,13 @@ python preprocess_data.py
 
 ### 2. Exploratory Data Analysis
 
-We first calculated key financial metrics. Return on Investment (ROI) was computed as $\text{ROI} = \frac{\text{revenue} - \text{budget}}{\text{budget}}$, and absolute profit was calculated as $\text{revenue} - \text{budget}$. To handle extreme values in ROI, we capped positive returns at 5000% and removed cases where losses exceeded 99%, as these often represented data anomalies. We defined movie failure as losing more than 50% of its investment ($\text{ROI}<-0.5$) and success as achieving more than 100% ROI ($\text{ROI}>1$), as the first step in understanding the financial performance of movies.
+We first calculated key financial metrics. Return on Investment (ROI) was computed as $\text{ROI} = \frac{\text{revenue} - \text{budget}}{\text{budget}}$, and absolute profit was calculated as $\text{revenue} - \text{budget}$. We defined movie failure as losing more than 50% of its investment ($\text{ROI}<-0.5$) and success as achieving more than 100% ROI ($\text{ROI}>1$), as the first step in understanding the financial performance of movies.
 
 ### 3. Potential methods to handle research questions
 
 #### Metrics for Movie Failure (RQ1)
 
-Current analysis examines metric distributions (ratings, revenue, profit ratios) through histograms and kernel density estimation, investigates relationships through scatter plots of audience metrics versus financial performance, and quantifies correlations between vote_average, vote_count, revenue, budget, and profit through matrix analysis. Future work could develop a composite failure score combining financial and reception metrics, employ clustering and machine learning for pattern identification, and incorporate regional market variations to create a more comprehensive prediction framework.
+Current analysis examines metric distributions (ratings, revenue, profit ratios) through histograms and kernel density estimation, investigates relationships through scatter plots of audience metrics versus financial performance, and quantifies correlations between vote_average, vote_count, revenue, budget, and profit through matrix analysis. Future work could develop a composite failure score combining financial and reception metrics, employ clustering and machine learning for pattern identification.
 
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
 
@@ -73,7 +73,7 @@ Clustering algorithms (e.g., k-means) will group movies based on diversity metri
 
 #### Impact of Directors' Filmography on Film Failure (RQ3)
 
-This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterized through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
+This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterized through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of director's filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
 
 #### Genre Influence on Movie Failure (RQ4)
 
@@ -85,17 +85,17 @@ Current analysis employs violin plots for seasonal and monthly distributions, te
 
 #### Tropes Negative Reception (RQ6, RQ7)
 
-To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We calculated a ratio of trope occurrence in low-rated films compared to high-rated films. The results were visualized using bar plots showing the top 10 tropes that might contribute to negative audience reception. Next steps include completing the plots for all genres and analyzing combinations of tropes.
+To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Our first step was to identify the 20 most common tropes in low-rated movies. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We calculated a ratio of trope occurrence in low-rated films compared to high-rated films. The results were visualized using bar plots showing tropes that might contribute to negative audience reception. Next steps include completing the plots for all genres and analyzing combinations of tropes.
 
 ## Proposed Timeline
 
 | Deliverable                     | Expected Date |
 | ------------------------------- | ------------- |
-| Data preprocessing (AO & JX)    | 13/11/2024    |
-| Data analysis (Everyone)        | 14/11/2024    |
-| Setup Web (RL)                  | 22/11/2024    |
-| Group visualizations (Everyone) | 13/12/2024    |
-| Storytelling (Everyone)         | 19/12/2024    |
+| Data preprocessing              | 13/11/2024    |
+| Data analysis                   | 14/11/2024    |
+| Setup Web                       | 22/11/2024    |
+| Group visualizations            | 13/12/2024    |
+| Storytelling                    | 19/12/2024    |
 
 ## Organization within the team
 
