@@ -167,6 +167,7 @@ cython_debug/
 /data/tmdb/*
 /data/tropes/*
 /data/*.csv
+!/data/wikidata_ethnicities.csv
 /data/*.txt
 /rq1.ipynb
 /rq2.ipynb
