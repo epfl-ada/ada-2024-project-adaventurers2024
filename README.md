@@ -26,9 +26,9 @@ Our research questions are organized around four main categories, which are desi
 
 ### 📖 Narrative & Thematic Elements
 
-6. Which **trope combinations** consistently lead to negative reception by genre?
+6. What recurring **plot patterns** appear most frequently in critically panned films?
 
-7. What recurring **plot patterns** appear most frequently in critically panned films?
+7. Which **trope combinations** consistently lead to negative reception by genre?
 
 ## Datasets
 
