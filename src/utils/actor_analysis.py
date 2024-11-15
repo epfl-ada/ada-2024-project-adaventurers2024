@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def rq2_analysis(data_path, ethnicity_mapping_path):
+def actor_analysis(data_path, ethnicity_mapping_path):
     # 1. Load the dataset
     df_movie_actors = pd.read_csv(data_path)
 
@@ -115,15 +115,25 @@ def rq2_analysis(data_path, ethnicity_mapping_path):
 
     # 5.1 Compute diversity metrics
     def compute_diversity_metrics(group):
+        # Count unique actors for each movie
         num_actors = group["actor_name"].nunique()
-        num_male = (group["actor_gender"] == "M").sum()
-        num_female = (group["actor_gender"] == "F").sum()
+        
+        # Count unique female actors
+        num_female = group[group["actor_gender"] == "F"]["actor_name"].nunique()
+        
+        # Count unique male actors
+        num_male = group[group["actor_gender"] == "M"]["actor_name"].nunique()
+        
+        # Calculate gender diversity (proportion of female actors)
         gender_diversity = num_female / num_actors if num_actors else np.nan
+        
+        # Calculate other metrics
         num_ethnicities = group["actor_ethnicity"].nunique()
         age_std = group["actor_age_at_movie_release"].std()
         revenue = group["revenue"].mean()
         average_rating = group["average_rating"].mean()
         num_votes = group["num_votes"].sum()
+        
         return pd.Series(
             {
                 "num_actors": num_actors,
@@ -177,6 +187,7 @@ def rq2_analysis(data_path, ethnicity_mapping_path):
     plt.title("Gender Diversity vs. Revenue")
     plt.xlabel("Gender Diversity (Proportion of Female Actors)")
     plt.ylabel("Revenue")
+    plt.ylim(0, 1.5e9)  # Limit y-axis for better visualization
     plt.show()
 
     # 6.3.2 Gender Diversity vs. Average Rating
@@ -193,6 +204,7 @@ def rq2_analysis(data_path, ethnicity_mapping_path):
     plt.title("Ethnic Diversity vs. Revenue")
     plt.xlabel("Number of Unique Ethnicities")
     plt.ylabel("Revenue")
+    plt.ylim(0, 1.5e9) 
     plt.show()
 
     # 6.3.4 Ethnic Diversity vs. Average Rating
