@@ -134,13 +134,7 @@ To investigate the relationship between narrative tropes and audience reception,
 │   │
 │   └───tropes
 │           film_imdb_match.csv
-│           film_tropes.csv
-│           genderedness_filtered.csv
-│           lit_goodreads_match.csv
-│           lit_tropes.csv
 │           tropes.csv
-│           tv_imdb_match.csv
-│           tv_tropes.csv
 │
 ├── src                         <- Source code
 │   ├── utils                           <- Utility directory
