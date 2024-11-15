@@ -93,7 +93,7 @@ We employed several analytical approaches to understand genre impact on movie fa
 
 To investigate how release timing affects movie failure, we analyzed the distribution of profits and ratings across different temporal categories using violin plots. We compared failure rates across seasons and months to identify particularly risky release periods. To account for industry evolution, we examined the temporal trends of success and failure rates alongside movie release volume using a dual-axis visualization combining line graphs for rates and bar charts for release counts. This allowed us to identify historical patterns in optimal release timing while controlling for changes in industry output volume.
 
-#### Tropes Negative Reception by Genre (RQ7)
+#### Tropes Negative Reception by Genre (RQ7 & RQ8)
 
 To investigate the relationship between narrative tropes and audience reception within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated filmss. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception.
 
