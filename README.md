@@ -16,7 +16,7 @@ Our research questions are organized around four main categories, which are desi
 
 2. How do **actor demographics** and lack of diversity impact audience disengagement and contribute to box office underperformance?
 
-3. Is thematic consistency in **director filmographies** a predictor of failure?
+3. Is thematic consistency in **director filmographies** a predictor of movie failure?
 
 ### 🎬 Genre & Market Factors
 
