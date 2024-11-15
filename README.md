@@ -47,8 +47,6 @@ For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.
 
 ### 1. Data Preprocessing
 
-### Data Processing
-
 To create our main dataset that addresses our research questions, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue information for only 8,401 movies and missing budget data. To fill these gaps, we merged the TMDB dataset, which provides more complete information on revenue and other field. We used the movie title and release year as common identifiers for merging the datasets, as the release date format varied (yy-mm-dd, yy-mm, or yy). The resulting merged dataset contains 49,516 movies with 27 columns, including vote average, vote count, runtime, budget, IMDb id, and more.
 
 The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset, and obtain multiple tropes associated with a movie. Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
