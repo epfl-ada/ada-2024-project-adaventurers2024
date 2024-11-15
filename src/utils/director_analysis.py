@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import json
 import statsmodels.api as sm
 
-def rq3_analysis(data_path):
+def director_analysis(data_path):
     # Load the dataset
     df = pd.read_csv(data_path)
 

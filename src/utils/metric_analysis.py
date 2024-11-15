@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def rq1_analysis(data_path):
+def metric_analysis(data_path):
     # 1. Initialize
     # Load the dataset
     df = pd.read_csv(data_path)
