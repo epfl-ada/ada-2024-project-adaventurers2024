@@ -43,7 +43,7 @@ For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.
 | [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | Movie and TV show data including titles, ratings, crew, cast, episodes (updated daily)                                                                                                                                                                                   |
 | [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | 30K narrative tropes with 1.9M examples, linked to IMDb and Goodreads metadata                                                                                                                                                                                           |
 | [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | 1M movies with metadata including cast, crew, budget, revenue, and popularity metrics                                                                                                                                                                                    |
-| Deirector information scraped from Wikipedia                                                                        | This table contains director names, birthdates, filmography, the number of Academy Award nominations received for Best Director, and whether the director was awarded the Palme d'Or. For directors awarded the Palme d'Or, the date of the award will also be recorded. |
+| Director information scraped from Wikipedia                                                                        | This table contains director names, birthdates, filmography, the number of Academy Award nominations received for Best Director, and whether the director was awarded the Palme d'Or. For directors awarded the Palme d'Or, the date of the award will also be recorded. |
 
 ## Methods
 
@@ -53,9 +53,7 @@ For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.
 
 To create our main dataset that addresses our research questions, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue information for only 8,401 movies and missing budget data. To fill these gaps, we merged the TMDB dataset, which provides more complete information on revenue and other field. We used the movie title and release year as common identifiers for merging the datasets, as the release date format varied (yy-mm-dd, yy-mm, or yy). The resulting merged dataset contains 49,516 movies with 27 columns, including vote average, vote count, runtime, budget, IMDb id, and more.
 
-The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge them with the Tropes dataset. Since each movie can be associated with multiple tropes, the resulting merged dataframe contains more than 200k rows.
-
-Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
+The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset, and obtain multiple tropes associated with a movie. Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
 
 To reproduce the preprocessed files that contain the information previously described, navigate to `src/scripts` and run the following script:
 
@@ -111,8 +109,8 @@ To investigate the relationship between narrative tropes and audience reception 
 - JX: Questions 2, 3, 4
 - RL: Questions 5, 6
 - RW: Questions 2, 3, 4
-- AZ: Questions 7, 8, 9
-- AO: Questions 7, 8, 9
+- AZ: Questions 7, 8
+- AO: Questions 7, 8
 
 ## Project Structure
 
