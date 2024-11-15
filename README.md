@@ -118,7 +118,7 @@ TBD
 │   │   cmu_tmdb.csv
 │   │   movie_actors.csv
 │   │   movie_directors_actors.csv
-│   │   movie_tropes.csv
+│   │   cmu_tropes.csv
 │   │   wikidata_ethnicities.csv
 │   │
 │   ├───cmu
