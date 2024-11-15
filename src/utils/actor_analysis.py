@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def rq2_analysis(data_path, ethnicity_mapping_path):
+def actor_analysis(data_path, ethnicity_mapping_path):
     # 1. Load the dataset
     df_movie_actors = pd.read_csv(data_path)
 
