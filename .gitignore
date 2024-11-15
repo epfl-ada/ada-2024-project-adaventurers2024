@@ -168,6 +168,8 @@ cython_debug/
 /data/tropes/*
 /data/*.csv
 /data/*.txt
+/rq1.ipynb
+/rq2.ipynb
 
 # macOS
 
