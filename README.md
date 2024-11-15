@@ -16,7 +16,7 @@ Our research questions are organized around four main categories, which are desi
 
 2. How do **actor demographics** and lack of diversity impact audience disengagement and contribute to box office underperformance?
 
-3. Is thematic consistency in **director filmographies** a predictor of failure/success?
+3. Is thematic consistency in **director filmographies** a predictor of failure?
 
 ### 🎬 Genre & Market Factors
 
@@ -51,7 +51,7 @@ To create our main dataset that addresses our research questions, we inspected t
 
 The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge it with the Tropes dataset, and obtain multiple tropes associated with a movie. Finally, we generated a file linking directors and actors to each movie that takes into account the IMDb and CMU datasets to facilitate our cast and crew analysis.
 
-To reproduce the preprocessed files that contain the information previously described, navigate to `src/scripts` and run the following script:
+To reproduce the preprocessed files that contain the information previously described, download corresponding datasets, put in `./data` following the structure shown at the bottom, navigate to `src/scripts` and run the following script:
 
 ```
 python preprocess_data.py
@@ -67,7 +67,10 @@ For release timing analysis, we extracted and categorized temporal information f
 
 ### 3. Potential methods to handle research questions
 
-#### Directors: Analysis of genres in a director’s filmography (RQ3)
+#### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
+To address how actors' demographics diversity impact movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as $\text{Failure Metric} = \beta_0 + \beta_1 \times \text{Gender Diversity} + \beta_2 \times \text{Ethnic Diversity} + \beta_3 \times \text{Age Diversity} + \epsilon$. Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visulization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable filtering and highlighting specific movie samples.
+
+#### Impact of Directors' Filmography on Film Failure (RQ3)
 
 This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterised through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging  revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group. 
 
@@ -79,7 +82,7 @@ We employed several analytical approaches to understand genre impact on movie fa
 
 To investigate how release timing affects movie failure, we analyzed the distribution of profits and ratings across different temporal categories using violin plots. We compared failure rates across seasons and months to identify particularly risky release periods. To account for industry evolution, we examined the temporal trends of success and failure rates alongside movie release volume using a dual-axis visualization combining line graphs for rates and bar charts for release counts. This allowed us to identify historical patterns in optimal release timing while controlling for changes in industry output volume.
 
-#### Tropes Negative Reception by Genre (RQ6 & RQ7)
+#### Tropes Negative Reception by Genre (RQ6)
 
 To investigate the relationship between narrative tropes and audience reception within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated filmss. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception.
 
@@ -106,8 +109,43 @@ To investigate the relationship between narrative tropes and audience reception 
 
 TBD
 
-```bash
+```bash                    
 ├── data                        <- Project data files
+│   │   cmu_tmdb.csv
+│   │   movie_actors.csv
+│   │   movie_directors_actors.csv
+│   │   movie_tropes.csv
+│   │   wikidata_ethnicities.csv
+│   │
+│   ├───cmu
+│   │       character.metadata.tsv
+│   │       movie.metadata.tsv
+│   │       name.clusters.txt
+│   │       plot_summaries.txt
+│   │       README.txt
+│   │       tvtropes.clusters.txt
+│   │
+│   ├───imdb
+│   │       name.basics.tsv
+│   │       title.basics.tsv
+│   │       title.crew.tsv
+│   │       title.principals.tsv
+│   │       title.ratings.tsv
+│   │
+│   ├───tmdb
+│   │       TMDB_movie_dataset_v11.csv
+│   │
+│   └───tropes
+│           .DS_Store
+│           .gitattributes
+│           film_imdb_match.csv
+│           film_tropes.csv
+│           genderedness_filtered.csv
+│           lit_goodreads_match.csv
+│           lit_tropes.csv
+│           tropes.csv
+│           tv_imdb_match.csv
+│           tv_tropes.csv
 │
 ├── src                         <- Source code
 │   ├── data                            <- Data directory
