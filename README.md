@@ -30,7 +30,7 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 
 ## Datasets
 
-For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/), which contains 42K movie plot summaries from Wikipedia with metadata including genre, characters, and actor demographics. To complement this dataset, we will utilize additional datasets to enhance our analysis.
+Our main dataset is the [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/), which contains 42K movie plot summaries from Wikipedia. To complement this dataset, we will utilize additional datasets to enhance our analysis.
 
 ### Proposed Additional Datasets
 
