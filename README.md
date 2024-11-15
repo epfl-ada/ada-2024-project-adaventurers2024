@@ -61,10 +61,6 @@ python preprocess_data.py
 
 We first calculated key financial metrics. Return on Investment (ROI) was computed as $\text{ROI} = \frac{\text{revenue} - \text{budget}}{\text{budget}}$, and absolute profit was calculated as $\text{revenue} - \text{budget}$. To handle extreme values in ROI, we capped positive returns at 5000% and removed cases where losses exceeded 99%, as these often represented data anomalies. We defined movie failure as losing more than 50% of its investment ($\text{ROI}<-0.5$) and success as achieving more than 100% ROI ($\text{ROI}>1$), as the first step in understanding the financial performance of movies.
 
-For genre analysis, we processed the genre field by splitting multiple genres per movie and creating individual entries for each genre-movie combination. This allowed us to analyze each genre's performance independently while accounting for movies that belong to multiple genres. We examined genre performance through profit distribution, rating patterns (0-10 scale), and success/failure rates.
-
-For release timing analysis, we extracted and categorized temporal information from release dates into seasons (Winter: Dec-Feb, Spring: Mar-May, Summer: Jun-Aug, Fall: Sep-Nov) and months. This enabled us to identify seasonal patterns in movie performance and potential risk periods for movie releases.
-
 ### 3. Potential methods to handle research questions
 
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
