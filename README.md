@@ -26,9 +26,9 @@ Our research questions are organized around four main categories, which are desi
 
 ### 📖 Narrative & Thematic Elements
 
-6. Which **trope combinations** consistently lead to negative reception by genre?
+6. What recurring **plot patterns** appear most frequently in critically panned films?
 
-7. What recurring **plot patterns** appear most frequently in critically panned films?
+7. Which **trope combinations** consistently lead to negative reception by genre?
 
 ## Datasets
 
@@ -61,14 +61,15 @@ python preprocess_data.py
 
 We first calculated key financial metrics. Return on Investment (ROI) was computed as $\text{ROI} = \frac{\text{revenue} - \text{budget}}{\text{budget}}$, and absolute profit was calculated as $\text{revenue} - \text{budget}$. To handle extreme values in ROI, we capped positive returns at 5000% and removed cases where losses exceeded 99%, as these often represented data anomalies. We defined movie failure as losing more than 50% of its investment ($\text{ROI}<-0.5$) and success as achieving more than 100% ROI ($\text{ROI}>1$), as the first step in understanding the financial performance of movies.
 
-For genre analysis, we processed the genre field by splitting multiple genres per movie and creating individual entries for each genre-movie combination. This allowed us to analyze each genre's performance independently while accounting for movies that belong to multiple genres. We examined genre performance through profit distribution, rating patterns (0-10 scale), and success/failure rates.
-
-For release timing analysis, we extracted and categorized temporal information from release dates into seasons (Winter: Dec-Feb, Spring: Mar-May, Summer: Jun-Aug, Fall: Sep-Nov) and months. This enabled us to identify seasonal patterns in movie performance and potential risk periods for movie releases.
-
 ### 3. Potential methods to handle research questions
 
+#### Metrics for Movie Failure (RQ1)
+
+Current analysis examines metric distributions (ratings, revenue, profit ratios) through histograms and kernel density estimation, investigates relationships through scatter plots of audience metrics versus financial performance, and quantifies correlations between vote_average, vote_count, revenue, budget, and profit through matrix analysis. Future work could develop a composite failure score combining financial and reception metrics, employ clustering and machine learning for pattern identification, and incorporate regional market variations to create a more comprehensive prediction framework.
+
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
-To address how actors' demographics diversity impact movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as 
+
+To address how actors' demographics diversity impact movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
 
 $\text{Failure Metric} = \beta_0 + \beta_1 \times \text{Gender Diversity} + \beta_2 \times \text{Ethnic Diversity} + \beta_3 \times \text{Age Diversity} + \epsilon$.
 
@@ -76,21 +77,19 @@ Clustering algorithms (e.g., k-means) will group movies based on diversity metri
 
 #### Impact of Directors' Filmography on Film Failure (RQ3)
 
-This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterised through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging  revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group. 
+This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterised through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of directors’ filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm (implemented in scikit learn) are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
 
 #### Genre Influence on Movie Failure (RQ4)
 
 Current analysis uses violin plots for profit distributions, scatter plots for rating-popularity relationships, ROI analysis, and 5-year moving averages for genre evolution. Further refinements could include: regional market segmentation to compare genre performance across cultures, developing a composite risk score combining financial and critical metrics, analyzing genre hybridization effects on failure rates, and identifying genre-specific budget thresholds for optimal risk-return profiles. This would create a more comprehensive understanding of how genres perform in different contexts and market conditions.
 
-
 #### Release Timing Impact on Failure (RQ5)
 
 Current analysis employs violin plots for seasonal and monthly distributions, temporal trend analysis, and success/failure rate tracking. Potential enhancements include: analyzing holiday-specific effects, creating a competition index based on concurrent releases, examining genre-timing interactions, studying regional variations in optimal release windows, and developing a predictive model incorporating marketing spend and critical reviews. This would provide deeper insights into how timing decisions impact movie performance across different contexts.
 
-
 #### Tropes Negative Reception (RQ6, RQ7)
 
-To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis.  For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated films. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception. Our next steps include completing the previous analysis for all the genres and trying combinations of tropes to see if there is a pattern that leads to negative reception.
+To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Given the vast number of tropes, our first step was to identify the 20 most common tropes in low-rated movies and show them in a bar plot. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated films. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre that might contribute to negative audience reception. Our next steps include completing the previous analysis for all the genres and trying combinations of tropes to see if there is a pattern that leads to negative reception.
 
 ## Proposed Timeline
 
@@ -115,7 +114,7 @@ To investigate the relationship between narrative tropes and audience reception,
 
 TBD
 
-```bash                    
+```bash
 ├── data                        <- Project data files
 │   │   cmu_tmdb.csv
 │   │   movie_actors.csv

@@ -6,3 +6,4 @@ matplotlib==3.8.4
 wandb==0.17.2
 numpy==2.0.0
 jsonargparse==4.34.0
+statsmodels==0.14.4
