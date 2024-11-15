@@ -57,10 +57,22 @@ In this project, we aim to explore the underlying reasons for a movie's failure 
 | [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/)                                 | Movie and TV show data including titles, ratings, crew, cast, episodes (updated daily) |
 | [TV Tropes Dataset](https://github.com/dhruvilgala/tvtropes)                                                        | 30K narrative tropes with 1.9M examples, linked to IMDb and Goodreads metadata         |
 | [TMDB Movies Dataset 2024 (Kaggle)](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) | 1M movies with metadata including cast, crew, budget, revenue, and popularity metrics  |
+| Deirector information scraped from Wikipedia 																		  | This table contains director names, birthdates, filmography, the number of Academy Award nominations received for Best Director, and whether the director was awarded the Palme d'Or. For directors awarded the Palme d'Or, the date of the award will also be recorded.  |
+
 
 ## Methods
 
 Team meeting via Zoom at 6:30 PM on Wednesday, 13/11/2024.
+
+**RQ3**
+Career Pattern Analysis: The first phase of analysis focuses on identifying patterns in directors' careers by examining the number and timing of films they directed over their active years. Success and productivity will be quantified by counting the total number of films each director has directed, as well as calculating the frequency of films released per year. This information is synthesized into a "career profile" for each director, which visually represents the frequency of their directorial work throughout their career. Additionally, clustering techniques such as the K-Nearest Neighbors (KNN) algorithm will be employed to classify directors based on their career trajectories. The silhouette score will be used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids will be visualized to illustrate the typical patterns or trends found within each group.
+Director-Actor Collaboration Analysis: The second phase examines patterns in director-actor collaborations, analyzing the extent and consistency of directors’ relationships with actors. For each director, the analysis will compute the number of unique actors with whom they have collaborated over their careers. The consistency of collaborations is quantified by dividing the total number of unique actor collaborations by the number of films directed, producing a “consistency score” that reflects the director's tendency to either work with a diverse cast or with recurring collaborators. Furthermore, a "collaboration profile" is constructed for each director, which categorizes directors based on their collaboration patterns. As before, clustering analysis will be applied to these profiles. The number of awards and nominations associated with each cluster is compared to identify potential correlations between collaboration patterns and critical success. 
+
+**RQ4**
+Genre Participation and Career Profiles: To explore the extent to which directing in one genre may conflict with directing in others, we analyze directors' genre participation proportions. Using a heatmap, we visualize these correlations, revealing distinct career profiles based on directors’ genre preferences or specialization patterns. A clustering approach is then applied to further identify groups with similar genre profiles. The distribution of directors’ birth years across clusters is assessed to identify any generational trends or shifts in genre preferences.
+Thematic Consistency and Critical Success: We measure thematic consistency by evaluating the presence of recurring tropes across directors' filmographies, excluding those with fewer than three films to ensure robust data. Thematic consistency is quantified by dividing the number of unique tropes by the total number of films, while the dominance of specific tropes is assessed by finding the most frequent trope and dividing its count by the number of films directed. The study then investigates whether a high or low thematic consistency correlates with critical success, measured through Academy Award nominations and Palme d’Or wins, to determine if thematic focus or diversity is associated with greater acclaim in the film industry.
+
+
 
 ### Data Processing
 
