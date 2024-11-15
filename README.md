@@ -80,11 +80,11 @@ This research question investigates the relationship between a director’s film
 
 #### Genre Influence on Movie Failure (RQ4)
 
-We employed several analytical approaches to understand genre impact on movie failure. First, we used violin plots with symmetric log scaling to visualize profit distribution across genres, capturing both the central tendency and spread of financial performance. To understand cultural reception, we analyzed the relationship between ratings and popularity (measured by vote count) using scatter plots with logarithmic scaling for vote counts. We tracked genre performance over time using 5-year moving averages to identify long-term trends in audience reception. Finally, we calculated and compared genre-specific success and failure rates to identify which genres carry the highest risk of significant financial loss.
+
 
 #### Release Timing Impact on Failure (RQ5)
 
-To investigate how release timing affects movie failure, we analyzed the distribution of profits and ratings across different temporal categories using violin plots. We compared failure rates across seasons and months to identify particularly risky release periods. To account for industry evolution, we examined the temporal trends of success and failure rates alongside movie release volume using a dual-axis visualization combining line graphs for rates and bar charts for release counts. This allowed us to identify historical patterns in optimal release timing while controlling for changes in industry output volume.
+
 
 #### Tropes Negative Reception by Genre (RQ6)
 
