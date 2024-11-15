@@ -63,6 +63,10 @@ We first calculated key financial metrics. Return on Investment (ROI) was comput
 
 ### 3. Potential methods to handle research questions
 
+#### Metrics for Movie Failure (RQ1)
+
+Current analysis examines metric distributions (ratings, revenue, profit ratios) through histograms and kernel density estimation, investigates relationships through scatter plots of audience metrics versus financial performance, and quantifies correlations between vote_average, vote_count, revenue, budget, and profit through matrix analysis. Future work could develop a composite failure score combining financial and reception metrics, employ clustering and machine learning for pattern identification, and incorporate regional market variations to create a more comprehensive prediction framework.
+
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
 
 To address how actors' demographics diversity impact movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
