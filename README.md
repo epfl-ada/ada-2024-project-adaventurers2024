@@ -65,15 +65,15 @@ Current analysis examines metric distributions (ratings, revenue, profit ratios)
 
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
 
-To address how actors' demographics diversity impacts movie failure, we plan to use multiple regression analysis to quantify the impact of gender diversity, ethnic diversity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
+To address how actors' demographics diversity impacts movie failure, we plan to use multiple regression analysis to quantify the impact of gender, ethnicity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
 
 $\text{Failure Metric} = \beta_0 + \beta_1 \times \text{Gender Diversity} + \beta_2 \times \text{Ethnic Diversity} + \beta_3 \times \text{Age Diversity} + \epsilon$.
 
-Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visualization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable filtering and highlighting specific movie samples.
+Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visualization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable highlighting specific movie samples.
 
 #### Impact of Directors' Filmography on Film Failure (RQ3)
 
-This research question investigates the relationship between a director’s filmography and film failure. A filmography can be characterized through the genres to which its films belong, i.e. a success profile can be constructed for each director by averaging revenues/ratings of each of their film by genre. The first phase of the analysis is to assemble such profiles. The next step is to perform clustering on these profiles in order to identify patterns in film failure relating to the type of director's filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
+A director's filmography can be characterized by the diversity of genres in their films. A failure indicator for each director can be constructed by averaging the revenues or ratings of their films across genres. The first phase of the analysis involves assembling these profiles. The next step is to perform clustering on them to identify patterns in film failure related to directors' filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
 
 #### Genre Influence on Movie Failure (RQ4)
 
@@ -120,7 +120,6 @@ To investigate the relationship between narrative tropes and audience reception,
 │   │       movie.metadata.tsv
 │   │       name.clusters.txt
 │   │       plot_summaries.txt
-│   │       README.txt
 │   │       tvtropes.clusters.txt
 │   │
 │   ├───imdb
@@ -134,7 +133,6 @@ To investigate the relationship between narrative tropes and audience reception,
 │   │       TMDB_movie_dataset_v11.csv
 │   │
 │   └───tropes
-│           .gitattributes
 │           film_imdb_match.csv
 │           film_tropes.csv
 │           genderedness_filtered.csv
