@@ -52,7 +52,7 @@ For this project, our main dataset is the [CMU Movie Summary Corpus](http://www.
 
 
 ### Data Processing
-=======
+
 To create our main dataset that addresses our research questions, we inspected the CMU Movie Corpus Dataset and identified gaps in the data, such as revenue information for only 8,401 movies and missing budget data. To fill these gaps, we merged the TMDB dataset, which provides more complete information on revenue and other field. We used the movie title and release year as common identifiers for merging the datasets, as the release date format varied (yy-mm-dd, yy-mm, or yy). The resulting merged dataset contains 49,516 movies with 27 columns, including vote average, vote count, runtime, budget, IMDb id, and more.
 
 The IMDb id field is important because it serves as a unique identifier for a movie, enabling us to merge them with the Tropes dataset. Since each movie can be associated with multiple tropes, the resulting merged dataframe contains more than 200k rows.
@@ -73,7 +73,7 @@ For genre analysis, we processed the genre field by splitting multiple genres pe
 
 For release timing analysis, we extracted and categorized temporal information from release dates into seasons (Winter: Dec-Feb, Spring: Mar-May, Summer: Jun-Aug, Fall: Sep-Nov) and months. This enabled us to identify seasonal patterns in movie performance and potential risk periods for movie releases.
 
-### 3. Potiential methods to handle research questions
+### 3. Potential methods to handle research questions
 
 #### Directors: Career Pattern Analysis (RQ3)
 : The first phase of analysis focuses on identifying patterns in directors' careers by examining the number and timing of films they directed over their active years. Success and productivity will be quantified by counting the total number of films each director has directed, as well as calculating the frequency of films released per year. This information is synthesized into a "career profile" for each director, which visually represents the frequency of their directorial work throughout their career. Additionally, clustering techniques such as the K-Nearest Neighbors (KNN) algorithm will be employed to classify directors based on their career trajectories. The silhouette score will be used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids will be visualized to illustrate the typical patterns or trends found within each group.
@@ -88,9 +88,10 @@ We employed several analytical approaches to understand genre impact on movie fa
 
 #### Release Timing Impact on Failure (RQ6)
 To investigate how release timing affects movie failure, we analyzed the distribution of profits and ratings across different temporal categories using violin plots. We compared failure rates across seasons and months to identify particularly risky release periods. To account for industry evolution, we examined the temporal trends of success and failure rates alongside movie release volume using a dual-axis visualization combining line graphs for rates and bar charts for release counts. This allowed us to identify historical patterns in optimal release timing while controlling for changes in industry output volume.
->>>>>>> cf2e8b4383507a51bed4c369cc3b9f117edbb899
 
+### Tropes Negative Reception by Genre (RQ7)
 
+To investigate the relationship between narrative tropes and audience reception within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. To ensure data reliability, we filtered for movies with more than 100 vote counts. For each genre, we separated films into low-rated (≤6.0) and high-rated (>6.0) categories and analyzed their associated tropes. To identify tropes that were disproportionately present in poorly received films, we calculated a ratio of trope occurrence in low-rated films to high-rated films, adding a +1 smoothing factor to the denominator to handle cases where a trope didn't appear in high-rated films. We restricted our analysis to tropes that appeared in at least 5 low-rated films to ensure statistical relevance. The results were visualized using bar plots showing the top 10 tropes with the highest low-to-high rating ratios for each genre, providing insights into narrative elements that might contribute to negative audience reception.
 
 ## Proposed Timeline
 
@@ -110,10 +111,6 @@ To investigate how release timing affects movie failure, we analyzed the distrib
 - RW: Questions 2, 3, 4
 - AZ: Questions 7, 8, 9
 - AO: Questions 7, 8, 9
-
-## Questions for TAs (optional)
-
-!! Add here any questions you have for us related to the proposed project. !!
 
 ## Project Structure
 
