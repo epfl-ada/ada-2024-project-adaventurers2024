@@ -96,7 +96,6 @@ To investigate the relationship between narrative tropes and audience reception,
 | Deliverable                     | Expected Date |
 | ------------------------------- | ------------- |
 | Data preprocessing (AO & JX)    | 13/11/2024    |
-| Gantt Chart (RW)                | 13/11/2024    |
 | Data analysis (Everyone)        | 14/11/2024    |
 | Setup Web (RL)                  | 22/11/2024    |
 | Group visualizations (Everyone) | 13/12/2024    |
@@ -111,8 +110,6 @@ To investigate the relationship between narrative tropes and audience reception,
 - AO: Questions 6, 7
 
 ## Project Structure
-
-TBD
 
 ```bash
 ├── data                        <- Project data files
@@ -153,12 +150,8 @@ TBD
 │           tv_tropes.csv
 │
 ├── src                         <- Source code
-│   ├── data                            <- Data directory
-│   ├── models                          <- Model directory
 │   ├── utils                           <- Utility directory
 │   ├── scripts                         <- Shell scripts
-│
-├── tests                       <- Tests of any kind
 │
 ├── results.ipynb               <- a well-structured notebook showing the results
 │
