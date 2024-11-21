@@ -1,129 +1,148 @@
 ---
 layout: post
-title: "Decoding Box-Office Bombs"
-subtitle: "A Data Science Journey Through Cinema's Greatest Failures"
+title: "🎬 Decoding Box-Office Bombs"
+subtitle: "A Data Science Journey Through 42,000 Failed Films"
+cover-img: "/assets/img/movie-analytics-bg.png"
+thumbnail-img: "/assets/img/popcorn-spill.jpg"
+share-img: "/assets/img/movie-analytics-bg.png"
+tags: [data-analysis, movies, EPFL]
 ---
 
-<div class="intro-animation">
-  <div class="falling-popcorn"></div>
-  <h1 class="page-heading">Box Office Bombs</h1>
-  <div class="accent-line"></div>
-  <p class="lead-text">Analyzing 42,000 films to uncover the DNA of cinematic failure</p>
+<style>
+.section-divider {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 24px;
+    color: #666;
+}
+
+.stat-box {
+    background: rgba(255,255,255,0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.plotly-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin: 30px 0;
+}
+
+.team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.team-member {
+    text-align: center;
+    margin: 15px;
+    flex: 0 1 200px;
+}
+
+.highlight-text {
+    background: linear-gradient(120deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #333;
+}
+</style>
+
+# 🔍 The Investigation
+
+Ever wondered why some movies fail spectacularly at the box office? We're diving deep into the data of 42,000+ films to uncover the DNA of box office bombs. Think of us as cinematic forensics experts, analyzing everything from ill-fated release dates to questionable casting choices.
+
+<div class="section-divider">🎬</div>
+
+## The Evidence at a Glance
+
+<div class="stat-box">
+- 📊 42,000+ movies analyzed
+- 💰 Billions in box office data
+- 🎭 30,000+ narrative tropes examined
+- 🌍 Global release patterns studied
 </div>
 
-<section class="section key-insights">
-  <div class="stat-grid">
-    <div class="stat-card">
-      <h3>42K+</h3>
-      <p>Films Analyzed</p>
-    </div>
-    <div class="stat-card">
-      <h3>30K+</h3>
-      <p>Narrative Tropes</p>
-    </div>
-    <div class="stat-card">
-      <h3>$800M+</h3>
-      <p>Combined Losses</p>
-    </div>
-    <div class="stat-card">
-      <h3>50+</h3>
-      <p>Years of Cinema</p>
-    </div>
-  </div>
-</section>
+## The Money Trail 💸
 
-<section class="section financial-analysis">
-  <h2 class="section-title">The Money Trail 💸</h2>
-  <div class="accent-line"></div>
-  <p class="section-intro">Our analysis reveals fascinating patterns in how movies lose money. From modest mishaps to catastrophic failures, we've mapped the DNA of financial disaster in cinema.</p>
-  
-  <div class="viz-container">
-    {% include plotly/visualization1.html %}
-  </div>
-</section>
+When movies go wrong, they go wrong big. Our analysis reveals some fascinating patterns in the relationship between budgets and box office performance.
 
-<section class="section cast-analysis">
-  <h2 class="section-title">Cast & Crew: A Statistical Story 🎭</h2>
-  <div class="accent-line"></div>
-  <p class="section-intro">Behind every box office bomb is a unique combination of creative decisions. We've analyzed thousands of cast and crew configurations to identify the patterns that predict disaster.</p>
-  
-  <div class="viz-container">
-    {% include plotly/visualization2.html %}
-  </div>
-</section>
+<div class="plotly-container">
+{% include plotly/visualization1.html %}
+</div>
 
-<section class="section timing-analysis">
-  <h2 class="section-title">The Art of Bad Timing ⏰</h2>
-  <div class="accent-line"></div>
-  <p class="section-intro">Release dates can make or break a film. Our temporal analysis reveals the deadliest dates in cinema history.</p>
-  
-  <div class="viz-container">
-    {% include plotly/visualization3.html %}
-  </div>
-</section>
+## Cast & Crew: The Usual Suspects 🎭
 
-<section class="section plot-analysis">
-  <h2 class="section-title">Plot Patterns: The Story Autopsy 📚</h2>
-  <div class="accent-line"></div>
-  <p class="section-intro">Some story combinations are toxic at the box office. We've identified the most dangerous narrative tropes in modern cinema.</p>
-  
-  <div class="viz-container">
-    {% include plotly/visualization4.html %}
-  </div>
-</section>
+Our data reveals surprising patterns in how cast diversity and director track records influence a movie's fate.
 
-<section class="section team">
-  <h2 class="section-title">The Investigation Team</h2>
-  <div class="accent-line"></div>
-  <div class="team-grid">
-    <div class="team-member">
-      <div class="member-avatar">JX</div>
-      <h3>The Financial Forensics Expert</h3>
-      <p>Specializing in box office analysis and revenue patterns</p>
-    </div>
-    <div class="team-member">
-      <div class="member-avatar">RL</div>
-      <h3>The Market Pattern Analyst</h3>
-      <p>Decoding release strategies and market dynamics</p>
-    </div>
-    <div class="team-member">
-      <div class="member-avatar">RW</div>
-      <h3>The Director Profiler</h3>
-      <p>Analyzing filmmaker patterns and creative decisions</p>
-    </div>
-    <div class="team-member">
-      <div class="member-avatar">AZ</div>
-      <h3>The Plot Pattern Specialist</h3>
-      <p>Mapping narrative structures and story elements</p>
-    </div>
-    <div class="team-member">
-      <div class="member-avatar">AO</div>
-      <h3>The Plot Pattern Specialist</h3>
-      <p>Identifying problematic trope combinations</p>
-    </div>
-  </div>
-</section>
+<div class="plotly-container">
+{% include plotly/visualization2.html %}
+</div>
 
-<section class="section methodology">
-  <h2 class="section-title">Our Approach</h2>
-  <div class="accent-line"></div>
-  <div class="methodology-grid">
-    <div class="method-card">
-      <h3>Data Collection</h3>
-      <p>Combining Wikipedia summaries, IMDb metadata, and box office numbers to create a comprehensive dataset</p>
-    </div>
-    <div class="method-card">
-      <h3>Analysis Techniques</h3>
-      <p>Employing advanced statistical methods and machine learning to identify patterns in failure</p>
-    </div>
-    <div class="method-card">
-      <h3>Visualization</h3>
-      <p>Creating interactive visualizations to explore complex relationships in the data</p>
-    </div>
-  </div>
-</section>
+## The Perfect Storm: Release Timing ⏰
 
-<footer class="project-footer">
-  <p class="footer-text">A Data Science Project for Applied Data Analysis at EPFL, Fall 2024</p>
-  <div class="accent-line"></div>
-</footer>
+Some release dates are deadlier than others. Here's what we found about timing and movie failures.
+
+<div class="plotly-container">
+{% include plotly/visualization3.html %}
+</div>
+
+## Plot Patterns: The Story Autopsy 📚
+
+We've identified the most toxic combinations of plot tropes that spell disaster for films.
+
+<div class="plotly-container">
+{% include plotly/visualization4.html %}
+</div>
+
+<div class="section-divider">🎥</div>
+
+## The Investigation Team
+
+<div class="team-section">
+<div class="team-member">
+    <h3>JX</h3>
+    <p>The Financial Forensics Expert</p>
+</div>
+<div class="team-member">
+    <h3>RL</h3>
+    <p>The Market Pattern Analyst</p>
+</div>
+<div class="team-member">
+    <h3>RW</h3>
+    <p>The Director Profiler</p>
+</div>
+<div class="team-member">
+    <h3>AZ</h3>
+    <p>The Plot Pattern Specialist</p>
+</div>
+<div class="team-member">
+    <h3>AO</h3>
+    <p>The Plot Pattern Specialist</p>
+</div>
+</div>
+
+<div class="section-divider">🎬</div>
+
+## Methodology & Data
+
+This investigation combines data from multiple sources:
+- Wikipedia plot summaries
+- IMDb ratings and metadata
+- TV Tropes narrative patterns
+- Box office performance data
+
+Our analysis employs advanced statistical methods including:
+- Financial performance clustering
+- Demographic analysis
+- Temporal pattern recognition
+- Natural language processing for plot analysis
+
+<div class="highlight-text">
+Project for the Applied Data Analysis course at EPFL, Fall 2024
+</div>
