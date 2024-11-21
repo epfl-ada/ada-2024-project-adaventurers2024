@@ -91,9 +91,9 @@ rss-description: This website is a virtual proof that I'm awesome
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: false
-  facebook: false
-  linkedin: false
+  twitter: true
+  facebook: true
+  linkedin: true
   vk: false
 
 # How to display the link to your website in the footer
@@ -246,7 +246,7 @@ footer-hover-col: "#0085A1"
 ################
 
 # Ruby Date Format to show dates of posts
-date_format: "%-d %b, %Y"
+date_format: "%B %-d, %Y"
 
 # Facebook App ID
 #fb_app_id: ""
@@ -266,29 +266,20 @@ kramdown:
   input: GFM
 
 # Default YAML values (more information on Jekyll's site)
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "post"
-#       comments: true  # add comments to all blog posts
-#       social-share: true # add social media sharing buttons to all blog posts
-#   -
-#     scope:
-#       path: "" # any file that's not a post will be a "page" layout by default
-#     values:
-#       layout: "page"
-# Default post settings
 defaults:
   -
     scope:
       path: ""
+      type: "posts"
     values:
       layout: "post"
-      social-share: true
-      nav-short: true
+      comments: true  # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+  -
+    scope:
+      path: "" # any file that's not a post will be a "page" layout by default
+    values:
+      layout: "page"
 
 # Exclude these files from production site
 exclude:

@@ -1,148 +1,71 @@
 ---
-layout: post
-title: "🎬 Decoding Box-Office Bombs"
-subtitle: "A Data Science Journey Through 42,000 Failed Films"
-cover-img: "/assets/img/movie-analytics-bg.png"
-thumbnail-img: "/assets/img/popcorn-spill.jpg"
-share-img: "/assets/img/movie-analytics-bg.png"
-tags: [data-analysis, movies, EPFL]
+layout: page
+title: "🎬 Box Office Bombs: A Data Detective Story"
+subtitle: "Unraveling the DNA of Failed Films"
 ---
 
-<style>
-.section-divider {
-    text-align: center;
-    margin: 40px 0;
-    font-size: 24px;
-    color: #666;
-}
+# Welcome to the Movie Morgue 🔍
 
-.stat-box {
-    background: rgba(255,255,255,0.9);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+Ever wondered why some movies crash and burn at the box office? We're not just talking about obvious flops - we're diving deep into the DNA of over 42,000 films to conduct a proper cinematic autopsy. 
 
-.plotly-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    margin: 30px 0;
-}
+## The Case File 📁
 
-.team-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 40px 0;
-}
+Our investigation covers everything from ill-fated release dates to questionable casting choices. Using state-of-the-art data analysis, we're examining:
 
-.team-member {
-    text-align: center;
-    margin: 15px;
-    flex: 0 1 200px;
-}
+- 💰 **The Money Trail**: How much cash went up in smoke?
+- 🎭 **The Usual Suspects**: Are certain actors and directors repeat offenders?
+- 📅 **The Timeline**: Does releasing your vampire romance during Christmas spell doom?
+- 📖 **The Plot Thickens**: Which story tropes should come with a warning label?
 
-.highlight-text {
-    background: linear-gradient(120deg, #ff9a9e 0%, #fad0c4 100%);
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: #333;
-}
-</style>
+## Key Evidence 🔍
 
-# 🔍 The Investigation
-
-Ever wondered why some movies fail spectacularly at the box office? We're diving deep into the data of 42,000+ films to uncover the DNA of box office bombs. Think of us as cinematic forensics experts, analyzing everything from ill-fated release dates to questionable casting choices.
-
-<div class="section-divider">🎬</div>
-
-## The Evidence at a Glance
-
-<div class="stat-box">
-- 📊 42,000+ movies analyzed
-- 💰 Billions in box office data
-- 🎭 30,000+ narrative tropes examined
-- 🌍 Global release patterns studied
+<div class="plotly-visualization">
+  {% include plotly/visualization1.html %}
 </div>
 
-## The Money Trail 💸
+*Interactive visualization showing the relationship between budget and ROI*
 
-When movies go wrong, they go wrong big. Our analysis reveals some fascinating patterns in the relationship between budgets and box office performance.
+### The Diversity Deficit
+Our analysis reveals some surprising patterns in casting choices and box office performance.
 
-<div class="plotly-container">
-{% include plotly/visualization1.html %}
-</div>
+[PLOTLY-VISUALIZATION-2]
+*Interactive visualization of cast diversity metrics vs. movie success*
 
-## Cast & Crew: The Usual Suspects 🎭
+### The Director's Curse
+Some directors seem to have a knack for picking problematic projects...
 
-Our data reveals surprising patterns in how cast diversity and director track records influence a movie's fate.
+[PLOTLY-VISUALIZATION-3]
+*Interactive visualization of director track records*
 
-<div class="plotly-container">
-{% include plotly/visualization2.html %}
-</div>
+### Genre Graveyards
+Certain genres are more likely to fail in specific seasons...
 
-## The Perfect Storm: Release Timing ⏰
+[PLOTLY-VISUALIZATION-4]
+*Interactive visualization of genre performance by release timing*
 
-Some release dates are deadlier than others. Here's what we found about timing and movie failures.
+## Behind the Investigation 🕵️
 
-<div class="plotly-container">
-{% include plotly/visualization3.html %}
-</div>
+This project is part of the Applied Data Analysis course at EPFL. We've analyzed:
+- 42,000+ movie plots from Wikipedia
+- Cast and crew data from IMDb
+- 30,000+ narrative tropes
+- Box office numbers that would make studio executives cry
 
-## Plot Patterns: The Story Autopsy 📚
+[PLOTLY-VISUALIZATION-5]
+*Interactive visualization of trope combinations and their impact on ratings*
 
-We've identified the most toxic combinations of plot tropes that spell disaster for films.
+## The Investigators 🧑‍🔬
 
-<div class="plotly-container">
-{% include plotly/visualization4.html %}
-</div>
+Meet the data detectives behind this cinematic investigation:
+- JX: The Financial Forensics Expert
+- RL: The Market Pattern Analyst
+- RW: The Director Profiler
+- AZ & AO: The Plot Pattern Specialists
 
-<div class="section-divider">🎥</div>
+## Want to Know More? 
 
-## The Investigation Team
+Check out our [detailed analysis](/analysis) or dive into our [methodology](/methods).
 
-<div class="team-section">
-<div class="team-member">
-    <h3>JX</h3>
-    <p>The Financial Forensics Expert</p>
-</div>
-<div class="team-member">
-    <h3>RL</h3>
-    <p>The Market Pattern Analyst</p>
-</div>
-<div class="team-member">
-    <h3>RW</h3>
-    <p>The Director Profiler</p>
-</div>
-<div class="team-member">
-    <h3>AZ</h3>
-    <p>The Plot Pattern Specialist</p>
-</div>
-<div class="team-member">
-    <h3>AO</h3>
-    <p>The Plot Pattern Specialist</p>
-</div>
-</div>
+---
 
-<div class="section-divider">🎬</div>
-
-## Methodology & Data
-
-This investigation combines data from multiple sources:
-- Wikipedia plot summaries
-- IMDb ratings and metadata
-- TV Tropes narrative patterns
-- Box office performance data
-
-Our analysis employs advanced statistical methods including:
-- Financial performance clustering
-- Demographic analysis
-- Temporal pattern recognition
-- Natural language processing for plot analysis
-
-<div class="highlight-text">
-Project for the Applied Data Analysis course at EPFL, Fall 2024
-</div>
+*This is an ongoing investigation. Last updated: November 2024*
