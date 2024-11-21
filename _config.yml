@@ -9,11 +9,9 @@
 # --- Required options --- #
 ############################
 
-# Name of website
-title: My website
-
-# Your name to show in the footer
-author: Some Person
+title: Box Office Bombs
+description: A data-driven investigation into movie failures
+author: ADAventurers2024
 
 ###############################################
 # --- List of links in the navigation bar --- #
@@ -258,7 +256,7 @@ date_format: "%B %-d, %Y"
 #################################################################################
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Toronto"
+timezone: "Europe/Zurich"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
