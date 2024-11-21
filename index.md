@@ -1,4 +1,5 @@
 ---
+layout: page
 title: "🎬 Box Office Bombs: A Data Detective Story"
 subtitle: "Unraveling the DNA of Failed Films"
 ---
