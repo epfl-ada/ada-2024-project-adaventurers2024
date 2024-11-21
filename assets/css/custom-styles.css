@@ -1,0 +1,126 @@
+<!-- Save as assets/css/custom-styles.css -->
+<style>
+/* Modern Typography */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom Variables */
+:root {
+  --primary-gradient: linear-gradient(135deg, #2c3e50, #3498db);
+  --accent-gradient: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --bg-light: #f8f9fa;
+  --spacing-unit: 8px;
+}
+
+/* Base Styles */
+.post-preview {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.intro-header {
+  background: var(--primary-gradient);
+  padding: calc(var(--spacing-unit) * 12) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.page-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Content Sections */
+.section {
+  padding: calc(var(--spacing-unit) * 8) 0;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: calc(var(--spacing-unit) * 4);
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: calc(var(--spacing-unit) * 3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.viz-container {
+  background: white;
+  border-radius: 20px;
+  padding: calc(var(--spacing-unit) * 4);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  margin: calc(var(--spacing-unit) * 4) 0;
+}
+
+/* Team Section */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--spacing-unit) * 3);
+  margin: calc(var(--spacing-unit) * 4) 0;
+}
+
+.team-member {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 3);
+  background: var(--bg-light);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+/* Decorative Elements */
+.accent-line {
+  height: 4px;
+  width: 60px;
+  background: var(--accent-gradient);
+  margin: calc(var(--spacing-unit) * 2) 0;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-heading {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: calc(var(--spacing-unit) * 4) 0;
+  }
+}
+</style>
