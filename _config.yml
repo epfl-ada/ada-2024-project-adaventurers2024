@@ -291,6 +291,7 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
+  - data/movie_directors_actors.csv
 
 plugins:
   - jekyll-paginate
