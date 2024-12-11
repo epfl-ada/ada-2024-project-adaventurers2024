@@ -152,7 +152,7 @@ img {
 /* --- Navbar --- */
 
 .navbar-custom {
-  background-color: var(--navbar-col);
+  background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--navbar-border-col);
   font-family: var(--header-font);
   {% if site.navbar-img %}
@@ -668,6 +668,7 @@ footer .footer-custom-content {
 .intro-header {
   margin: 5rem 0 1.25rem;
   position: relative;
+  height: 95vh;
 }
 .intro-header.big-img {
   background: no-repeat center center;
@@ -677,6 +678,9 @@ footer .footer-custom-content {
   -o-background-size: cover;
   margin-top: 3.1875rem; /* The small navbar is 50px tall + 1px border */
   margin-bottom: 2.1875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav.top-nav-short-permanent ~ header > .intro-header {
   margin-top: 5rem;
@@ -700,6 +704,8 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 }
 .intro-header .page-heading {
   text-align: center;
+  color: var(--text-col);
+  text-shadow: 2px 1px 3px #000;
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
