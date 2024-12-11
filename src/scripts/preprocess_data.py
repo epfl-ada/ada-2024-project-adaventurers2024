@@ -60,13 +60,11 @@ def preprocess_data(
             df_imdb_tropes,
         )
     )
-    save_data_csv(df_imdb_movie_tropes, f"{output_dir}/movie_tropes.csv")
     save_data_csv(df_imdb_complete, f"{output_dir}/movie_directors_actors.csv")
 
     df_cmu_tmdb = merge_cmu_movie_metadata_and_tmdb(df_cmu_movie_metadata, df_tmdb)
     save_data_csv(df_cmu_tmdb, f"{output_dir}/cmu_tmdb.csv")
 
-    df_imdb_movie_tropes.drop(columns=["genres"], inplace=True)
     df_cmu_tropes = merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes)
     save_data_csv(df_cmu_tropes, f"{output_dir}/cmu_tropes.csv")
 
@@ -480,6 +478,8 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
     Returns:
         df_cmu_tropes (pd.DataFrame): merged CMU and IMDb movie tropes dataset
     """
+    # To remove duplicated columns, we will drop genres from the IMDb movie tropes dataset
+    df_imdb_movie_tropes.drop(columns=["genres"], inplace=True)
 
     df_cmu_tropes = pd.merge(
         df_cmu_tmdb,
@@ -500,6 +500,8 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
             "release_year",
             "genres",
             "trope",
+            "description",
+            "example",
         ]
     ]
     df_cmu_tropes.drop_duplicates(subset=["imdb_id", "trope"], inplace=True)

@@ -4,37 +4,30 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def rq6(df_cmu_tmdb, df_movie_tropes, k=20, vote_threshold=6):
+def rq6(df_cmu_tropes, k=20, vote_threshold=6):
     """
-    Plot the top k tropes in movies with a vote average of threshold or lower
+    Plot the top k tropes in movies with a vote average lower or equal than the threshold
     """
-    df_movie_tropes = df_movie_tropes[["imdb_id", "trope_id", "trope", "description"]]
+    print("Number of movies with tropes before filtering: ", df_cmu_tropes["id"].unique().shape[0])
 
-    # Filtering data with 0 votes
-    df_cmu_tmdb = df_cmu_tmdb[
-        (df_cmu_tmdb[["vote_average", "vote_count", "revenue"]] != 0).all(axis=1)
+    # Filtering movies witg zero votes or no revenue
+    df_movies_filtered = df_cmu_tropes[
+        (df_cmu_tropes[["vote_average", "vote_count", "revenue"]] != 0).all(axis=1)
     ]
-    df_cmu_tmdb.reset_index(drop=True, inplace=True)
-    print("Number of movies before filtering: ", df_cmu_tmdb.shape[0])
 
     # Filter movies with an average score lower than the threshold
-    df_cmu_lr_movies = df_cmu_tmdb[df_cmu_tmdb["vote_average"] <= vote_threshold]
-    df_cmu_lr_movies.reset_index(drop=True, inplace=True)
-    print("Number of movies with low rating: ", df_cmu_lr_movies.shape[0])
-
-    # Merge selected movies with tropes
-    df_cmu_tropes = pd.merge(
-        df_cmu_lr_movies, df_movie_tropes, on="imdb_id", how="inner"
-    )
-    df_cmu_tropes.drop_duplicates(inplace=True)
+    df_low_rated_movies = df_movies_filtered[df_movies_filtered["vote_average"] <= vote_threshold]
+    df_low_rated_movies.reset_index(drop=True, inplace=True)
+    print("Number of movies with low rating and non-zero votes: ", df_low_rated_movies["id"].unique().shape[0])
+    print("Number of tropes in low rated movies: ", df_low_rated_movies["trope"].shape[0])
+    print("Number of unique tropes in low rated movies: ", df_low_rated_movies["trope"].unique().shape[0])
 
     print("Vote average statistics:")
-    print(df_cmu_tropes["vote_average"].describe())
+    print(df_low_rated_movies["vote_average"].describe())
 
     # Get the top k tropes for low rated movies
-    K = 30
     df_top_tropes_lr_movies = (
-        df_cmu_tropes["trope"].value_counts().reset_index().head(k)
+        df_low_rated_movies["trope"].value_counts().reset_index().head(k)
     )
     df_top_tropes_lr_movies.columns = ["trope", "count"]
 
