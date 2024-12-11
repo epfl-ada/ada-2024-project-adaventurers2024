@@ -15,6 +15,8 @@ def preprocess_data(
     imdb_name_basics_path: Path = "../../data/imdb/name.basics.tsv",
     imdb_title_principals_path: Path = "../../data/imdb/title.principals.tsv",
     tmdb_path: Path = "../../data/tmdb/TMDB_movie_dataset_v11.csv",
+    movie_lens_ratings_path: Path = "../../data/movielens/rating.csv",
+    movie_lens_links_path: Path = "../../data/movielens/link.csv",
     output_dir: Path = "../../data",
 ):
     """
@@ -31,6 +33,8 @@ def preprocess_data(
         imdb_name_basics_path (Path): path to the IMDb name basics dataset
         imdb_title_principals_path (Path): path to the IMDb title principals dataset
         tmdb_path (Path): path to the TMDb dataset
+        movie_lens_ratings_path (Path): path to the MovieLens ratings dataset
+        movie_lens_links_path (Path): path to the MovieLens links dataset
         output_dir (Path): path to save the preprocessed data
     """
 
@@ -47,6 +51,11 @@ def preprocess_data(
 
     print("Preprocessing df_imdb_tropes...")
     df_imdb_tropes = preprocess_tropes(tropes_path, imdb_movie_tropes_path)
+
+    print("Preprocessing movie lens ratings...")
+    df_ml_ratings = preprocess_movie_lens_ratings(
+        movie_lens_ratings_path, movie_lens_links_path
+    )
 
     print("Preprocessing df_imdb_data...")
     df_imdb_movie_tropes, df_imdb_directors_actors, df_imdb_complete = (
@@ -72,6 +81,11 @@ def preprocess_data(
         df_cmu_character_metadata, df_cmu_movie_metadata, df_imdb_directors_actors
     )
     save_data_csv(df_movie_actors, f"{output_dir}/movie_actors.csv")
+
+    df_cmu_tropes_ratings = merge_cmu_ml_ratings(df_cmu_tropes, df_ml_ratings)
+    save_data_csv(df_cmu_tropes_ratings, f"{output_dir}/cmu_tropes_ratings.csv")
+
+    print("Preprocessing complete!")
 
 
 def preprocess_cmu_movie_metadata(cmu_movie_metadata_path):
@@ -373,6 +387,25 @@ def preprocess_tmdb_data(tmdb_path):
     return df_tmdb
 
 
+def preprocess_movie_lens_ratings(movie_lens_ratings_path, movie_lens_links_path):
+    """
+    Load MovieLens ratings and links datasets, merge them, and extract relevant columns for analysis
+
+    Args:
+        movie_lens_ratings_path (Path): path to the MovieLens ratings dataset
+        movie_lens_links_path (Path): path to the MovieLens links dataset
+    Returns:
+        df_ml_ratings (pd.DataFrame): merged MovieLens ratings and links dataset
+    """
+
+    df_ml_ratings = pd.read_csv(movie_lens_ratings_path)
+    df_ml_links = pd.read_csv(movie_lens_links_path)
+
+    df_ml_ratings = pd.merge(df_ml_ratings, df_ml_links, on="movieId")
+    df_ml_ratings["imdbId"] = "tt" + df_ml_ratings["imdbId"].astype(str)
+    return df_ml_ratings
+
+
 def save_data_csv(df, path):
     """
     Save dataframe to csv file
@@ -506,6 +539,28 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
     ]
     df_cmu_tropes.drop_duplicates(subset=["imdb_id", "trope"], inplace=True)
     return df_cmu_tropes
+
+
+def merge_cmu_ml_ratings(df_cmu_tropes, df_ml_ratings):
+    """
+    Merge CMU and MovieLens ratings datasets to analyze the relationship 
+    between tropes and ratings
+
+    Args:
+        df_cmu_tropes (pd.DataFrame): CMU and IMDb movie tropes dataset
+        df_ml_ratings (pd.DataFrame): MovieLens ratings dataset
+    Returns:
+        df_cmu_tropes_ratings (pd.DataFrame): merged CMU tropes and 
+        MovieLens ratings
+    """
+    df_cmu_tropes = df_cmu_tropes[['imdb_id', 'title', 'trope']]
+    df_cmu_tropes = df_cmu_tropes.groupby(['imdb_id', 'title'])['trope'].apply(list).reset_index()
+
+    df_cmu_tropes_ratings = pd.merge(
+        df_ml_ratings, df_cmu_tropes, left_on="imdbId", right_on="imdb_id"
+    )
+    df_cmu_tropes_ratings.drop(columns=["imdbId"], inplace=True)
+    return df_cmu_tropes_ratings
 
 
 if __name__ == "__main__":
