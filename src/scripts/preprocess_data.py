@@ -69,6 +69,8 @@ def preprocess_data(
             df_imdb_tropes,
         )
     )
+
+    save_data_csv(df_imdb_tropes, f"{output_dir}/imdb_tropes.csv")
     save_data_csv(df_imdb_complete, f"{output_dir}/movie_directors_actors.csv")
 
     df_cmu_tmdb = merge_cmu_movie_metadata_and_tmdb(df_cmu_movie_metadata, df_tmdb)
@@ -532,9 +534,8 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
             "budget",
             "release_year",
             "genres",
+            "trope_id",
             "trope",
-            "description",
-            "example",
         ]
     ]
     df_cmu_tropes.drop_duplicates(subset=["imdb_id", "trope"], inplace=True)
@@ -553,8 +554,8 @@ def merge_cmu_ml_ratings(df_cmu_tropes, df_ml_ratings):
         df_cmu_tropes_ratings (pd.DataFrame): merged CMU tropes and 
         MovieLens ratings
     """
-    df_cmu_tropes = df_cmu_tropes[['imdb_id', 'title', 'trope']]
-    df_cmu_tropes = df_cmu_tropes.groupby(['imdb_id', 'title'])['trope'].apply(list).reset_index()
+    df_cmu_tropes = df_cmu_tropes[['imdb_id', 'title', 'trope', 'vote_average', 'vote_count']]
+    df_cmu_tropes = df_cmu_tropes.groupby(['imdb_id', 'title', 'vote_average', 'vote_count'])['trope'].apply(list).reset_index()
 
     df_cmu_tropes_ratings = pd.merge(
         df_ml_ratings, df_cmu_tropes, left_on="imdbId", right_on="imdb_id"
