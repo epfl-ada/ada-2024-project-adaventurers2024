@@ -32,8 +32,8 @@ Our investigation covers everything from ill-fated release dates to questionable
   {% include plotly/rq3_kmeans_centers.html %}
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/visualization1.html %}
+<div class="plotly-visualization" style="width: 70%">
+  {% include plotly/rq4_1_genre_profit_distribution.html %}
 </div>
 
 *Interactive visualization showing the relationship between budget and ROI*
