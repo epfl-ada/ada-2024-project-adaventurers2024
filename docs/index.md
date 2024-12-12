@@ -21,7 +21,15 @@ Our investigation covers everything from ill-fated release dates to questionable
 ## Key Evidence 🔍
 
 <div class="plotly-visualization">
+  {% include plotly/rq1_metrics.html %}
+</div>
+
+<div class="plotly-visualization">
   {% include plotly/rq2_actor_diversity.html %}
+</div>
+
+<div class="plotly-visualization">
+  {% include plotly/rq3_kmeans_centers.html %}
 </div>
 
 <div class="plotly-visualization">
