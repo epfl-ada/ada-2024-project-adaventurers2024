@@ -544,14 +544,14 @@ def merge_cmu_tropes(df_cmu_tmdb, df_imdb_movie_tropes):
 
 def merge_cmu_ml_ratings(df_cmu_tropes, df_ml_ratings):
     """
-    Merge CMU and MovieLens ratings datasets to analyze the relationship 
+    Merge CMU and MovieLens ratings datasets to analyze the relationship
     between tropes and ratings
 
     Args:
         df_cmu_tropes (pd.DataFrame): CMU and IMDb movie tropes dataset
         df_ml_ratings (pd.DataFrame): MovieLens ratings dataset
     Returns:
-        df_cmu_tropes_ratings (pd.DataFrame): merged CMU tropes and 
+        df_cmu_tropes_ratings (pd.DataFrame): merged CMU tropes and
         MovieLens ratings
     """
     df_cmu_tropes = df_cmu_tropes[['imdb_id', 'title', 'trope', 'vote_average', 'vote_count']]

@@ -1,0 +1,77 @@
+<div style="width: 100%; max-width: 1200px; margin: 0 auto;">
+  <div id="parallel-coords" style="width: 100%; height: 700px;"></div>
+</div>
+
+<script>
+  // Load JSON data dynamically
+  fetch('/assets/data/actor_diversity.json')
+    .then(response => response.json())
+    .then(data => {
+      // Extract data for parallel coordinates plot
+      const age_diversity = data.map(d => d.age_diversity);
+      const gender_diversity = data.map(d => d.gender_diversity);
+      const height_diversity = data.map(d => d.height_diversity);
+      const ethnicity_diversity = data.map(d => d.ethnicity_diversity);
+      const avg_rating = data.map(d => d.average_rating);
+      const revenue = data.map(d => d.revenue);
+
+      const dimensions = [
+        { label: 'Age Diversity (std)', values: age_diversity },
+        { label: 'Gender Diversity (entropy)', values: gender_diversity },
+        { label: 'Height Diversity (std)', values: height_diversity },
+        { label: 'Ethnicity Diversity (entropy)', values: ethnicity_diversity },
+        { label: 'Average Rating', values: avg_rating },
+        { label: 'Revenue', values: revenue }
+      ];
+
+      // Define the initial trace
+      const trace = {
+        type: 'parcoords',
+        line: {
+          color: avg_rating,
+          colorscale: 'Rainbow',
+          showscale: true // Show color scale legend
+        },
+        dimensions: dimensions
+      };
+
+      // Define the layout with the dropdown menu
+      const layout = {
+        title: {
+          text: 'Movie-Level Diversity and Performance Metrics (Filtered Revenue < 2M)',
+          font: { size: 16 },
+        },
+        width: 1200,
+        height: 700,
+        updatemenus: [
+          {
+            buttons: [
+              {
+                args: [{ 'line.color': [avg_rating] }], // Pass color array for Average Rating
+                label: 'Average Rating',
+                method: 'restyle',
+              },
+              {
+                args: [{ 'line.color': [revenue] }], // Pass color array for Revenue
+                label: 'Revenue',
+                method: 'restyle',
+              },
+            ],
+            direction: 'down',
+            pad: { r: 10, t: 10 },
+            showactive: true,
+            x: 1.07, // Align to the right
+            xanchor: 'right',
+            y: 1.17, // Position above the chart
+            yanchor: 'top',
+          },
+        ],
+      };
+
+      // Render the initial plot
+      Plotly.newPlot('parallel-coords', [trace], layout);
+    })
+    .catch((error) => {
+      console.error('Error loading JSON data:', error);
+    });
+</script>
