@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>RQ1 Metrics Visualization</title>
+    <!-- Load Plotly.js from CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .figure {
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RQ1 Metrics Visualizations</h1>
+
+    <!-- ROI Distribution Histogram -->
+    <div class="figure">
+        <h2>Return on Investment (ROI) Distribution</h2>
+        <div id="roi-histogram" style="width: 100%; height: 500px;"></div>
+    </div>
+
+    <!-- Average Vote Distribution Histogram -->
+    <div class="figure">
+        <h2>Average Vote Distribution</h2>
+        <div id="vote-average-histogram" style="width: 100%; height: 500px;"></div>
+    </div>
+
+    <!-- Revenue Distribution Histogram -->
+    <div class="figure">
+        <h2>Revenue Distribution</h2>
+        <div id="revenue-histogram" style="width: 100%; height: 500px;"></div>
+    </div>
+
+    <!-- Correlation Heatmap -->
+    <div class="figure">
+        <h2>Correlation Matrix of Key Metrics</h2>
+        <div id="correlation-heatmap" style="width: 100%; height: 600px;"></div>
+    </div>
+
+    <script>
+        // Fetch the metrics.json data
+        fetch('/assets/data/metrics.json')
+            .then(response => response.json())
+            .then(data => {
+                // Extract necessary fields
+                const rois = data.map(movie => movie.ROI);
+                const voteAverages = data.map(movie => movie.vote_average);
+                const revenues = data.map(movie => movie.revenue);
+                const titles = data.map(movie => movie.title);
+
+                // Helper function to format large numbers with commas
+                const formatNumber = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                // 1. ROI Distribution Histogram
+                const roiTrace = {
+                    x: rois,
+                    type: 'histogram',
+                    marker: {
+                        color: '#4ecdc4',
+                        opacity: 0.7
+                    },
+                    nbinsx: 30
+                };
+
+                const roiLayout = {
+                    title: 'Distribution of Return on Investment (ROI)',
+                    xaxis: { title: 'ROI (%)' },
+                    yaxis: { title: 'Count' },
+                    bargap: 0.05
+                };
+
+                Plotly.newPlot('roi-histogram', [roiTrace], roiLayout);
+
+                // 2. Average Vote Distribution Histogram
+                const voteTrace = {
+                    x: voteAverages,
+                    type: 'histogram',
+                    marker: {
+                        color: '#f7b731',
+                        opacity: 0.7
+                    },
+                    nbinsx: 20
+                };
+
+                const voteLayout = {
+                    title: 'Distribution of Average Votes',
+                    xaxis: { title: 'Average Vote' },
+                    yaxis: { title: 'Count' },
+                    bargap: 0.05
+                };
+
+                Plotly.newPlot('vote-average-histogram', [voteTrace], voteLayout);
+
+                // 3. Revenue Distribution Histogram (Log Scale)
+                const revenueTrace = {
+                    x: revenues,
+                    type: 'histogram',
+                    marker: {
+                        color: '#fc5c65',
+                        opacity: 0.7
+                    },
+                    nbinsx: 20
+                };
+
+                const revenueLayout = {
+                    title: 'Distribution of Revenue',
+                    xaxis: { 
+                        title: 'Revenue (USD)',
+                        type: 'log'
+                    },
+                    yaxis: { title: 'Count' },
+                    bargap: 0.05
+                };
+
+                Plotly.newPlot('revenue-histogram', [revenueTrace], revenueLayout);
+
+                // 6. Correlation Heatmap
+                // Prepare data for correlation matrix
+                const voteCount = data.map(movie => movie.vote_count);
+                const budgets = data.map(movie => movie.budget);
+                const profits = data.map(movie => movie.profit);
+
+                // Create a DataFrame-like structure
+                const numericData = data.map(movie => ({
+                    vote_average: movie.vote_average,
+                    // vote_count: movie.vote_count,
+                    revenue: movie.revenue,
+                    // budget: movie.budget,
+                    // profit: movie.profit,
+                    ROI: movie.ROI
+                }));
+
+                // Calculate correlation matrix
+                // Since JavaScript doesn't have a built-in correlation function, we'll compute it manually
+                function calculateCorrelationMatrix(data) {
+                    const keys = Object.keys(data[0]);
+                    const matrix = {};
+                    keys.forEach(key1 => {
+                        matrix[key1] = {};
+                        keys.forEach(key2 => {
+                            matrix[key1][key2] = pearsonCorrelation(data.map(d => d[key1]), data.map(d => d[key2]));
+                        });
+                    });
+                    return matrix;
+                }
+
+                // Pearson correlation coefficient
+                function pearsonCorrelation(x, y) {
+                    const n = x.length;
+                    const avgX = x.reduce((a, b) => a + b, 0) / n;
+                    const avgY = y.reduce((a, b) => a + b, 0) / n;
+                    const numerator = x.map((xi, i) => (xi - avgX) * (y[i] - avgY)).reduce((a, b) => a + b, 0);
+                    const denominatorX = Math.sqrt(x.map(xi => Math.pow(xi - avgX, 2)).reduce((a, b) => a + b, 0));
+                    const denominatorY = Math.sqrt(y.map(yi => Math.pow(yi - avgY, 2)).reduce((a, b) => a + b, 0));
+                    return numerator / (denominatorX * denominatorY);
+                }
+
+                const corrMatrix = calculateCorrelationMatrix(numericData);
+
+                // Extract labels and values for heatmap
+                const labels = Object.keys(corrMatrix);
+                const z = labels.map(row => labels.map(col => corrMatrix[row][col]));
+
+                const heatmapTrace = {
+                    z: z,
+                    x: labels,
+                    y: labels,
+                    type: 'heatmap',
+                    colorscale: 'RdBu',
+                    zmin: -1,
+                    zmax: 1,
+                    colorbar: {
+                        title: 'Correlation'
+                    },
+                    hoverongaps: false,
+                    hovertemplate: 
+                        '<b>%{y} vs %{x}</b><br>' +
+                        'Correlation: %{z:.2f}<br>' +
+                        '<extra></extra>'
+                };
+
+                const heatmapLayout = {
+                    title: 'Correlation Matrix of Key Metrics',
+                    xaxis: { title: 'Metrics' },
+                    yaxis: { title: 'Metrics' },
+                    autosize: true
+                };
+
+                Plotly.newPlot('correlation-heatmap', [heatmapTrace], heatmapLayout);
+            })
+            .catch(error => {
+                console.error('Error loading metrics.json:', error);
+                document.getElementById('roi-histogram').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+                document.getElementById('vote-average-histogram').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+                document.getElementById('revenue-histogram').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+                document.getElementById('vote-roi-scatter').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+                document.getElementById('revenue-roi-scatter').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+                document.getElementById('correlation-heatmap').innerHTML = "<p>Unable to load data. Please try again later.</p>";
+            });
+    </script>
+</body>
+</html>
