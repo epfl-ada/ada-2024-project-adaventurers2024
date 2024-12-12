@@ -8,7 +8,10 @@ def rq6(df_cmu_tropes, k=20, vote_threshold=6):
     """
     Plot the top k tropes in movies with a vote average lower or equal than the threshold
     """
-    print("Number of movies with tropes before filtering: ", df_cmu_tropes["id"].unique().shape[0])
+    print(
+        "Number of movies with tropes before filtering: ",
+        df_cmu_tropes["id"].unique().shape[0],
+    )
 
     # Filtering movies witg zero votes or no revenue
     df_movies_filtered = df_cmu_tropes[
@@ -16,11 +19,21 @@ def rq6(df_cmu_tropes, k=20, vote_threshold=6):
     ]
 
     # Filter movies with an average score lower than the threshold
-    df_low_rated_movies = df_movies_filtered[df_movies_filtered["vote_average"] <= vote_threshold]
+    df_low_rated_movies = df_movies_filtered[
+        df_movies_filtered["vote_average"] <= vote_threshold
+    ]
     df_low_rated_movies.reset_index(drop=True, inplace=True)
-    print("Number of movies with low rating and non-zero votes: ", df_low_rated_movies["id"].unique().shape[0])
-    print("Number of tropes in low rated movies: ", df_low_rated_movies["trope"].shape[0])
-    print("Number of unique tropes in low rated movies: ", df_low_rated_movies["trope"].unique().shape[0])
+    print(
+        "Number of movies with low rating and non-zero votes: ",
+        df_low_rated_movies["id"].unique().shape[0],
+    )
+    print(
+        "Number of tropes in low rated movies: ", df_low_rated_movies["trope"].shape[0]
+    )
+    print(
+        "Number of unique tropes in low rated movies: ",
+        df_low_rated_movies["trope"].unique().shape[0],
+    )
 
     print("Vote average statistics:")
     print(df_low_rated_movies["vote_average"].describe())
@@ -47,8 +60,8 @@ def rq7(df_cmu_tropes, movie_genre, vote_threshold=6):
     """
     Plot the top 10 tropes more common in low-rated films of a specific genre
     """
-    df_genre_tropes = df_cmu_tropes[df_cmu_tropes['genres'].str.contains(movie_genre)]
-    df_genre_tropes = df_genre_tropes[df_genre_tropes['vote_count'] > 100]
+    df_genre_tropes = df_cmu_tropes[df_cmu_tropes["genres"].str.contains(movie_genre)]
+    df_genre_tropes = df_genre_tropes[df_genre_tropes["vote_count"] > 100]
 
     print(
         f"There are {len(df_genre_tropes.id.unique())} {movie_genre.lower()} films in the dataset"
