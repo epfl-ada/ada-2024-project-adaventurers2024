@@ -37,37 +37,47 @@ Our investigation covers everything from ill-fated release dates to questionable
 </div>
 
 <div class="plotly-visualization">
-  {% include rq4_2_genre_rating_distribution.html %}
+  {% include plotly/rq4_2_genre_rating_distribution.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_3_genre_performance_popularity.html %}
+  {% include plotly/rq4_3_genre_performance_popularity.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_4_genre_performance_profit.html %}
+  {% include plotly/rq4_4_genre_performance_profit.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_5_roi_analysis.html %}
+  {% include plotly/rq4_5_roi_analysis.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_6_budget_analysis.html %}
+  {% include plotly/rq4_6_budget_analysis.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_7_success_rates.html %}
+  {% include plotly/rq4_7_success_rates.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_8_failure_rates.html %}
+  {% include plotly/rq4_8_failure_rates.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq4_9_success_matrix.html %}
+  {% include plotly/rq4_9_success_matrix.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq5_1_seasonal_analysis.html %}
+  {% include plotly/rq5_1_seasonal_analysis.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq5_2_monthly_analysis.html %}
+  {% include plotly/rq5_2_monthly_analysis.html %}
 </div>
+
 <div class="plotly-visualization">
-  {% include rq5_4_seasonal_success_patterns.html %}
+  {% include plotly/rq5_4_seasonal_success_patterns.html %}
 </div>
 
 *Interactive visualization showing the relationship between budget and ROI*
