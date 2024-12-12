@@ -29,6 +29,10 @@ Our investigation covers everything from ill-fated release dates to questionable
 </div>
 
 <div class="plotly-visualization">
+  {% include plotly/rq3_kmeans_centers.html %}
+</div>
+
+<div class="plotly-visualization">
   {% include plotly/visualization1.html %}
 </div>
 
