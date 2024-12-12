@@ -1,0 +1,36 @@
+<div id="rq6-plot"></div>
+<div id="rq7-plot"></div>
+
+<script>
+    var rq6_data = {
+        y: ["Trope 1", "Trope 2", "Trope 3"], // Replace with dynamic data
+        x: [10, 20, 15], // Replace with dynamic data
+        type: 'bar',
+        marker: { color: 'rgba(55,128,191,0.6)', width: 1 },
+        orientation: "h",
+    };
+
+    var rq6_layout = {
+        title: 'Top Tropes in Movies with Low Ratings',
+        yaxis: { title: 'Tropes' },
+        xaxis: { title: 'Count' }
+    };
+
+    Plotly.newPlot('rq6-plot', [rq6_data], rq6_layout);
+
+    var rq7_data = {
+        y: ["Trope A", "Trope B", "Trope C"], // Replace with dynamic data
+        x: [3, 7, 5], // Replace with dynamic data
+        type: 'bar',
+        marker: { color: 'rgba(50,171,96,0.6)', width: 1 },
+        orientation: "h",
+    };
+
+    var rq7_layout = {
+        title: 'Top Tropes in Low-Rated Films of Specific Genre',
+        yaxis: { title: 'Tropes' },
+        xaxis: { title: 'Ratio (Low:High Rated)' }
+    };
+
+    Plotly.newPlot('rq7-plot', [rq7_data], rq7_layout);
+</script>
