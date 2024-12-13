@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "💣🎬 Box Office Bombs: A Data Detective Story"
-subtitle: "Unraveling the DNA of Failed Films"
-cover-img: /assets/img/cover.jpg
+title: "🎬 Box Office Bombs 💣: A Data Detective Story"
+subtitle: "Unraveling the 🧬 DNA of Failed Films"
+cover-img: /assets/img/cover.jpeg
 ---
 
 # Welcome to the Movie Morgue 🔍
@@ -110,6 +110,10 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 
 [PLOTLY-VISUALIZATION-5]
 *Interactive visualization of trope combinations and their impact on ratings*
+
+<div class="plotly-visualization">
+  {% include plotly/rq6_tropes.html %}
+</div>
 
 ## Want to Know More? 
 
