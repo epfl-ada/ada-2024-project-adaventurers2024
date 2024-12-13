@@ -5,7 +5,7 @@ import seaborn as sns
 
 from pathlib import Path
 
-OUTPUT_PATH = 'data/preprocessed1/'
+OUTPUT_PATH = 'data/preprocessed/'
 
 def get_unique_genres(df_tropes_filtered):
     unique_str_genres = df_tropes_filtered['genres'].unique()
@@ -136,7 +136,7 @@ def rq7(df_cmu_tropes, show_plotly_charts=True):
             )
         )
         fig.show()
-        fig.write_html("tropes_boxplot.html", include_plotlyjs='cdn', full_html=False)
+        fig.write_html(f'{OUTPUT_PATH}tropes_boxplot.html', include_plotlyjs='cdn', full_html=False)
     else:
         plt.figure(figsize=(8, 5))
         sns.boxplot(
@@ -152,5 +152,45 @@ def rq7(df_cmu_tropes, show_plotly_charts=True):
         plt.show()
 
 
-def rq8(df_cmu_tropes, show_plotly_charts=True):
-    return 0
+def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
+    print(f"Initial shape: {df_cmu_tropes.shape}")
+
+    df_low_rated_movies = df_cmu_tropes[df_cmu_tropes["vote_average"] <= threshold]
+    df_low_rated_movies = df_low_rated_movies.groupby("trope").filter(lambda x: len(x) > min_trope_occurrences)
+
+    print(f"Number of rows after filtering: {df_low_rated_movies.shape}")
+
+    trope_counts = df_low_rated_movies.groupby(["release_year", "trope"]).size().reset_index(name="count")
+    tropes_avg_scores = df_low_rated_movies.groupby(["release_year", "trope"])["vote_average"].mean().reset_index()
+
+    fig_counts = px.line(
+        trope_counts,
+        x="release_year",
+        y="count",
+        color="trope",
+        title="Evolution of tropes use over time",
+        labels={"count": "Number of movies using trope", "release_year": "Release year"},
+    )
+    fig_counts.update_layout(
+        legend_title="Tropes",
+        title_x=0.5,
+    )
+
+    fig_avg_scores = px.line(
+        tropes_avg_scores,
+        x="release_year",
+        y="vote_average",
+        color="trope",
+        title="Evolution of tropes average scores over time",
+        labels={"vote_average": "Average score", "release_year": "Release year"},
+    )
+    fig_avg_scores.update_layout(
+        legend_title="Tropes",
+        title_x=0.5,
+    )
+
+    fig_counts.show()
+    fig_counts.write_html(f'{OUTPUT_PATH}tropes_counts.html', include_plotlyjs='cdn', full_html=False)
+
+    fig_avg_scores.show()
+    fig_avg_scores.write_html(f'{OUTPUT_PATH}tropes_avg_scores.html', include_plotlyjs='cdn', full_html=False)
