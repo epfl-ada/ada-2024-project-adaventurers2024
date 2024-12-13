@@ -92,7 +92,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=5, min_votes=100, show_plotly_charts=Tru
                 )
             )
             fig.show()
-            fig.write_html(f'{OUTPUT_PATH}{genre.lower()}_tropes.html', full_html=False, include_plotlyjs='cdn')
+            fig.write_html(f'{OUTPUT_PATH}rq6_{genre.lower()}_tropes.html', full_html=False, include_plotlyjs='cdn')
         else:
             plt.figure(figsize=(7, 4))
             sns.barplot(
@@ -136,7 +136,7 @@ def rq7(df_cmu_tropes, show_plotly_charts=True):
             )
         )
         fig.show()
-        fig.write_html(f'{OUTPUT_PATH}tropes_boxplot.html', include_plotlyjs='cdn', full_html=False)
+        fig.write_html(f'{OUTPUT_PATH}rq7_tropes_boxplot.html', include_plotlyjs='cdn', full_html=False)
     else:
         plt.figure(figsize=(8, 5))
         sns.boxplot(
@@ -190,7 +190,7 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     )
 
     fig_counts.show()
-    fig_counts.write_html(f'{OUTPUT_PATH}tropes_counts.html', include_plotlyjs='cdn', full_html=False)
+    fig_counts.write_html(f'{OUTPUT_PATH}rq8_tropes_counts.html', include_plotlyjs='cdn', full_html=False)
 
     fig_avg_scores.show()
-    fig_avg_scores.write_html(f'{OUTPUT_PATH}tropes_avg_scores.html', include_plotlyjs='cdn', full_html=False)
+    fig_avg_scores.write_html(f'{OUTPUT_PATH}rq8_tropes_avg_scores.html', include_plotlyjs='cdn', full_html=False)

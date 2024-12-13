@@ -111,8 +111,23 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 [PLOTLY-VISUALIZATION-5]
 *Interactive visualization of trope combinations and their impact on ratings*
 
+Questions:
+### 6. Which tropes consistently lead to negative reception by genre?
+
+### 7. What plots are the most common in movies that fail?
+
 <div class="plotly-visualization">
-  {% include plotly/tropes_boxplot.html %}
+  {% include plotly/rq7_tropes_boxplot.html %}
+</div>
+
+### 8. How have low-rated tropes evolved over time, and what trends can be observed in their average ratings across different periods?
+
+<div class="plotly-visualization">
+  {% include plotly/rq8_tropes_counts.html %}
+</div>
+
+<div class="plotly-visualization">
+  {% include plotly/rq8_tropes_avg_scores.html %}
 </div>
 
 ## Want to Know More? 
