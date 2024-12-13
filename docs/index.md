@@ -112,7 +112,7 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 *Interactive visualization of trope combinations and their impact on ratings*
 
 <div class="plotly-visualization">
-  {% include plotly/rq6_tropes.html %}
+  {% include plotly/tropes_boxplot.html %}
 </div>
 
 ## Want to Know More? 
