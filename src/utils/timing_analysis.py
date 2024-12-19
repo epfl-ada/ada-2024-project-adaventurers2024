@@ -1292,7 +1292,9 @@ def run_seasonal_success_analysis(df):
     seasonal_stats = analyze_seasonal_patterns(df)
 
     # Save the plot
-    fig.write_html("seasonal_success_patterns.html")
+    fig.write_html(
+        "seasonal_success_patterns.html", full_html=False, include_plotlyjs="cdn"
+    )
 
     return {"figure": fig, "evolution": seasonal_evolution, "stats": seasonal_stats}
 
@@ -1304,18 +1306,22 @@ def run_interactive_timing_analysis(df):
 
     # Seasonal analysis
     seasonal_fig, seasonal_stats = create_interactive_seasonal_distributions(df)
-    seasonal_fig.write_html("seasonal_analysis.html")
+    seasonal_fig.write_html(
+        "seasonal_analysis.html", full_html=False, include_plotlyjs="cdn"
+    )
     results["seasonal_stats"] = seasonal_stats
 
     # Monthly analysis
     monthly_fig, monthly_stats, monthly_roi = create_interactive_monthly_performance(df)
-    monthly_fig.write_html("monthly_analysis.html")
+    monthly_fig.write_html(
+        "monthly_analysis.html", full_html=False, include_plotlyjs="cdn"
+    )
     results["monthly_stats"] = monthly_stats
     results["monthly_roi"] = monthly_roi
 
     # # Temporal analysis
     # temporal_fig, yearly_stats, seasonal_evolution = create_interactive_temporal_trends(df)
-    # temporal_fig.write_html("temporal_trends.html")
+    # temporal_fig.write_html("temporal_trends.html",full_html=False, include_plotlyjs='cdn')
     # results["yearly_stats"] = yearly_stats
     # results["seasonal_evolution"] = seasonal_evolution
 
