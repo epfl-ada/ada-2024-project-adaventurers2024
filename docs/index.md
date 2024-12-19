@@ -184,9 +184,9 @@ Now that we understand the basic patterns, let's explore how audience reception 
     🎬
 </div>
 
-## Part IV: The Temporal Dimension
+### Part IV: The Temporal Dimension
 
-### Seasonal Patterns in Movie Failures: When Timing Meets Trouble 📊
+#### Seasonal Patterns in Movie Failures: When Timing Meets Trouble 📊
 
 Beyond genre and popularity, timing proves crucial in the success equation:
 
@@ -210,7 +210,7 @@ Beyond genre and popularity, timing proves crucial in the success equation:
     {% include plotly/rq5_1_seasonal_analysis.html %}
 </div>
 
-### Monthly Deep Dive: The Anatomy of Movie Failures 📈
+#### Monthly Deep Dive: The Anatomy of Movie Failures 📈
 
 Let's zoom in to see exactly when movies are most vulnerable:
 
@@ -231,7 +231,7 @@ Let's zoom in to see exactly when movies are most vulnerable:
     {% include plotly/rq5_2_monthly_analysis.html %}
 </div>
 
-### Historical Failure Patterns: A Century of Cinema Risk 📽️
+#### Historical Failure Patterns: A Century of Cinema Risk 📽️
 
 Our final visualization shows how these patterns evolved over 100+ years:
 
