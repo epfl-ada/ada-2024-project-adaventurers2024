@@ -3,6 +3,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import math
 
 from pathlib import Path
@@ -48,7 +49,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         dict(
             type="buttons",
             buttons=[],
-            x=1.05, # Column 1 starting position
+            x=1.05,
             xanchor='left',
             yanchor='top',
             showactive=True,
@@ -56,7 +57,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         dict(
             type="buttons",
             buttons=[],
-            x=1.15,  # Column 2 starting position
+            x=1.15,
             xanchor='left',
             yanchor='top',
             showactive=False,
@@ -162,51 +163,6 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
     fig.write_html(f'{OUTPUT_PATH}rq6_tropes.html', full_html=False, include_plotlyjs='cdn')
 
 
-def rq7(df_cmu_tropes, show_plotly_charts=True):
-    # Filter all tropes that appear in less than 15 movies
-    df_cmu_tropes_filtered = df_cmu_tropes.groupby('trope').filter(lambda x: len(x) >= 15)
-
-    # Get the top 10 tropes with the lowest average rating
-    worst_tropes = df_cmu_tropes_filtered[['trope', 'vote_average']].groupby('trope').mean().sort_values(by='vote_average', ascending=True).head(10)
-
-    # Create a boxplot with the top 10 tropes with the lowest average rating
-
-    if show_plotly_charts:
-        fig = px.box(
-            df_cmu_tropes_filtered[df_cmu_tropes_filtered['trope'].isin(worst_tropes.index)],
-            y='trope',
-            x='vote_average',
-            title='Top 10 tropes with lowest average rating',
-            color='trope',
-        )
-        fig.update_layout(
-            xaxis_title='Average rating',
-            yaxis_title='Tropes',
-            legend_title='Tropes',
-            title_x=0.5,
-            yaxis=dict(
-                automargin=True,
-                showline=True,
-                showgrid=False,
-            )
-        )
-        fig.show()
-        fig.write_html(f'{OUTPUT_PATH}rq7_tropes_boxplot.html', include_plotlyjs='cdn', full_html=False)
-    else:
-        plt.figure(figsize=(8, 5))
-        sns.boxplot(
-            data=df_cmu_tropes_filtered[df_cmu_tropes_filtered['trope'].isin(worst_tropes.index)],
-            x='vote_average',
-            y='trope',
-            palette='viridis',
-        )
-        plt.xlabel('Average rating')
-        plt.ylabel('Tropes')
-
-        plt.title('Top 10 tropes with lowest average rating')
-        plt.show()
-
-
 def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     print(f"Initial shape: {df_cmu_tropes.shape}")
 
@@ -215,34 +171,113 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
 
     print(f"Number of rows after filtering: {df_low_rated_movies.shape}")
 
+    # Get the full range of years
+    all_years = range(df_low_rated_movies["release_year"].min(), df_low_rated_movies["release_year"].max() + 1)
+    tropes = sorted(df_low_rated_movies["trope"].unique())
+    
+    # Create complete year-trope combinations and merge with actual data for counts
+    year_trope_combinations = pd.DataFrame([(year, trope) for year in all_years for trope in tropes], columns=["release_year", "trope"])
+    
+    # Process counts with zero-filling
     trope_counts = df_low_rated_movies.groupby(["release_year", "trope"]).size().reset_index(name="count")
+    trope_counts = pd.merge(year_trope_combinations, trope_counts, 
+                           on=["release_year", "trope"], 
+                           how="left").fillna(0)
+    
+    # Process average scores with zero-filling
     tropes_avg_scores = df_low_rated_movies.groupby(["release_year", "trope"])["vote_average"].mean().reset_index()
+    tropes_avg_scores = pd.merge(
+                                year_trope_combinations,
+                                tropes_avg_scores, 
+                                on=["release_year", "trope"], 
+                                how="left").fillna(0)
 
-    fig_counts = px.line(
-        trope_counts,
-        x="release_year",
-        y="count",
-        color="trope",
-        title="Evolution of tropes use over time",
-        labels={"count": "Number of movies using trope", "release_year": "Release year"},
+    num_tropes = len(tropes)
+    num_rows = (num_tropes + 2) // 3  # Round up division for three columns
+    
+    # Create subplots for counts with increased vertical spacing
+    fig_counts = make_subplots(
+        rows=num_rows, 
+        cols=3,
+        subplot_titles=[f"Trope: {trope}" for trope in tropes],
+        vertical_spacing=0.15,
+        horizontal_spacing=0.05
     )
+
+    # Add individual line plots for counts
+    for idx, trope in enumerate(tropes):
+        row = idx // 3 + 1
+        col = idx % 3 + 1
+        
+        trope_data = trope_counts[trope_counts["trope"] == trope].sort_values("release_year")
+        
+        fig_counts.add_trace(
+            go.Scatter(
+                x=trope_data["release_year"],
+                y=trope_data["count"],
+                name=trope,
+                showlegend=False,
+                mode='lines'  # Ensure continuous lines
+            ),
+            row=row,
+            col=col
+        )
+
     fig_counts.update_layout(
-        legend_title="Tropes",
-        title_x=0.5,
+        height=300 * num_rows,
+        width=1200,
+        title_text="Evolution of tropes use over time",
+        showlegend=False,
+        title_x=0.5
+    )
+    
+    # Create subplots for average scores
+    fig_avg_scores = make_subplots(
+        rows=num_rows, 
+        cols=3,
+        subplot_titles=[f"Trope: {trope}" for trope in tropes],
+        vertical_spacing=0.15,
+        horizontal_spacing=0.05
     )
 
-    fig_avg_scores = px.line(
-        tropes_avg_scores,
-        x="release_year",
-        y="vote_average",
-        color="trope",
-        title="Evolution of tropes average scores over time",
-        labels={"vote_average": "Average score", "release_year": "Release year"},
-    )
+    # Add individual line plots for average scores
+    for idx, trope in enumerate(tropes):
+        row = idx // 3 + 1
+        col = idx % 3 + 1
+        
+        trope_data = tropes_avg_scores[tropes_avg_scores["trope"] == trope].sort_values("release_year")
+        
+        fig_avg_scores.add_trace(
+            go.Scatter(
+                x=trope_data["release_year"],
+                y=trope_data["vote_average"],
+                name=trope,
+                showlegend=False,
+                mode='lines'
+            ),
+            row=row,
+            col=col
+        )
+
+    # Update layout for average scores
     fig_avg_scores.update_layout(
-        legend_title="Tropes",
-        title_x=0.5,
+        height=300 * num_rows,
+        width=1200,
+        title_text="Evolution of tropes average scores over time",
+        showlegend=False,
+        title_x=0.5 
     )
+
+    # Update all axes labels with consistent formatting
+    for fig in [fig_counts, fig_avg_scores]:
+        fig.update_xaxes(
+            title_text="Release year",
+            dtick=20,
+            title_standoff=15
+        )
+    
+    fig_counts.update_yaxes(title_text="Number of movies", title_standoff=15)
+    fig_avg_scores.update_yaxes(title_text="Average score", title_standoff=15)
 
     fig_counts.show()
     fig_counts.write_html(f'{OUTPUT_PATH}rq8_tropes_counts.html', include_plotlyjs='cdn', full_html=False)
