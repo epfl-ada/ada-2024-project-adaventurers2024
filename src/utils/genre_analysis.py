@@ -990,6 +990,9 @@ def create_interactive_success_matrix(performance_df):
 def create_interactive_plot_genre_performance(df_genres, genre_colors):
     """Create interactive genre performance analysis plots."""
     color_map = prepare_color_map(genre_colors)
+    
+    # Filter out zero profit entries
+    df_genres = df_genres[df_genres['profit_scaled'] != 0]
 
     # Rating vs. Popularity
     fig1 = px.scatter(
@@ -1009,7 +1012,7 @@ def create_interactive_plot_genre_performance(df_genres, genre_colors):
 
     fig1.update_xaxes(type="log")
     fig1.update_layout(hovermode="closest")
-    fig1.write_html("genre_performance_popularity.html")
+    fig1.write_html("genre_performance_popularity.html", full_html=False, include_plotlyjs="cdn")
 
     # Profit-based analysis
     sample_size = min(50000, len(df_genres))

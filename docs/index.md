@@ -7,16 +7,20 @@ cover-img: /assets/img/cover.jpeg
 
 # Welcome to the Movie Morgue 🔍
 
-Ever wondered why some movies crash and burn at the box office? We're not just talking about obvious flops - we're diving deep into the DNA of over 42,000 films to conduct a proper cinematic autopsy. 
+Ever wondered why some movies crash and burn at the box office? Like how 'John Carter' lost Disney $200 million, or how 'Cats' became the stuff of Hollywood nightmares? We're not just talking about obvious flops - we're conducting a forensic analysis of over 42,000 films to uncover the hidden patterns behind cinematic disasters.
 
 ## The Case File 📁
 
-Our investigation covers everything from ill-fated release dates to questionable casting choices. Using state-of-the-art data analysis, we're examining:
+Our investigation digs deep into four decades of box office data, from forgotten B-movies to high-budget catastrophes. Using state-of-the-art data analysis and visualization techniques, we're cracking open the vault on:
 
-- 💰 **The Money Trail**: How much cash went up in smoke?
-- 🎭 **The Usual Suspects**: Are certain actors and directors repeat offenders?
-- 📅 **The Timeline**: Does releasing your vampire romance during Christmas spell doom?
-- 📖 **The Plot Thickens**: Which story tropes should come with a warning label?
+- 💰 **The Money Trail**: Following the financial failures - from modest mishaps to billion-dollar blunders
+- 🎭 **The Cast Chronicles**: Identifying patterns in star power and ensemble dynamics
+- 📅 **The Timing Trap**: Uncovering how release dates can make or break a film's success
+- 📖 **The Plot Patterns**: Discovering which story elements are red flags for disaster
+
+Join us as we piece together the clues and uncover the formula for box office failure. Whether you're a film buff, data enthusiast, or just curious about Hollywood's biggest misses, this investigation will change how you see the movie industry.
+
+Let the autopsy begin... 🎬
 
 ## Key Evidence 🔍
 
