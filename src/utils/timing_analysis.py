@@ -1241,7 +1241,7 @@ def create_seasonal_success_heatmap(df):
 
     # Add a subtitle with explanation
     fig.add_annotation(
-        text="Values show success rate % (number of movies)<br>Success defined as ROI > 100%",
+        text="Values show success rate % (number of movies); Success defined as ROI > 100%",
         xref="paper",
         yref="paper",
         x=0.5,

@@ -36,123 +36,224 @@ Let the autopsy begin... 🎬
   {% include plotly/rq3_kmeans_centers.html %}
 </div>
 
-### Genre Face-Off: Ratings vs. Revenue 🎭
+<style>
+.viz-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .viz-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-divider {
+    margin: 40px 0;
+    border-top: 2px solid #eee;
+    text-align: center;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 20px 0;
+}
+</style>
+
+### Part IV: The Genre Gamble
+
+#### Genre Face-Off: Ratings vs. Revenue 🎭
 
 Let's decode what our data reveals about the tricky balance between critical success and box office triumph:
 
-- 🎯 **The High Rollers**: Adventure and Animation top the profit charts, but watch out - those massive error bars show you could hit the jackpot or lose big. It's Hollywood's version of high-stakes poker.
+- 🎯 **The High Rollers**: Adventure and Animation dominate profit charts but with massive risk variance - think Hollywood's high-stakes poker table.
 
-- 🏆 **Critical Darlings**: Animation and Family films consistently score high ratings (6.0+/10), proving quality can sell. But there's a twist - some critically acclaimed genres barely break even.
+- 🏆 **Critical Darlings**: Animation and Family films consistently score 6.0+/10, proving quality can sell. The plot twist? Critical acclaim doesn't guarantee profit.
 
-- 💸 **The Underdogs**: Documentaries and Westerns earn critics' respect but struggle at the box office. Meanwhile, Action films keep cashing in despite average ratings.
+- 💸 **The Risk-Reward Matrix**: Action films keep cashing in despite average ratings, while acclaimed Documentaries and Westerns struggle to break even.
 
-Moral of the story? In Hollywood's game of chance, critical acclaim doesn't always translate to commercial success. The safest bet might be targeting that sweet spot where art meets entertainment.
+*Key Insight: Success in Hollywood isn't binary - it's a complex dance between art and commerce.*
 
-*Tip: Notice how the gray zones (5th-95th percentiles) tell the real story of risk in each genre...*
-
-<div class="plotly-visualization">
-  {% include plotly/rq4_1_genre_profit_distribution.html %}
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq4_1_genre_profit_distribution.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq4_2_genre_rating_distribution.html %}
+    </div>
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_2_genre_rating_distribution.html %}
+#### The ROI Riddle: Where Movies Go to Lose Money 💸
+
+The return-on-investment patterns reveal Hollywood's hidden risk landscape:
+
+- 📉 **The Budget Paradox**: "Very High" budget films show dismally low ROI (barely 1x) despite massive profits. More money, more problems?
+
+- 🎯 **The Documentary Gambit**: 900% ROI variance tells a fascinating story - minimal losses, occasional massive wins. It's anti-blockbuster economics in action.
+
+- ⚠️ **Risk Indicators**:
+  - Higher budgets = tighter ROI spreads
+  - Horror/Documentary maintain better ROI despite smaller budgets
+  - High-budget failures hit hardest
+
+*Key Pattern: The biggest financial disasters often come wrapped in the biggest budgets.*
+
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq4_5_roi_analysis.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq4_6_budget_analysis.html %}
+    </div>
 </div>
 
-### The Popularity Puzzle: A Beautiful Mess 📊
+#### The Success-Failure Paradox: When Genres Betray Their Promise 🎭
 
-These scatterplots might look like a Jackson Pollock painting at first glance, but there's method in the madness:
+Our data reveals some fascinating contradictions in genre performance:
 
-- 🎨 **Genre Rainbow**: The first plot is deliberately chaotic - every genre competing for space, creating a dazzling but messy spectrum. It's Hollywood in its true form: a beautiful chaos where Drama mingles with Horror, and Romance crosses paths with Sci-Fi.
+- 🎢 **The Volatility Champions**: Adventure and Sci-Fi lead with ~13% success rates but carry 3-4% failure rates. Welcome to Hollywood's "go big or go home" genres.
 
-- 📈 **The Convergence**: Despite the genre chaos, a clear pattern emerges - as votes increase (moving right), ratings tend to stabilize. It's like watching a messy party eventually find its rhythm.
+- 🔍 **The Thriller Enigma**: Leading 11% success potential paired with 4.5% failure rate makes Thrillers Hollywood's most volatile investment.
 
-- 💰 **Follow the Money**: The second plot strips away the genre confusion, using color for profit instead. Now we see a cleaner story - successful movies (darker dots) clustering in the popular, well-rated zone, while financial flops scatter across the board.
+- 🎯 **The Conservative Players**: 
+  - Animation/TV Movies: Low failure rates (<1%)
+  - Documentaries: Rare catastrophic failures
+  - The catch? Limited breakout potential
 
-*Tip: Sometimes the messiest data tells the most honest story about how complex the movie industry really is.*
+*The Pattern: Genre success often comes packaged with proportional risk of spectacular failure.*
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_3_genre_performance_popularity.html %}
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq4_7_success_rates.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq4_8_failure_rates.html %}
+    </div>
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_4_genre_performance_profit.html %}
+<div class="section-divider">
+    ⭐️
 </div>
 
-### The ROI Riddle: Where Movies Go to Lose Money 💸
+<!-- ## Part II: The Deeper Patterns -->
 
-The return-on-investment story reveals some surprising truths about Hollywood's failures:
+#### The Heat Map of Hollywood Heartbreak 🎯
 
-- 📉 **The Budget Trap**: Look at those "Very High" budget films - their ROI is dismally low (barely 1x) despite massive profits. The old saying "you have to spend money to lose money" seems eerily true here.
+Let's decode the performance matrix that reveals the true anatomy of success and failure:
 
-- 🎯 **Sweet Spot or Danger Zone?**: The wild variance in Documentary ROI (900%!) suggests a fascinating pattern - when they fail, they fail small, but when they hit, they hit big. It's the opposite of blockbuster economics.
+- 🔥 **The Purple Valley**: That dominant purple zone isn't just a color - it's the baseline of Hollywood performance, showing how most movies cluster around modest outcomes.
 
-- ⚠️ **Warning Signs**:
-  - Higher budgets consistently show lower ROI spreads
-  - Horror and Documentary films maintain better ROI despite smaller budgets
-  - Genre failures are more devastating in high-budget categories
+- 🌟 **Success Hotspots**: The bright yellow patches in Adventure, Fantasy, and Sci-Fi reveal the narrow band where blockbusters live. Like finding gold, it's rare but valuable.
 
-*Bottom line: In Hollywood, the biggest failures often come wrapped in the biggest budgets. Sometimes, spending less means risking less.*
+- 💀 **Genre Graveyards**:
+  - TV Movies/Documentaries: Consistently dark colors show limited upside
+  - Thrillers: Color extremes confirm their high-risk profile
+  - Westerns: Fading colors tell the story of a genre in decline
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_5_roi_analysis.html %}
+*Pattern Recognition: Success in Hollywood follows a power law - mediocrity is common, excellence is rare, and total failure leaves lasting scars.*
+
+<div class="plotly-visualization full-width">
+    {% include plotly/rq4_9_success_matrix.html %}
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_6_budget_analysis.html %}
+#### The Popularity Puzzle: A Beautiful Mess 📊
+
+Now that we understand the basic patterns, let's explore how audience reception shapes success:
+
+- 🎨 **The Genre Spectrum**: Our first scatter plot looks chaotic because it is - it's the true face of Hollywood's constant genre experimentation.
+
+- 📈 **The Convergence Effect**: Watch how ratings stabilize as vote counts increase. It's like watching audience opinions find their true north.
+
+- 💰 **The Money Trail**: When we switch to profit coloring, the chaos resolves into clear patterns - successful movies cluster in the high-rating, high-popularity zone.
+
+*Key Insight: Popularity and quality aren't just metrics - they're the twin engines of sustainable success.*
+
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq4_3_genre_performance_popularity.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq4_4_genre_performance_profit.html %}
+    </div>
 </div>
 
-### The Success-Failure Paradox: When Genres Betray Their Promise 🎭
-
-These charts reveal some fascinating contradictions about genre performance:
-
-- 🎢 **High Risk, High Reward**: Adventure and Sci-Fi top the success rate chart (~13%), but look closer - they also carry significant failure rates (3-4%). It's Hollywood's version of "go big or go home."
-
-- 🔍 **The Thriller Paradox**: Most intriguing case study here - Thrillers show strong success potential (11%) but lead the failure rate chart (4.5%). They're essentially Hollywood's most volatile investment.
-
-- 🎯 **The Safe Havens**: 
-  - Animation/TV Movies have low failure rates (<1%)
-  - Documentaries rarely fail catastrophically
-  - But here's the catch - their success rates are also among the lowest
-
-*The real story? The genres most likely to succeed are often the ones most likely to fail spectacularly. Playing it safe might mean avoiding disaster, but it also means limiting potential breakout success.*
-
-<div class="plotly-visualization">
-  {% include plotly/rq4_7_success_rates.html %}
+<div class="section-divider">
+    🎬
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/rq4_8_failure_rates.html %}
+## Part IV: The Temporal Dimension
+
+### Seasonal Patterns in Movie Failures: When Timing Meets Trouble 📊
+
+Beyond genre and popularity, timing proves crucial in the success equation:
+
+- 🌨️ **The Winter Challenge**: 
+  - $0-9M mean profit range reveals seasonal struggles
+  - High ROI volatility suggests increased risk
+  - Critical acclaim doesn't guarantee winter warmth
+
+- 🌸 **Spring's Double Edge**:
+  - Peak average profits come with significant variance
+  - Perfect example of high risk/high reward dynamics
+
+- 🌞 **Summer Complexities**:
+  - Traditional "blockbuster season" shows surprising vulnerability
+  - ROI swings from -5 to +10 tell a story of extremes
+  - Higher production costs create pressure
+
+*The Calendar Effect: Each season brings its unique risk profile.*
+
+<div class="plotly-visualization full-width">
+    {% include plotly/rq5_1_seasonal_analysis.html %}
 </div>
 
-### The Heat Map of Hollywood Heartbreak 🎯
+### Monthly Deep Dive: The Anatomy of Movie Failures 📈
 
-This heat map tells the brutal truth about movie performance across genres:
+Let's zoom in to see exactly when movies are most vulnerable:
 
-- 🔥 **The Purple Valley**: That dark purple sea on the left? It's the graveyard of movie investments, showing how rare catastrophic failures are across all genres. But they do happen, and when they do...
+- 🥶 **January's Risk Trifecta**:
+  - 2.3% high success rate (lowest)
+  - 0.8% severe loss rate (highest)
+  - Consistently poor ROI metrics
+  - Hollywood's notorious "dump month"
 
-- 🌟 **The Golden Zone**: Notice those bright yellow spots for Adventure, Fantasy, and Sci-Fi around the "Break Even" mark? That's where the magic happens - but it's a narrow band of success.
+- 🌞 **The Summer Paradox**:
+  - June-July: 8-8.2% peak success rates
+  - Accompanied by 0.8-1% severe loss rates
+  - Maximum profit variance
 
-- 💀 **Dead Zones**:
-  - TV Movies and Documentaries show consistently dark colors across all metrics
-  - Thrillers show stronger colors in both extremes - supporting our earlier "volatile investment" theory
-  - Westerns barely register on the success metrics - explaining their near-extinction
+*Monthly Insight: Success and failure peaks often align, creating seasonal risk hotspots.*
 
-*In Hollywood's landscape, mediocrity is the norm (purple), breakthrough success is rare (yellow), and total failure is uncommon but devastating when it happens.*
-
-<div class="plotly-visualization">
-  {% include plotly/rq4_9_success_matrix.html %}
+<div class="plotly-visualization full-width">
+    {% include plotly/rq5_2_monthly_analysis.html %}
 </div>
 
-<div class="plotly-visualization">
-  {% include plotly/rq5_1_seasonal_analysis.html %}
-</div>
+### Historical Failure Patterns: A Century of Cinema Risk 📽️
 
-<div class="plotly-visualization">
-  {% include plotly/rq5_2_monthly_analysis.html %}
-</div>
+Our final visualization shows how these patterns evolved over 100+ years:
 
-<div class="plotly-visualization">
-  {% include plotly/rq5_4_seasonal_success_patterns.html %}
+- 🌅 **1880s-1910s: The Pioneer's Curse**:
+  - Near-zero success rates
+  - High-risk experimental period
+  - Industry fundamentals still forming
+
+- 📈 **1920s-1960s: The Learning Years**:
+  - Steady success rate improvement
+  - Winter remained the challenging season
+  - Fall emergence as a viable release window
+
+- 💡 **1970s-2010s: The Modern Era**:
+  - Volume and success rates reached new heights
+  - Spring 1970s breakthrough (7.2% success)
+  - Winter finally caught up (10.1% in 2010s)
+
+*Historical Perspective: While success rates have improved, fundamental seasonal patterns persist.*
+
+<div class="plotly-visualization full-width">
+    {% include plotly/rq5_4_seasonal_success_patterns.html %}
 </div>
 
 *Interactive visualization showing the relationship between budget and ROI*
