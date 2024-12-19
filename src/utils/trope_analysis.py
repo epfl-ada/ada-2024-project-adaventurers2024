@@ -1,12 +1,19 @@
 import pandas as pd
+import seaborn as sns
 import plotly.express as px
 import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import math
 
 from pathlib import Path
+from plotly.subplots import make_subplots
+from src.utils.plot_settings import (
+    COLORS, COMMON_LAYOUT,
+    AXIS_STYLE, 
+    get_title_style,
+    create_hover_template, 
+    get_subplot_settings
+)
 
 OUTPUT_PATH = 'data/preprocessed/'
 
@@ -171,7 +178,7 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
 
     print(f"Number of rows after filtering: {df_low_rated_movies.shape}")
 
-    # Get the full range of years
+    # Get the full range of years and tropes
     all_years = range(df_low_rated_movies["release_year"].min(), df_low_rated_movies["release_year"].max() + 1)
     tropes = sorted(df_low_rated_movies["trope"].unique())
     
@@ -183,6 +190,8 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     trope_counts = pd.merge(year_trope_combinations, trope_counts, 
                            on=["release_year", "trope"], 
                            how="left").fillna(0)
+
+    max_count = trope_counts["count"].max()
     
     # Process average scores with zero-filling
     tropes_avg_scores = df_low_rated_movies.groupby(["release_year", "trope"])["vote_average"].mean().reset_index()
@@ -192,17 +201,15 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
                                 on=["release_year", "trope"], 
                                 how="left").fillna(0)
 
+    max_avg_score = tropes_avg_scores["vote_average"].max()
+
     num_tropes = len(tropes)
-    num_rows = (num_tropes + 2) // 3  # Round up division for three columns
+    num_rows = (num_tropes + 2) // 3
+
+    subplot_settings = get_subplot_settings(num_rows, tropes)
     
-    # Create subplots for counts with increased vertical spacing
-    fig_counts = make_subplots(
-        rows=num_rows, 
-        cols=3,
-        subplot_titles=[f"Trope: {trope}" for trope in tropes],
-        vertical_spacing=0.15,
-        horizontal_spacing=0.05
-    )
+    # Create subplots for counts
+    fig_counts = make_subplots(**subplot_settings)
 
     # Add individual line plots for counts
     for idx, trope in enumerate(tropes):
@@ -217,7 +224,12 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
                 y=trope_data["count"],
                 name=trope,
                 showlegend=False,
-                mode='lines'  # Ensure continuous lines
+                mode='lines',
+                line=dict(
+                    color=COLORS[idx % len(COLORS)],
+                    width=2
+                ),
+                hovertemplate=create_hover_template("Year", "Count", "d")
             ),
             row=row,
             col=col
@@ -226,19 +238,14 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     fig_counts.update_layout(
         height=300 * num_rows,
         width=1200,
-        title_text="Evolution of tropes use over time",
+        title=get_title_style("Evolution of Tropes Use Over Time"),
         showlegend=False,
-        title_x=0.5
+        title_x=0.5,
+        **COMMON_LAYOUT
     )
     
     # Create subplots for average scores
-    fig_avg_scores = make_subplots(
-        rows=num_rows, 
-        cols=3,
-        subplot_titles=[f"Trope: {trope}" for trope in tropes],
-        vertical_spacing=0.15,
-        horizontal_spacing=0.05
-    )
+    fig_avg_scores = make_subplots(**subplot_settings)
 
     # Add individual line plots for average scores
     for idx, trope in enumerate(tropes):
@@ -253,7 +260,12 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
                 y=trope_data["vote_average"],
                 name=trope,
                 showlegend=False,
-                mode='lines'
+                mode='lines',
+                line=dict(
+                    color=COLORS[idx % len(COLORS)],
+                    width=2
+                ),
+                hovertemplate=create_hover_template("Year", "Average Score")
             ),
             row=row,
             col=col
@@ -263,21 +275,34 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     fig_avg_scores.update_layout(
         height=300 * num_rows,
         width=1200,
-        title_text="Evolution of tropes average scores over time",
+        title=get_title_style("Evolution of Tropes Average Scores Over Time"),
         showlegend=False,
-        title_x=0.5 
+        title_x=0.5,
+        **COMMON_LAYOUT
     )
 
-    # Update all axes labels with consistent formatting
+    # Update axes styling
     for fig in [fig_counts, fig_avg_scores]:
         fig.update_xaxes(
-            title_text="Release year",
+            title_text="Release Year",
             dtick=20,
-            title_standoff=15
+            title_standoff=15,
+            **AXIS_STYLE
         )
     
-    fig_counts.update_yaxes(title_text="Number of movies", title_standoff=15)
-    fig_avg_scores.update_yaxes(title_text="Average score", title_standoff=15)
+    fig_counts.update_yaxes(
+        title_text="Number of Movies", 
+        title_standoff=15,
+        range=[0, max_count * 1.1],  # Add 10% padding to the maximum value
+        **AXIS_STYLE
+    )
+
+    fig_avg_scores.update_yaxes(
+        title_text="Average Score", 
+        title_standoff=15,
+        range=[0, max_avg_score * 1.1],  # Add 10% padding to the maximum value
+        **AXIS_STYLE
+    )
 
     fig_counts.show()
     fig_counts.write_html(f'{OUTPUT_PATH}rq8_tropes_counts.html', include_plotlyjs='cdn', full_html=False)
