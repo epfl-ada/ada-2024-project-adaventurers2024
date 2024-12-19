@@ -3,6 +3,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
+import math
 
 from pathlib import Path
 
@@ -17,8 +18,6 @@ def get_unique_genres(df_tropes_filtered):
             unique_genres.add(genre.strip())
 
     ordered_genres = ['All'] + sorted([genre for genre in unique_genres if genre != 'All'])
-
-    print(f"{len(ordered_genres)} unique genres: {ordered_genres}")
     return ordered_genres
 
 
@@ -49,12 +48,22 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         dict(
             type="buttons",
             buttons=[],
-            x=1.05,
+            x=1.05, # Column 1 starting position
             xanchor='left',
             yanchor='top',
+            showactive=True,
+        ),
+        dict(
+            type="buttons",
+            buttons=[],
+            x=1.15,  # Column 2 starting position
+            xanchor='left',
+            yanchor='top',
+            showactive=False,
         )
     ]
     default_title = f"Top {k} tropes with the highest ratio of low-rated movies for All Genres"
+    valid_buttons = []
 
     # Iterate over the unique genres and get the top k tropes with the highest ratio of low-rated movies
     for index, genre in enumerate(unique_genres):
@@ -99,23 +108,40 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
 
         title = f"Top {k} tropes with the highest ratio of low-rated movies for genre {genre}"
 
-        updatemenus[0]['buttons'].append(
+        valid_buttons.append(
             dict(
                 label=genre,
                 method="update",
                 args=[
                     {"visible": []}, 
-                    {
-                        "title": default_title if genre == "All" else title, 
-                        "annotations": [dict(text="Choose a genre:", x=1.1, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
-                    }
+                    {"title": default_title if genre == "All" else title}
                 ],
             )
         )
 
-    for i in range(len(updatemenus[0]['buttons'])):
-        updatemenus[0]['buttons'][i]['args'][0]['visible'] = [False] * len(unique_genres)
-        updatemenus[0]['buttons'][i]['args'][0]['visible'][i] = True
+    midpoint = math.ceil(len(valid_buttons) / 2)
+    updatemenus[0]['buttons'] = valid_buttons[:midpoint]
+    updatemenus[1]['buttons'] = valid_buttons[midpoint:]
+
+    for i in range(len(valid_buttons)):
+        column = i // midpoint
+        button_index = i % midpoint
+
+        visibility = [False] * len(valid_buttons)
+        visibility[i] = True
+
+        updatemenus[column]['buttons'][button_index]['args'] = [
+        {
+            "visible": visibility
+        },
+        {
+            "title": default_title if valid_buttons[i]['label'] == "All" else f"Top {k} tropes with the highest ratio of low-rated movies for genre {valid_buttons[i]['label']}",
+            "annotations": [dict(text="Choose a genre:", x=1.13, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)],
+            "updatemenus[0].active": button_index if column == 0 else -1,  # Reset other column
+            "updatemenus[1].active": button_index if column == 1 else -1   # Reset other column
+        }
+    ]
+
 
     fig.update_layout(
         updatemenus=updatemenus,
@@ -129,11 +155,11 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         ),
         xaxis_title='Ratio of low-rated movies to high-rated movies',
         yaxis_title='Tropes',
-        annotations=[dict(text="Choose a genre:", x=1.1, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
+        annotations=[dict(text="Choose a genre:", x=1.13, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
     )
 
     fig.show()
-    # fig.write_html(f'{OUTPUT_PATH}rq6_tropes.html', full_html=False, include_plotlyjs='cdn')
+    fig.write_html(f'{OUTPUT_PATH}rq6_tropes.html', full_html=False, include_plotlyjs='cdn')
 
 
 def rq7(df_cmu_tropes, show_plotly_charts=True):
