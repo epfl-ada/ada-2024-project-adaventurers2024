@@ -51,7 +51,7 @@ Let the autopsy begin... 🎬
 }
 </style>
 
-### Part I: Metrics
+### Part I: Signals of Failure
 <div class="plotly-visualization">
   {% include plotly/rq1_metrics_distribution.html %}
 </div>
@@ -63,6 +63,50 @@ The scatterplot mattrix provides an overview of the relationships between three 
 The off-diagonal scatter plots reveal the pairwise correlations between these metrics, supplemented by trendlines to illustrate general patterns. Movies with higher ratings tend to earn more revenue, as shown by a slight positive correlation, though the relationship is not particularly strong. For example, a cluster of films rated between 6 and 7 generates revenues in the $20–50 million range. Similarly, there is a moderate positive correlation between ratings and ROI, suggesting that higher-rated movies are more likely to achieve better financial returns. Films with a vote_average near 7 often exhibit an ROI between 1 and 2. Interestingly, the relationship between revenue and ROI is weak but positive, indicating that high-grossing films are not necessarily the most profitable. Many movies with revenues above $100 million have ROIs under 2, reflecting high production and marketing costs.
 
 Overall, the plot underscores that while better ratings slightly correlate with higher revenue and ROI, these relationships are nuanced, with significant variability and a concentration of movies in lower revenue and ROI ranges.
+
+
+### Part II: The Actor's code: 
+To measure actor diversity in movies, We focused on four key factors: age, gender, height, and ethnicity, each capturing distinct aspects of diversity within the cast. Age diversity and height diversity, as continuous variables, were measured using the standard deviation, where higher values indicate a broader range of ages or physical stature among the cast. In contrast, gender diversity and ethnicity diversity, as categorical variables, were quantified using Shannon's entropy, which effectively measures the balance of categories. Higher entropy for gender represents a more equal distribution between male and female actors, while higher entropy for ethnicity indicates greater representation of diverse ethnic backgrounds. These metrics were analyzed in relation to each movie's average rating and box office revenue to explore how actor diversity impacts audience engagement and financial success.
+
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq2_revenue_boxplot.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq2_rating_boxplot.html %}
+    </div>
+</div>
+
+he plots explore the relationship between actor diversity and movie success, focusing on revenue and average rating as the dependent variables. Each box plot visualizes the distribution of movies grouped by diversity levels ("Low," "Medium," "High," "Very High") for four factors: age diversity, gender diversity, height diversity, and ethnicity diversity. The boxes represent the interquartile range (25th to 75th percentiles), with the central line indicating the median (50th percentile). Whiskers extend to the 5th and 95th percentiles, capturing variability in the data, while outliers are shown as individual points.
+
+In the revenue plot, movies with "Very High" age and ethnicity diversity show relatively low revenues and slightly broader variability, with a median revenue lower than 0.5 million. It makes sense. Movies with high age diversity may not be targeted at a specific audience. For example, popular children's movies mostly star younger actors rather than targeting older actors. Seeking ethnicity diversity in the cast of actors in movies may also lead to poor recognition. For example, the recent movie The Little Mermaid was controversial for choosing a black actress to play a white character in pursuit of "political correctness."
+
+The the rating plot, Movies with "Low" gender diversity show a lowest median ratings. This indicates that the gender of the actors in the film is too homogeneous, and may be too biased towards the audience of one gender and lose the audience of the other gender. Ethnicity diversity follows a similar pattern, with "Very High" diversity groups achieving lower ratings. However, The effect of height diversity on both income and review rate is relatively random, indicating a weak/uncertain impact on movie failure.
+
+Overall, "Very High" ethnicity diversity and age diversity or "Low" gender diversity can be regarded as factors leading to the failure of the film, but the heatmap of diversity metrics and movie failure metrics shows that the impact is very small, less than 0.005. This shows that the audience may pay more attention to the actors' acting skills or other factors than the diversity of the actors.
+
+Based on the heatmap, the highest absolute correlation between diversity metrics and revenue is 0.044 (from height diversity), and the highest absolute correlation between diversity metrics and average rating is 0.045 (from gender diversity). 
+
+<div class="plotly-visualization">
+  {% include plotly/rq2_correlation_heatmap.html %}
+</div>
+
+<div class="viz-container">
+    <div class="plotly-visualization">
+        {% include plotly/rq2_revenue_radar_chart.html %}
+    </div>
+    <div class="plotly-visualization">
+        {% include plotly/rq2_rating_radar_chart.html %}
+    </div>
+</div>
+
+The two radar plots provide a comprehensive view of how diversity metrics—age, gender, height, and ethnicity—correlate with movie revenue and average rating. Each plot visualizes the diversity metrics for two groups: one representing movies with high performance (high revenue or high rating) and the other with low performance (low revenue or low rating). The radial axis represents the normalized values of the diversity factors, ranging from 0 to 1, while the filled areas of each group illustrate the relative contributions of each diversity factor.
+
+From the radar plots, we observe a consistent pattern: high ethnicity diversity and high age diversity are associated with lower revenue, while low gender diversity correlates with lower average rating. However, the influence of these diversity factors on movie failure appears to be small. In particular, the impact of low gender diversity on average rating is notably small. This suggests that while diversity metrics may play a role in movie outcomes, their contribution to failure is relatively limited compared to other factors that might influence audience reception, such as the quality of storytelling, acting skills.
+
+### Part III: The Director's Enigma
+
+
 
 ### Part IV: The Genre Gamble
 
