@@ -65,17 +65,17 @@ Let the autopsy begin... 🎬
 
 ### Part IV: The Genre Gamble
 
-#### Genre Face-Off: Ratings vs. Revenue 🎭
+#### Genre Face-Off: The Anatomy of Box Office Disasters 🎭
 
-Let's decode what our data reveals about the tricky balance between critical success and box office triumph:
+Let's decode what our data reveals about where and why movies fail financially:
 
-- 🎯 **The High Rollers**: Adventure and Animation dominate profit charts but with massive risk variance - think Hollywood's high-stakes poker table.
+- 🎯 **The High-Risk Zones**: Adventure and Animation show the widest loss margins in their failure cases - when these big-budget genres fail, they fail spectacularly. Those massive error bars aren't just statistics; they're financial bloodbaths.
 
-- 🏆 **Critical Darlings**: Animation and Family films consistently score 6.0+/10, proving quality can sell. The plot twist? Critical acclaim doesn't guarantee profit.
+- 🏆 **The Critics' Curse**: High ratings offer no safety net. Animation and Family films maintain strong ratings (6.0+/10) but can still bomb catastrophically. Some of the biggest financial disasters came with critical acclaim attached.
 
-- 💸 **The Risk-Reward Matrix**: Action films keep cashing in despite average ratings, while acclaimed Documentaries and Westerns struggle to break even.
+- 💸 **The Genre Trap**: Documentaries and Westerns face chronic failure patterns - consistent critical respect but systematic financial underperformance. Meanwhile, Action films demonstrate how mediocre ratings don't necessarily predict financial failure.
 
-*Key Insight: Success in Hollywood isn't binary - it's a complex dance between art and commerce.*
+*Key Failure Pattern: Critical acclaim and financial disaster aren't mutually exclusive - some genres are structurally prone to failure regardless of quality.*
 
 <div class="viz-container">
     <div class="plotly-visualization">
