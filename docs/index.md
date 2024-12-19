@@ -21,15 +21,7 @@ Our investigation covers everything from ill-fated release dates to questionable
 ## Key Evidence 🔍
 
 <div class="plotly-visualization">
-  {% include plotly/rq1_metrics.html %}
-</div>
-
-<div class="plotly-visualization">
   {% include plotly/rq2_actor_diversity.html %}
-</div>
-
-<div class="plotly-visualization">
-  {% include plotly/rq3_kmeans_centers.html %}
 </div>
 
 <div class="plotly-visualization">
@@ -82,11 +74,25 @@ Our investigation covers everything from ill-fated release dates to questionable
 
 *Interactive visualization showing the relationship between budget and ROI*
 
+[PLOTLY-VISUALIZATION-1]
+*Metrics*
+<div class="plotly-visualization">
+  {% include plotly/rq1_metrics_distribution.html %}
+</div>
+
+We begin our exploration of the metrics associated with movie failures by analyzing three key indicators: average vote, revenue, and ROI (Return on Investment). The first step is to uncover patterns and relationships between these metrics to better understand the causes of poor movie performance. 
+
+The scatterplot mattrix provides an overview of the relationships between three metrics. Along the diagonal, histograms display the distributions of each metric. Movie ratings are approximately normally distributed, with most falling between 6 and 7, peaking near 6.5. Revenue, however, is heavily skewed to the right, with the majority of movies earning less than $50 million, though a few outliers exceed $150 million. ROI follows a similar trend, with most values concentrated below 2, indicating that a majority of films generate modest returns relative to their costs.
+
+The off-diagonal scatter plots reveal the pairwise correlations between these metrics, supplemented by trendlines to illustrate general patterns. Movies with higher ratings tend to earn more revenue, as shown by a slight positive correlation, though the relationship is not particularly strong. For example, a cluster of films rated between 6 and 7 generates revenues in the $20–50 million range. Similarly, there is a moderate positive correlation between ratings and ROI, suggesting that higher-rated movies are more likely to achieve better financial returns. Films with a vote_average near 7 often exhibit an ROI between 1 and 2. Interestingly, the relationship between revenue and ROI is weak but positive, indicating that high-grossing films are not necessarily the most profitable. Many movies with revenues above $100 million have ROIs under 2, reflecting high production and marketing costs.
+
+Overall, the plot underscores that while better ratings slightly correlate with higher revenue and ROI, these relationships are nuanced, with significant variability and a concentration of movies in lower revenue and ROI ranges.
+
 ### The Diversity Deficit
 Our analysis reveals some surprising patterns in casting choices and box office performance.
 
 [PLOTLY-VISUALIZATION-2]
-*Interactive visualization of cast diversity metrics vs. movie success*
+*Interactive visualization of cast diversity metrics vs. movie failure*
 
 ### The Director's Curse
 Some directors seem to have a knack for picking problematic projects...
