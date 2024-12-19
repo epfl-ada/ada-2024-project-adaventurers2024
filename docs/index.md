@@ -11,7 +11,7 @@ Ever wondered why some movies crash and burn at the box office? Like how 'John C
 
 ## The Case File 📁
 
-Our investigation digs deep into four decades of box office data, from forgotten B-movies to high-budget catastrophes. Using state-of-the-art data analysis and visualization techniques, we're cracking open the vault on:
+Our investigation digs deep, from forgotten B-movies to high-budget catastrophes. Using state-of-the-art data analysis and visualization techniques, we're cracking open the vault on:
 
 - 💰 **The Money Trail**: Following the financial failures - from modest mishaps to billion-dollar blunders
 - 🎭 **The Cast Chronicles**: Identifying patterns in star power and ensemble dynamics
