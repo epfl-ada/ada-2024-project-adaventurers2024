@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.graph_objects as go
 
 from pathlib import Path
 
@@ -15,13 +16,13 @@ def get_unique_genres(df_tropes_filtered):
         for genre in str_genres.split(","):
             unique_genres.add(genre.strip())
 
-    unique_genres.add("All")
+    ordered_genres = ['All'] + sorted([genre for genre in unique_genres if genre != 'All'])
 
-    print(f"{len(unique_genres)} unique genres: {unique_genres}")
-    return unique_genres
+    print(f"{len(ordered_genres)} unique genres: {ordered_genres}")
+    return ordered_genres
 
 
-def rq6(df_cmu_tropes, threshold=6.0, k=5, min_votes=100, show_plotly_charts=True):
+def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
     df_tropes_filtered = df_cmu_tropes[
         (df_cmu_tropes[["vote_average", "revenue"]] != 0).all(axis=1)
     ]
@@ -36,12 +37,27 @@ def rq6(df_cmu_tropes, threshold=6.0, k=5, min_votes=100, show_plotly_charts=Tru
     # If the output path does not exist, we create it
     Path(OUTPUT_PATH).mkdir(parents=True, exist_ok=True)
 
+    # Get the unique genres and the top k tropes with the highest ratio of low-rated movies
     unique_genres = get_unique_genres(df_tropes_filtered)
 
     df_low_rated_tropes = df_tropes_filtered[df_tropes_filtered['vote_average'] < threshold]
     df_high_rated_tropes = df_tropes_filtered[df_tropes_filtered['vote_average'] >= threshold]
 
-    for genre in unique_genres:
+    # Define the figure and the updatemenus
+    fig = go.Figure()
+    updatemenus=[
+        dict(
+            type="buttons",
+            buttons=[],
+            x=1.05,
+            xanchor='left',
+            yanchor='top',
+        )
+    ]
+    default_title = f"Top {k} tropes with the highest ratio of low-rated movies for All Genres"
+
+    # Iterate over the unique genres and get the top k tropes with the highest ratio of low-rated movies
+    for index, genre in enumerate(unique_genres):
         if genre == "All":
             plot_title = f"Top {k} tropes for all genres"
             df_lr_genre_tropes = df_low_rated_tropes
@@ -70,41 +86,54 @@ def rq6(df_cmu_tropes, threshold=6.0, k=5, min_votes=100, show_plotly_charts=Tru
         df = pd.DataFrame(sorted_tropes, columns=["trope", "ratio"])
         print(f"Genre {genre} has {len(sorted_tropes)} tropes with a ratio of low-rated movies to high-rated movies")
 
-        if show_plotly_charts:
-            fig = px.bar(
-                df,
-                x='ratio',
-                y='trope',
+        fig.add_trace(
+            go.Bar(
+                x=df['ratio'],
+                y=df['trope'],
+                name=genre,
                 orientation='h',
-                title=plot_title,
-                color='trope',
+                visible=False if genre != "All" else True,
+                marker=dict(color='rgba(11, 127, 1271, 0.7)'),
             )
-            fig.update_layout(
-                xaxis_title='Ratio of low-rated movies to high-rated movies',
-                yaxis_title='Tropes',
-                yaxis_categoryorder='total ascending',
-                legend_title='Tropes',
-                title_x=0.5,
-                yaxis=dict(
-                    automargin=True,
-                    showline=True,
-                    showgrid=False,
-                )
+        )
+
+        title = f"Top {k} tropes with the highest ratio of low-rated movies for genre {genre}"
+
+        updatemenus[0]['buttons'].append(
+            dict(
+                label=genre,
+                method="update",
+                args=[
+                    {"visible": []}, 
+                    {
+                        "title": default_title if genre == "All" else title, 
+                        "annotations": [dict(text="Choose a genre:", x=1.1, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
+                    }
+                ],
             )
-            fig.show()
-            fig.write_html(f'{OUTPUT_PATH}rq6_{genre.lower()}_tropes.html', full_html=False, include_plotlyjs='cdn')
-        else:
-            plt.figure(figsize=(7, 4))
-            sns.barplot(
-                x='ratio',
-                y='trope',
-                data=df,
-                palette='viridis',
-            )
-            plt.xlabel("Ratio of low-rated movies to high-rated movies")
-            plt.ylabel("Tropes")
-            plt.title(plot_title)
-            plt.show()
+        )
+
+    for i in range(len(updatemenus[0]['buttons'])):
+        updatemenus[0]['buttons'][i]['args'][0]['visible'] = [False] * len(unique_genres)
+        updatemenus[0]['buttons'][i]['args'][0]['visible'][i] = True
+
+    fig.update_layout(
+        updatemenus=updatemenus,
+        showlegend=False,
+        title=default_title,
+        yaxis=dict(
+            automargin=True,
+            showline=True,
+            showgrid=False,
+            autorange="reversed",
+        ),
+        xaxis_title='Ratio of low-rated movies to high-rated movies',
+        yaxis_title='Tropes',
+        annotations=[dict(text="Choose a genre:", x=1.1, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
+    )
+
+    fig.show()
+    # fig.write_html(f'{OUTPUT_PATH}rq6_tropes.html', full_html=False, include_plotlyjs='cdn')
 
 
 def rq7(df_cmu_tropes, show_plotly_charts=True):
