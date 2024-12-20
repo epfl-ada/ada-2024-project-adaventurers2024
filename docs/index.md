@@ -78,7 +78,9 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 
 ## Key Evidence 🔍
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Hey there, movie fans! Come join us to discover why some movies fail. We've been looking at Hollywood's past and found lots of movies that didn't succeed. As we looked closer, we found some interesting clues - like movies that came out at the wrong time (imagine opening your movie the same day as a new superhero film!), or movies that had stories people just didn't want to watch.
+
+But wait, there's more to this story! It's like a puzzle we need to solve! So grab some popcorn and join us as we figure out why some movies fail.
 
 <div class="text-center">
     <img src="https://media4.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif?cid=6c09b952mg94u2g7aq1pcnj1sxdidnzdsm6as1z4c55nx3bs&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
@@ -87,7 +89,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <div class="section-divider"></div>
 
-### Part I: The Evidence of Failure: Metric
+### Part I: The Evidence of Failure: Metrics
 
 Let us start our investigation with three primary suspects: Average Vote, Revenue, and ROI (Return on Investment). The scatterplot matrix serves as our evidence board, showing how these three metrics interact.
 
@@ -107,7 +109,7 @@ In short, lower ratings may lead films toward worse revenue and ROI, but they do
 
 <div class="section-divider"></div>
 
-### Part II: The Cast Check: Actor Diversity
+### Part II: The Cast Check: Actor Demographics
 Our next step is to examine the makeup of the cast—could diversity be a factor in a film’s downfall? To test this, let us measure diversity across four dimensions: age, gender, height, and ethnicity. Age and height diversity are reflected in their standard deviations (higher means more varied), while gender and ethnicity diversity are measured by Shannon’s entropy (higher means more balanced representation).
 
 <div class="row">
@@ -148,7 +150,7 @@ In short, while casting diversity might influence a film’s performance in subt
 
 <div class="section-divider"></div>
 
-### Part III: The Director's Enigma
+### Part III: The Director's Enigma: Director Filmographies
 
 <div class="text-center">
     <img src="https://media2.giphy.com/media/eQabXVbbLW63K/200.gif?cid=6c09b952h6xy4fkwj27ehe3n3g9bm294agh7j44b1s6pdrp0&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Director Gif" class="gif">
