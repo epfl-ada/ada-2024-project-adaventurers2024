@@ -2,7 +2,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import statsmodels.api as sm
+import os
 
 def metric_analysis(data_path):
     # 1. Initialize
@@ -87,3 +90,112 @@ def metric_analysis(data_path):
     sns.heatmap(corr_matrix, annot=True, cmap="coolwarm")
     plt.title("Correlation Matrix")
     plt.show()
+
+def rq1_display_pair_plot(file_path, columns_to_plot):
+    """
+    Generates and displays a pair plot with histograms and scatter plots for given columns from a dataset.
+    
+    Parameters:
+    - file_path (str): Path to the JSON file containing the dataset.
+    - columns_to_plot (list of str): List of column names to include in the pair plot.
+
+    Returns:
+    - None
+    """
+    # Load the dataset
+    try:
+        df = pd.read_json(file_path)
+    except ValueError:
+        raise ValueError(f"Could not read the file at {file_path}. Ensure the path and format are correct.")
+    
+    # Helper function for regression
+    def add_trendline(x, y):
+        """Fit an OLS trendline and return line endpoints."""
+        x = np.array(x)
+        y = np.array(y)
+        # Handle NaN values
+        x_clean = x[~np.isnan(y)]
+        y_clean = y[~np.isnan(y)]
+        x_with_const = sm.add_constant(x_clean)  # Add intercept
+        model = sm.OLS(y_clean, x_with_const).fit()
+        y_pred = model.predict(x_with_const)
+        return x_clean, y_pred
+
+    n = len(columns_to_plot)
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c']  # Custom color palette
+
+    # Create a subplot grid
+    fig = make_subplots(
+        rows=n, cols=n,
+        shared_xaxes=False,
+        shared_yaxes=False,
+        vertical_spacing=0.05,
+        horizontal_spacing=0.05
+    )
+
+    # Loop through rows and columns
+    for i, col_y in enumerate(columns_to_plot):
+        for j, col_x in enumerate(columns_to_plot):
+            row, col = i + 1, j + 1
+
+            if i == j:
+                # Diagonal: Histogram
+                fig.add_trace(
+                    go.Histogram(
+                        x=df[col_x],
+                        nbinsx=20,
+                        marker=dict(color=colors[i], line=dict(color="black", width=1)),
+                        opacity=0.7,
+                        name=f"{col_x} Distribution"
+                    ),
+                    row=row, col=col
+                )
+            else:
+                # Off-diagonal: Scatter plot with trendline
+                fig.add_trace(
+                    go.Scatter(
+                        x=df[col_x],
+                        y=df[col_y],
+                        mode='markers',
+                        marker=dict(size=5, color=colors[j], opacity=0.7),
+                        name=f"{col_y} vs {col_x}"
+                    ),
+                    row=row, col=col
+                )
+
+                # Add trendline
+                x_clean, y_pred = add_trendline(df[col_x], df[col_y])
+                fig.add_trace(
+                    go.Scatter(
+                        x=x_clean,
+                        y=y_pred,
+                        mode='lines',
+                        line=dict(color='red', width=2),
+                        name=f"Trendline: {col_y} ~ {col_x}"
+                    ),
+                    row=row, col=col
+                )
+
+    # Update Layout
+    fig.update_layout(
+        title_text="Distribution and Correlation Between Columns",
+        width=880,
+        height=720,
+        legend=dict(
+            x=1.05, y=1,
+            traceorder="normal",
+            font=dict(size=10),
+            bgcolor="rgba(255, 255, 255, 0.5)",
+            bordercolor="gray",
+            borderwidth=1
+        ),
+        template="plotly_white",
+    )
+
+    # Update axis labels
+    for i, col in enumerate(columns_to_plot):
+        fig.update_xaxes(title_text=col, row=n, col=i + 1)
+        fig.update_yaxes(title_text=col, row=i + 1, col=1)
+
+    # Display the figure
+    fig.show()

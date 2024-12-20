@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import statsmodels.api as sm
-
+import plotly.graph_objects as go
 
 def director_analysis(data_path):
     # Load the dataset
@@ -117,3 +117,122 @@ def director_analysis(data_path):
     y_rating = director_genre_counts["overall_avg_rating"]
     model_rating = sm.OLS(y_rating, X_with_const).fit()
     print(model_rating.summary())
+
+def rq3_display_sankey_diagram(data_path):
+    """
+    Generates and displays a Sankey diagram visualizing the relationship between
+    the number of genres and rating groups, with line thickness representing revenue.
+
+    Parameters:
+    - data_path (str): Path to the CSV file containing the data.
+
+    Returns:
+    - None
+    """
+    # Load data
+    data = pd.read_csv(data_path)
+
+    # Define rating groups
+    rating_groups = ["5.5-6", "6-6.5", "6.5-7", "7-7.5"]
+    rating_bins = [5.5, 6.0, 6.5, 7.0, 7.5]
+
+    # Map avg_rating to bins
+    data["rating_group"] = pd.cut(data["avg_rating"], bins=rating_bins, labels=rating_groups, include_lowest=True)
+
+    # Handle NaN in rating_group
+    data = data.dropna(subset=["rating_group"])  # Drop rows with NaN in rating_group
+
+    # Normalize line thickness for visualization
+    data["line_thickness_norm"] = data["line_thickness"] / data["line_thickness"].max() * 10
+
+    # Prepare Sankey nodes
+    left_nodes = sorted(data["num_genres"].unique())  # Left side: num_genres
+    right_nodes = rating_groups  # Right side: rating groups
+
+    # Node details
+    nodes = {
+        "labels": [str(num) for num in left_nodes] + right_nodes,
+        "x": [0.1] * len(left_nodes) + [0.9] * len(right_nodes),
+        "y": list((1 - (i / len(left_nodes))) for i in range(len(left_nodes))) + list(
+            (1 - (i / len(right_nodes))) for i in range(len(right_nodes))
+        ),
+        "color": ["blue"] * len(left_nodes) + ["green"] * len(right_nodes),
+        "customdata": [f"Number of Genres: {num}" for num in left_nodes] +
+                      [f"Rating Group: {group}" for group in right_nodes]
+    }
+
+    # Prepare Sankey links
+    sources = [left_nodes.index(num) for num in data["num_genres"]]  # Indices for num_genres
+    targets = [
+        len(left_nodes) + rating_groups.index(group) for group in data["rating_group"]
+    ]  # Map to grouped ratings
+    values = data["line_thickness_norm"]
+
+    # Add hover data to links
+    link_customdata = [
+        f"Num Genres: {row['num_genres']}<br>Avg Rating: {row['avg_rating']:.1f}<br>Avg Revenue: ${row['avg_revenue']:,}"
+        for _, row in data.iterrows()
+    ]
+
+    # Create Sankey figure
+    fig = go.Figure(go.Sankey(
+        arrangement='snap',
+        node=dict(
+            label=nodes["labels"],
+            x=nodes["x"],
+            y=nodes["y"],
+            pad=10,
+            align="center",
+            color=nodes["color"],
+            customdata=nodes["customdata"],
+            hovertemplate="Node: %{customdata}<extra></extra>"
+        ),
+        link=dict(
+            source=sources,
+            target=targets,
+            value=values,
+            customdata=link_customdata,
+            hovertemplate="Link:<br>%{customdata}<extra></extra>"
+        )
+    ))
+
+    # Update layout
+    fig.update_layout(
+        title_text="Sankey Diagram: Number of Directors' Genres to Ratings Groups with Revenue Thickness",
+        font_size=12,
+        title_x=0.5,
+        height=600,
+        width=1200,
+        annotations=[
+            dict(
+                x=0.5,
+                y=-0.14,
+                xref="paper",
+                yref="paper",
+                text="Note: The thicker the link, the higher the average revenue.",
+                showarrow=False,
+                font=dict(size=14, color="black")
+            ),
+            dict(
+                x=0.05,
+                y=1.05,
+                xref="paper",
+                yref="paper",
+                text="Number of Directors' Genres",
+                showarrow=False,
+                font=dict(size=14, color="blue")
+            ),
+            dict(
+                x=0.95,
+                y=1.05,
+                xref="paper",
+                yref="paper",
+                text="Rating Groups",
+                showarrow=False,
+                font=dict(size=14, color="green")
+            )
+        ]
+    )
+
+    # Show plot
+    fig.show()
