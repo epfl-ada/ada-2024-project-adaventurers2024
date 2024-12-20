@@ -85,7 +85,12 @@ Current analysis employs violin plots for seasonal and monthly distributions, te
 
 #### Tropes Negative Reception (RQ6, RQ7)
 
-To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Our first step was to identify the 20 most common tropes in low-rated movies. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We calculated a ratio of trope occurrence in low-rated films compared to high-rated films. The results were visualized using bar plots showing tropes that might contribute to negative audience reception. Next steps include completing the plots for all genres and analyzing combinations of tropes.
+To investigate the relationship between narrative tropes and audience reception, we established a rating threshold of 6.0 on a 10-point scale to distinguish between low and high-rated films. Our first step was to identify the 20 most common tropes in low-rated movies. Then, we analyze tropes within specific genres, we focused on Horror, Adventure, and Comedy films for this initial analysis. We calculated a ratio of trope occurrence in low-rated films compared to high-rated films. The results were visualized using bar plots showing tropes that might contribute to negative audience reception.
+
+We also analyzed movies through their associated tropes, creating binary vectors for each film. Each vector has a dimension equal to the total number of unique tropes in our dataset, with 1s indicating the presence of specific tropes and 0s their absence.
+Using these binary vectors, we performed k-means clustering with k=50 to identify groups of movies with similar trope patterns. We visualized the resulting clusters using t-SNE dimensionality reduction to examine relationships between movies based on their trope usage.
+To understand what makes movies poorly received, we identified the 10 clusters with lowest average ratings, analyzed common trope combinations in these clusters, created a co-occurrence network to visualize how tropes appear together, and examined the evolution of trope usage and ratings over time (1920-present).
+Our approach assumes that movies sharing similar tropes likely share narrative patterns, allowing us to identify potentially problematic storytelling combinations through their trope signatures.
 
 ## Proposed Timeline
 
