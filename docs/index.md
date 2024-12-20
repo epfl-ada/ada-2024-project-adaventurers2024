@@ -203,7 +203,7 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
 
 Looking at both plots together reveals the full scope of Hollywood's risk paradox. Very Low budget productions show the highest ROI potential (reaching over 10x returns) but minimal absolute profits, while Very High budget films display the opposite pattern - substantial absolute profits but anemic ROI figures. This creates a cruel dilemma for studios: chase higher absolute profits at the cost of efficiency, or maintain better ROI while accepting limited profit potential. The data suggests that the safest path - balancing ROI and absolute profits - lies somewhere in the middle budget categories, though even these show significant potential for failure.
 
-Case File Note: The evidence points to a fundamental inefficiency in Hollywood's business model - the more money invested, the harder it becomes to generate proportional returns, creating a perfect storm for spectacular financial failures.
+_Case File Note: The evidence points to a fundamental inefficiency in Hollywood's business model - the more money invested, the harder it becomes to generate proportional returns, creating a perfect storm for spectacular financial failures._
 
 #### The Success-Failure Paradox: When Genres Betray Their Promise 🎭
 
