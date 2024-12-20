@@ -6,6 +6,11 @@ cover-img: /assets/img/cover.jpeg
 ---
 
 <style>
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .viz-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -67,10 +72,9 @@ Let the autopsy begin... 🎬
 
 This project is part of the Applied Data Analysis course at EPFL. We've analyzed:
 
-- 42,000+ movie plots from Wikipedia
+- 42,000+ movie plots
 - Cast and crew data from IMDb
 - 30,000+ narrative tropes
-- Box office numbers that would make studio executives cry
 
 ## Key Evidence 🔍
 
@@ -87,8 +91,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 Let us start our investigation with three primary suspects: Average Vote, Revenue, and ROI (Return on Investment). The scatterplot matrix serves as our evidence board, showing how these three metrics interact.
 
-<div class="container" style="margin-right: 100px;">
-  {% include plotly/rq1_metrics_distribution.html %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            {% include plotly/rq1_metrics_distribution.html %}
+        </div>
+    </div>
 </div>
 
 The diagonal histograms give us their basic profiles. Average Vote is fairly stable, with most ratings clustering between 6 and 7, and two peaks around 6.3 and 7.3. Revenue is more erratic—most films make under $50 million, but a small number break well beyond $150 million. ROI, like revenue, is also skewed; most films’ returns are modest, clustering below 2.
