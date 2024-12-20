@@ -424,35 +424,30 @@ _Case File Note: This section of our investigation reveals that while individual
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Jianan Xu</h5>
-                <p class="text-muted fst-italic">"Logic never fails"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Rizhong Lin</h5>
-                <p class="text-muted fst-italic">"Truth hides in plain sight"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Angel Zenteno</h5>
-                <p class="text-muted fst-italic">"Every case tells a story"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♀️</div>
                 <h5 class="fw-bold mb-2">Adriana Orellana</h5>
-                <p class="text-muted fst-italic">"Details make perfection"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Raph Wegmann</h5>
-                <p class="text-muted fst-italic">"Mystery loves company"</p>
             </div>
         </div>
     </div>
