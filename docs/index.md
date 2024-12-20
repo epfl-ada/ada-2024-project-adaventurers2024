@@ -81,6 +81,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
 </div>
 
+<div class="section-divider"></div>
+
 ### Part I: The Evidence of Failure: Metric
 
 Let us start our investigation with three primary suspects: Average Vote, Revenue, and ROI (Return on Investment). The scatterplot matrix serves as our evidence board, showing how these three metrics interact.
@@ -94,6 +96,8 @@ The diagonal histograms give us their basic profiles. Average Vote is fairly sta
 Comparing these metrics pairwise provides further clues. Movies with lower ratings tend to have worse returns, though this link is not strong. For instance, films rated below 5 commonly have a negative ROI. A similar mild trend appears between revenue and ROI. Some low-revenue movies tend to generate low profits.
 
 In short, lower ratings may lead films toward worse revenue and ROI, but they don’t solve the mystery on their own. These metrics serve as useful signals rather than direct culprits. They hint at trouble, but they don’t tell us who’s really pulling the strings behind a movie’s downfall. To crack the case, we’ll need to dig deeper into the forces at play behind the scenes. Follow me as we investigate the true causes lurking beneath these surface indicators.
+
+<div class="section-divider"></div>
 
 ### Part II: The Cast Check: Actor Diversity
 Our next step is to examine the makeup of the cast—could diversity be a factor in a film’s downfall? To test this, let us measure diversity across four dimensions: age, gender, height, and ethnicity. Age and height diversity are reflected in their standard deviations (higher means more varied), while gender and ethnicity diversity are measured by Shannon’s entropy (higher means more balanced representation).
@@ -133,6 +137,8 @@ The radar plots compare diversity factors between high-performing and low-perfor
 Radar plots further confirm that while “Very High” ethnicity and age diversity or “Low” gender diversity might push metrics down slightly, the effect is small. 
 
 In short, while casting diversity might influence a film’s performance in subtle ways, it doesn’t emerge as the main suspect for movie failures. Other factors—like acting skills or marketing strategies—may carry more weight in determining a film’s success or downfall. The investigation continues as we delve deeper into the true causes behind box-office bombs.
+
+<div class="section-divider"></div>
 
 ### Part III: The Director's Enigma
 
