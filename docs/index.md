@@ -5,6 +5,8 @@ subtitle: "Unraveling the 🧬 DNA of Failed Films"
 cover-img: /assets/img/cover.jpeg
 ---
 
+<div class="mt-5"></div>
+
 # Welcome to the Movie Morgue 🔍
 
 Ever wondered why some movies crash and burn at the box office? Like how 'John Carter' lost Disney $200 million, or how 'Cats' became the stuff of Hollywood nightmares? We're not just talking about obvious flops - we're conducting a forensic analysis of over 42,000 films to uncover the hidden patterns behind cinematic disasters.
@@ -22,37 +24,45 @@ Join us as we piece together the clues and uncover the formula for box office fa
 
 Let the autopsy begin... 🎬
 
+
 ## Key Evidence 🔍
 
 <style>
 .viz-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
 }
 
 @media (max-width: 768px) {
-    .viz-container {
-        grid-template-columns: 1fr;
-    }
+  .viz-container {
+      grid-template-columns: 1fr;
+  }
 }
 
 .section-divider {
-    margin: 40px 0;
-    border-top: 2px solid #eee;
-    text-align: center;
+  margin: 40px 0;
+  border-top: 2px solid #eee;
+  text-align: center;
 }
 
 .full-width {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin: 20px 0;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 20px 0;
 }
+
+.emoji-large {
+  font-size: 4rem; /* Makes emojis larger */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
 </style>
 
 ### Part I: Signals of Failure
-<div class="plotly-visualization">
+<div class="container">
   {% include plotly/rq1_metrics_distribution.html %}
 </div>
 
@@ -68,12 +78,12 @@ Overall, the plot underscores that while better ratings slightly correlate with 
 ### Part II: The Actor's code: 
 To measure actor diversity in movies, We focused on four key factors: age, gender, height, and ethnicity, each capturing distinct aspects of diversity within the cast. Age diversity and height diversity, as continuous variables, were measured using the standard deviation, where higher values indicate a broader range of ages or physical stature among the cast. In contrast, gender diversity and ethnicity diversity, as categorical variables, were quantified using Shannon's entropy, which effectively measures the balance of categories. Higher entropy for gender represents a more equal distribution between male and female actors, while higher entropy for ethnicity indicates greater representation of diverse ethnic backgrounds. These metrics were analyzed in relation to each movie's average rating and box office revenue to explore how actor diversity impacts audience engagement and financial success.
 
-<div class="viz-container">
+<div class="row">
     <div class="plotly-visualization">
-        {% include plotly/rq2_revenue_boxplot.html %}
+      {% include plotly/rq2_revenue_boxplot.html %}
     </div>
     <div class="plotly-visualization">
-        {% include plotly/rq2_rating_boxplot.html %}
+      {% include plotly/rq2_rating_boxplot.html %}
     </div>
 </div>
 
@@ -346,6 +356,10 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 Questions:
 ### 6. Which tropes consistently lead to negative reception by genre?
 
+<div class="plotly-visualization">
+  {% include plotly/rq6_tropes.html %}
+</div>
+
 ### 7. What plots are the most common in movies that fail?
 
 <div class="plotly-visualization">
@@ -354,13 +368,68 @@ Questions:
 
 ### 8. How have low-rated tropes evolved over time, and what trends can be observed in their average ratings across different periods?
 
+Different tropes have been used in movies over the years, and some have consistently led to negative reception by audiences. Analyzing the frequency of these tropes across genres reveals interesting patterns. For example, the "Unhappy Ending" trope is prevalent in Drama and Romance films, while the "Love Triangle" trope is common in Romance and Comedy genres. By examining the distribution of these tropes across genres, we can identify which narrative elements are associated with negative audience reactions and box office failures.
+
 <div class="plotly-visualization">
   {% include plotly/rq8_tropes_counts.html %}
 </div>
 
+Analyzing the average score of low-rated tropes across different periods reveals interesting trends. While some tropes have consistently low ratings over time, others show significant variation. For example, the "Unhappy Ending" trope has maintained a low average score of around 5.5 since the 1920s, indicating a consistent negative reception from audiences. In contrast, the "Love Triangle" trope experienced a notable decline in average rating from the 1920s to the 1980s, followed by a slight recovery in the 1990s and 2000s. This suggests changing audience preferences and storytelling trends over the decades.
+
 <div class="plotly-visualization">
   {% include plotly/rq8_tropes_avg_scores.html %}
 </div>
+
+### 9. Which combinations of tropes are most likely to lead to box office failure?
+
+- Add cluster
+- Add network
+
+## Conclusion 🎬
+
+
+
+<section class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">About Our Detective Team</h2>
+    <div class="row text-center g-4">
+        <div class="col">
+            <div class="p-3 h-100 border-0 shadow-sm rounded">
+                <div class="emoji-large">🕵️‍♂️</div>
+                <h5 class="fw-bold mb-2">Jianan Xu</h5>
+                <p class="text-muted fst-italic">"Logic never fails"</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 h-100 border-0 shadow-sm rounded">
+                <div class="emoji-large">🕵️‍♂️</div>
+                <h5 class="fw-bold mb-2">Rizhong Li</h5>
+                <p class="text-muted fst-italic">"Truth hides in plain sight"</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 h-100 border-0 shadow-sm rounded">
+                <div class="emoji-large">🕵️‍♂️</div>
+                <h5 class="fw-bold mb-2">Angel Zenteno</h5>
+                <p class="text-muted fst-italic">"Every case tells a story"</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 h-100 border-0 shadow-sm rounded">
+                <div class="emoji-large">🕵️‍♀️</div>
+                <h5 class="fw-bold mb-2">Adriana Orellana</h5>
+                <p class="text-muted fst-italic">"Details make perfection"</p>
+            </div>
+        </div>
+        <!-- Detective 5 -->
+        <div class="col">
+            <div class="p-3 h-100 border-0 shadow-sm rounded">
+                <div class="emoji-large">🕵️‍♂️</div>
+                <h5 class="fw-bold mb-2">Raph Wegmann</h5>
+                <p class="text-muted fst-italic">"Mystery loves company"</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 ## Want to Know More? 
 
