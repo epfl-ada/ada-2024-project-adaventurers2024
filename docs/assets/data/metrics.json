@@ -1,0 +1,2002 @@
+[
+  {
+    "id": 10830,
+    "title": "Matilda",
+    "vote_average": 7.152,
+    "vote_count": 4043,
+    "revenue": 33459416,
+    "budget": 36000000,
+    "profit": -2540584,
+    "ROI": -0.07057177777777777
+  },
+  {
+    "id": 72996,
+    "title": "House of Fools",
+    "vote_average": 5.975,
+    "vote_count": 40,
+    "revenue": 157613,
+    "budget": 2500000,
+    "profit": -2342387,
+    "ROI": -0.9369548
+  },
+  {
+    "id": 4953,
+    "title": "Be Kind Rewind",
+    "vote_average": 6.293,
+    "vote_count": 1234,
+    "revenue": 30600000,
+    "budget": 20000000,
+    "profit": 10600000,
+    "ROI": 0.53
+  },
+  {
+    "id": 53487,
+    "title": "This Must Be the Place",
+    "vote_average": 7.001,
+    "vote_count": 1134,
+    "revenue": 11790979,
+    "budget": 25000000,
+    "profit": -13209021,
+    "ROI": -0.52836084
+  },
+  {
+    "id": 6171,
+    "title": "Dreamcatcher",
+    "vote_average": 5.573,
+    "vote_count": 1607,
+    "revenue": 75700000,
+    "budget": 68000000,
+    "profit": 7700000,
+    "ROI": 0.11323529411764706
+  },
+  {
+    "id": 11858,
+    "title": "Renaissance Man",
+    "vote_average": 6.112,
+    "vote_count": 268,
+    "revenue": 24332324,
+    "budget": 40000000,
+    "profit": -15667676,
+    "ROI": -0.3916919
+  },
+  {
+    "id": 9838,
+    "title": "King Solomon's Mines",
+    "vote_average": 5.499,
+    "vote_count": 367,
+    "revenue": 15057465,
+    "budget": 12500000,
+    "profit": 2557465,
+    "ROI": 0.2045972
+  },
+  {
+    "id": 177219,
+    "title": "The Sea Beast",
+    "vote_average": 6.7,
+    "vote_count": 3,
+    "revenue": 938000,
+    "budget": 503000,
+    "profit": 435000,
+    "ROI": 0.8648111332007953
+  },
+  {
+    "id": 8688,
+    "title": "Snake Eyes",
+    "vote_average": 6.139,
+    "vote_count": 1208,
+    "revenue": 103891409,
+    "budget": 73000000,
+    "profit": 30891409,
+    "ROI": 0.42316998630136987
+  },
+  {
+    "id": 10707,
+    "title": "The Squid and the Whale",
+    "vote_average": 6.952,
+    "vote_count": 855,
+    "revenue": 11098131,
+    "budget": 1500000,
+    "profit": 9598131,
+    "ROI": 6.398754
+  },
+  {
+    "id": 10588,
+    "title": "The Cat in the Hat",
+    "vote_average": 5.297,
+    "vote_count": 1516,
+    "revenue": 133800000,
+    "budget": 109000000,
+    "profit": 24800000,
+    "ROI": 0.22752293577981653
+  },
+  {
+    "id": 46717,
+    "title": "Intersection",
+    "vote_average": 5.123,
+    "vote_count": 145,
+    "revenue": 21355893,
+    "budget": 45000000,
+    "profit": -23644107,
+    "ROI": -0.5254246
+  },
+  {
+    "id": 22894,
+    "title": "Legion",
+    "vote_average": 5.819,
+    "vote_count": 2387,
+    "revenue": 67918658,
+    "budget": 26000000,
+    "profit": 41918658,
+    "ROI": 1.612256076923077
+  },
+  {
+    "id": 6466,
+    "title": "Freddy vs. Jason",
+    "vote_average": 6.037,
+    "vote_count": 2318,
+    "revenue": 116643421,
+    "budget": 30000000,
+    "profit": 86643421,
+    "ROI": 2.8881140333333333
+  },
+  {
+    "id": 10015,
+    "title": "Heartbreak Ridge",
+    "vote_average": 6.866,
+    "vote_count": 917,
+    "revenue": 42724017,
+    "budget": 15000000,
+    "profit": 27724017,
+    "ROI": 1.8482678
+  },
+  {
+    "id": 9771,
+    "title": "Major League: Back to the Minors",
+    "vote_average": 5.0,
+    "vote_count": 93,
+    "revenue": 3572443,
+    "budget": 18000000,
+    "profit": -14427557,
+    "ROI": -0.8015309444444444
+  },
+  {
+    "id": 19382,
+    "title": "Biloxi Blues",
+    "vote_average": 6.262,
+    "vote_count": 185,
+    "revenue": 51684798,
+    "budget": 20000000,
+    "profit": 31684798,
+    "ROI": 1.5842399
+  },
+  {
+    "id": 16866,
+    "title": "Planet 51",
+    "vote_average": 5.851,
+    "vote_count": 1891,
+    "revenue": 104945765,
+    "budget": 70000000,
+    "profit": 34945765,
+    "ROI": 0.49922521428571426
+  },
+  {
+    "id": 12238,
+    "title": "The Night Flier",
+    "vote_average": 6.014,
+    "vote_count": 210,
+    "revenue": 91549,
+    "budget": 1000000,
+    "profit": -908451,
+    "ROI": -0.908451
+  },
+  {
+    "id": 8999,
+    "title": "Derailed",
+    "vote_average": 6.32,
+    "vote_count": 933,
+    "revenue": 57479076,
+    "budget": 22000000,
+    "profit": 35479076,
+    "ROI": 1.6126852727272727
+  },
+  {
+    "id": 32620,
+    "title": "The Drowning Pool",
+    "vote_average": 6.4,
+    "vote_count": 103,
+    "revenue": 2600000,
+    "budget": 2700000,
+    "profit": -100000,
+    "ROI": -0.037037037037037035
+  },
+  {
+    "id": 9870,
+    "title": "Forgetting Sarah Marshall",
+    "vote_average": 6.481,
+    "vote_count": 3132,
+    "revenue": 105173115,
+    "budget": 30000000,
+    "profit": 75173115,
+    "ROI": 2.5057705
+  },
+  {
+    "id": 9713,
+    "title": "Holy Man",
+    "vote_average": 5.2,
+    "vote_count": 379,
+    "revenue": 12069719,
+    "budget": 60000000,
+    "profit": -47930281,
+    "ROI": -0.7988380166666667
+  },
+  {
+    "id": 9320,
+    "title": "The Avengers",
+    "vote_average": 4.379,
+    "vote_count": 638,
+    "revenue": 48585416,
+    "budget": 60000000,
+    "profit": -11414584,
+    "ROI": -0.19024306666666665
+  },
+  {
+    "id": 687,
+    "title": "Dead Man Walking",
+    "vote_average": 7.344,
+    "vote_count": 1225,
+    "revenue": 39363635,
+    "budget": 11000000,
+    "profit": 28363635,
+    "ROI": 2.5785122727272727
+  },
+  {
+    "id": 15139,
+    "title": "The Pagemaster",
+    "vote_average": 6.382,
+    "vote_count": 687,
+    "revenue": 13670688,
+    "budget": 27000000,
+    "profit": -13329312,
+    "ROI": -0.49367822222222224
+  },
+  {
+    "id": 10216,
+    "title": "Species II",
+    "vote_average": 5.141,
+    "vote_count": 615,
+    "revenue": 19165560,
+    "budget": 35000000,
+    "profit": -15834440,
+    "ROI": -0.45241257142857144
+  },
+  {
+    "id": 47644,
+    "title": "Spirit of the Forest",
+    "vote_average": 6.0,
+    "vote_count": 6,
+    "revenue": 295000,
+    "budget": 5730000,
+    "profit": -5435000,
+    "ROI": -0.9485165794066318
+  },
+  {
+    "id": 13939,
+    "title": "Death Wish",
+    "vote_average": 6.896,
+    "vote_count": 730,
+    "revenue": 22000000,
+    "budget": 3000000,
+    "profit": 19000000,
+    "ROI": 6.333333333333333
+  },
+  {
+    "id": 21311,
+    "title": "I Dreamed of Africa",
+    "vote_average": 5.5,
+    "vote_count": 68,
+    "revenue": 14400327,
+    "budget": 34000000,
+    "profit": -19599673,
+    "ROI": -0.5764609705882353
+  },
+  {
+    "id": 9424,
+    "title": "Disturbing Behavior",
+    "vote_average": 5.7,
+    "vote_count": 317,
+    "revenue": 17514980,
+    "budget": 15000000,
+    "profit": 2514980,
+    "ROI": 0.16766533333333333
+  },
+  {
+    "id": 41211,
+    "title": "Heartbreaker",
+    "vote_average": 6.651,
+    "vote_count": 1254,
+    "revenue": 47355187,
+    "budget": 8700000,
+    "profit": 38655187,
+    "ROI": 4.443124942528736
+  },
+  {
+    "id": 240214,
+    "title": "Thenkasipattanam",
+    "vote_average": 7.6,
+    "vote_count": 15,
+    "revenue": 2,
+    "budget": 640000,
+    "profit": -639998,
+    "ROI": -0.999996875
+  },
+  {
+    "id": 19,
+    "title": "Metropolis",
+    "vote_average": 8.153,
+    "vote_count": 2430,
+    "revenue": 650422,
+    "budget": 1300000,
+    "profit": -649578,
+    "ROI": -0.49967538461538463
+  },
+  {
+    "id": 22825,
+    "title": "The Box",
+    "vote_average": 5.578,
+    "vote_count": 1625,
+    "revenue": 33333531,
+    "budget": 30000000,
+    "profit": 3333531,
+    "ROI": 0.1111177
+  },
+  {
+    "id": 2654,
+    "title": "In the Mouth of Madness",
+    "vote_average": 7.216,
+    "vote_count": 1465,
+    "revenue": 8946600,
+    "budget": 8000000,
+    "profit": 946600,
+    "ROI": 0.118325
+  },
+  {
+    "id": 43515,
+    "title": "The Sky's the Limit",
+    "vote_average": 6.1,
+    "vote_count": 18,
+    "revenue": 2185000,
+    "budget": 871000,
+    "profit": 1314000,
+    "ROI": 1.5086107921928817
+  },
+  {
+    "id": 10207,
+    "title": "Message in a Bottle",
+    "vote_average": 6.202,
+    "vote_count": 712,
+    "revenue": 118880016,
+    "budget": 80000000,
+    "profit": 38880016,
+    "ROI": 0.4860002
+  },
+  {
+    "id": 9563,
+    "title": "Any Given Sunday",
+    "vote_average": 6.831,
+    "vote_count": 1499,
+    "revenue": 100230832,
+    "budget": 55000000,
+    "profit": 45230832,
+    "ROI": 0.8223787636363636
+  },
+  {
+    "id": 44009,
+    "title": "Another Year",
+    "vote_average": 6.984,
+    "vote_count": 347,
+    "revenue": 18124262,
+    "budget": 8000000,
+    "profit": 10124262,
+    "ROI": 1.26553275
+  },
+  {
+    "id": 16248,
+    "title": "D.A.R.Y.L.",
+    "vote_average": 6.324,
+    "vote_count": 296,
+    "revenue": 7840873,
+    "budget": 10000000,
+    "profit": -2159127,
+    "ROI": -0.2159127
+  },
+  {
+    "id": 4543,
+    "title": "Monty Python's The Meaning of Life",
+    "vote_average": 7.32,
+    "vote_count": 1692,
+    "revenue": 14949697,
+    "budget": 9000000,
+    "profit": 5949697,
+    "ROI": 0.6610774444444445
+  },
+  {
+    "id": 816,
+    "title": "Austin Powers: International Man of Mystery",
+    "vote_average": 6.553,
+    "vote_count": 3084,
+    "revenue": 67711748,
+    "budget": 16500000,
+    "profit": 51211748,
+    "ROI": 3.103742303030303
+  },
+  {
+    "id": 379049,
+    "title": "Pink Panzer",
+    "vote_average": 7.429,
+    "vote_count": 7,
+    "revenue": 15788,
+    "budget": 15788,
+    "profit": 0,
+    "ROI": 0.0
+  },
+  {
+    "id": 38357,
+    "title": "Morning Glory",
+    "vote_average": 6.34,
+    "vote_count": 1366,
+    "revenue": 60040976,
+    "budget": 40000000,
+    "profit": 20040976,
+    "ROI": 0.5010244
+  },
+  {
+    "id": 14365,
+    "title": "Killing Me Softly",
+    "vote_average": 5.452,
+    "vote_count": 271,
+    "revenue": 7775138,
+    "budget": 25000000,
+    "profit": -17224862,
+    "ROI": -0.68899448
+  },
+  {
+    "id": 87818,
+    "title": "Movie 43",
+    "vote_average": 4.577,
+    "vote_count": 2146,
+    "revenue": 32438988,
+    "budget": 6000000,
+    "profit": 26438988,
+    "ROI": 4.406498
+  },
+  {
+    "id": 26452,
+    "title": "Hercules",
+    "vote_average": 4.939,
+    "vote_count": 90,
+    "revenue": 10676194,
+    "budget": 2500000,
+    "profit": 8176194,
+    "ROI": 3.2704776
+  },
+  {
+    "id": 5146,
+    "title": "The In-Laws",
+    "vote_average": 5.6,
+    "vote_count": 250,
+    "revenue": 26800000,
+    "budget": 40000000,
+    "profit": -13200000,
+    "ROI": -0.33
+  },
+  {
+    "id": 24197,
+    "title": "Mr. & Mrs. Smith",
+    "vote_average": 6.233,
+    "vote_count": 178,
+    "revenue": 1400000,
+    "budget": 743000,
+    "profit": 657000,
+    "ROI": 0.8842530282637954
+  },
+  {
+    "id": 6917,
+    "title": "The Gate",
+    "vote_average": 5.998,
+    "vote_count": 325,
+    "revenue": 13539458,
+    "budget": 2500000,
+    "profit": 11039458,
+    "ROI": 4.4157832
+  },
+  {
+    "id": 22949,
+    "title": "Old Dogs",
+    "vote_average": 5.493,
+    "vote_count": 675,
+    "revenue": 96753696,
+    "budget": 35000000,
+    "profit": 61753696,
+    "ROI": 1.7643913142857144
+  },
+  {
+    "id": 179,
+    "title": "The Interpreter",
+    "vote_average": 6.294,
+    "vote_count": 1320,
+    "revenue": 162944923,
+    "budget": 80000000,
+    "profit": 82944923,
+    "ROI": 1.0368115375
+  },
+  {
+    "id": 22066,
+    "title": "The Marsh",
+    "vote_average": 4.9,
+    "vote_count": 55,
+    "revenue": 2429573,
+    "budget": 9000000,
+    "profit": -6570427,
+    "ROI": -0.7300474444444445
+  },
+  {
+    "id": 33851,
+    "title": "A Prayer for the Dying",
+    "vote_average": 5.753,
+    "vote_count": 75,
+    "revenue": 1432687,
+    "budget": 6000000,
+    "profit": -4567313,
+    "ROI": -0.7612188333333333
+  },
+  {
+    "id": 3109,
+    "title": "The Quiet Man",
+    "vote_average": 7.309,
+    "vote_count": 461,
+    "revenue": 3800000,
+    "budget": 1750000,
+    "profit": 2050000,
+    "ROI": 1.1714285714285715
+  },
+  {
+    "id": 16380,
+    "title": "When Worlds Collide",
+    "vote_average": 6.287,
+    "vote_count": 157,
+    "revenue": 1600000,
+    "budget": 936000,
+    "profit": 664000,
+    "ROI": 0.7094017094017094
+  },
+  {
+    "id": 1417,
+    "title": "Pan's Labyrinth",
+    "vote_average": 7.757,
+    "vote_count": 9839,
+    "revenue": 83258226,
+    "budget": 19000000,
+    "profit": 64258226,
+    "ROI": 3.3820118947368423
+  },
+  {
+    "id": 97630,
+    "title": "Zero Dark Thirty",
+    "vote_average": 6.981,
+    "vote_count": 4154,
+    "revenue": 132820716,
+    "budget": 40000000,
+    "profit": 92820716,
+    "ROI": 2.3205179
+  },
+  {
+    "id": 13572,
+    "title": "Twisted",
+    "vote_average": 5.541,
+    "vote_count": 475,
+    "revenue": 40954603,
+    "budget": 50000000,
+    "profit": -9045397,
+    "ROI": -0.18090794
+  },
+  {
+    "id": 13477,
+    "title": "When in Rome",
+    "vote_average": 5.982,
+    "vote_count": 1136,
+    "revenue": 43042835,
+    "budget": 55000000,
+    "profit": -11957165,
+    "ROI": -0.217403
+  },
+  {
+    "id": 149,
+    "title": "Akira",
+    "vote_average": 7.946,
+    "vote_count": 3727,
+    "revenue": 553171,
+    "budget": 10000000,
+    "profit": -9446829,
+    "ROI": -0.9446829
+  },
+  {
+    "id": 9353,
+    "title": "Nacho Libre",
+    "vote_average": 6.368,
+    "vote_count": 1427,
+    "revenue": 99255460,
+    "budget": 35000000,
+    "profit": 64255460,
+    "ROI": 1.8358702857142857
+  },
+  {
+    "id": 9618,
+    "title": "Tango & Cash",
+    "vote_average": 6.422,
+    "vote_count": 1710,
+    "revenue": 63408614,
+    "budget": 55000000,
+    "profit": 8408614,
+    "ROI": 0.1528838909090909
+  },
+  {
+    "id": 119645,
+    "title": "The Adventures of Marco Polo",
+    "vote_average": 5.9,
+    "vote_count": 11,
+    "revenue": 1700000,
+    "budget": 2000000,
+    "profit": -300000,
+    "ROI": -0.15
+  },
+  {
+    "id": 11305,
+    "title": "Mystery Train",
+    "vote_average": 7.255,
+    "vote_count": 385,
+    "revenue": 1544973,
+    "budget": 2800000,
+    "profit": -1255027,
+    "ROI": -0.44822392857142856
+  },
+  {
+    "id": 20391,
+    "title": "Paint Your Wagon",
+    "vote_average": 6.4,
+    "vote_count": 214,
+    "revenue": 31678778,
+    "budget": 20000000,
+    "profit": 11678778,
+    "ROI": 0.5839389
+  },
+  {
+    "id": 20763,
+    "title": "Radio Flyer",
+    "vote_average": 7.025,
+    "vote_count": 178,
+    "revenue": 4651977,
+    "budget": 35000000,
+    "profit": -30348023,
+    "ROI": -0.8670863714285715
+  },
+  {
+    "id": 13460,
+    "title": "Doomsday",
+    "vote_average": 5.948,
+    "vote_count": 1174,
+    "revenue": 22472631,
+    "budget": 30000000,
+    "profit": -7527369,
+    "ROI": -0.2509123
+  },
+  {
+    "id": 967,
+    "title": "Spartacus",
+    "vote_average": 7.55,
+    "vote_count": 1931,
+    "revenue": 60000000,
+    "budget": 12000000,
+    "profit": 48000000,
+    "ROI": 4.0
+  },
+  {
+    "id": 5185,
+    "title": "The Private Life of Sherlock Holmes",
+    "vote_average": 6.841,
+    "vote_count": 251,
+    "revenue": 1500000,
+    "budget": 10000000,
+    "profit": -8500000,
+    "ROI": -0.85
+  },
+  {
+    "id": 7007,
+    "title": "Rising Sun",
+    "vote_average": 6.132,
+    "vote_count": 671,
+    "revenue": 107198790,
+    "budget": 40000000,
+    "profit": 67198790,
+    "ROI": 1.67996975
+  },
+  {
+    "id": 10952,
+    "title": "New Jack City",
+    "vote_average": 6.556,
+    "vote_count": 463,
+    "revenue": 47624253,
+    "budget": 8500000,
+    "profit": 39124253,
+    "ROI": 4.602853294117647
+  },
+  {
+    "id": 37903,
+    "title": "The White Ribbon",
+    "vote_average": 7.5,
+    "vote_count": 931,
+    "revenue": 11652157,
+    "budget": 21555450,
+    "profit": -9903293,
+    "ROI": -0.45943336835927806
+  },
+  {
+    "id": 11850,
+    "title": "Invasion of the Body Snatchers",
+    "vote_average": 7.192,
+    "vote_count": 937,
+    "revenue": 24946533,
+    "budget": 3500000,
+    "profit": 21446533,
+    "ROI": 6.127580857142857
+  },
+  {
+    "id": 11531,
+    "title": "Book of Shadows: Blair Witch 2",
+    "vote_average": 4.2,
+    "vote_count": 729,
+    "revenue": 47737094,
+    "budget": 15000000,
+    "profit": 32737094,
+    "ROI": 2.1824729333333335
+  },
+  {
+    "id": 1645,
+    "title": "A Time to Kill",
+    "vote_average": 7.381,
+    "vote_count": 2252,
+    "revenue": 152266007,
+    "budget": 40000000,
+    "profit": 112266007,
+    "ROI": 2.806650175
+  },
+  {
+    "id": 11507,
+    "title": "Body Double",
+    "vote_average": 6.733,
+    "vote_count": 690,
+    "revenue": 8801940,
+    "budget": 10000000,
+    "profit": -1198060,
+    "ROI": -0.119806
+  },
+  {
+    "id": 1116,
+    "title": "The Wind That Shakes the Barley",
+    "vote_average": 7.362,
+    "vote_count": 695,
+    "revenue": 22889018,
+    "budget": 6500000,
+    "profit": 16389018,
+    "ROI": 2.5213873846153847
+  },
+  {
+    "id": 15655,
+    "title": "The Tigger Movie",
+    "vote_average": 6.511,
+    "vote_count": 514,
+    "revenue": 45554533,
+    "budget": 30000000,
+    "profit": 15554533,
+    "ROI": 0.5184844333333334
+  },
+  {
+    "id": 11209,
+    "title": "The Alamo",
+    "vote_average": 7.177,
+    "vote_count": 308,
+    "revenue": 7900000,
+    "budget": 12000000,
+    "profit": -4100000,
+    "ROI": -0.3416666666666667
+  },
+  {
+    "id": 45840,
+    "title": "Best Friends",
+    "vote_average": 5.128,
+    "vote_count": 39,
+    "revenue": 36800000,
+    "budget": 15000000,
+    "profit": 21800000,
+    "ROI": 1.4533333333333334
+  },
+  {
+    "id": 15373,
+    "title": "Role Models",
+    "vote_average": 6.492,
+    "vote_count": 1723,
+    "revenue": 92380927,
+    "budget": 28000000,
+    "profit": 64380927,
+    "ROI": 2.2993188214285714
+  },
+  {
+    "id": 47760,
+    "title": "Restless",
+    "vote_average": 6.478,
+    "vote_count": 372,
+    "revenue": 2518012,
+    "budget": 8000000,
+    "profit": -5481988,
+    "ROI": -0.6852485
+  },
+  {
+    "id": 61400,
+    "title": "Thank You",
+    "vote_average": 5.293,
+    "vote_count": 46,
+    "revenue": 4100000,
+    "budget": 13100000,
+    "profit": -9000000,
+    "ROI": -0.6870229007633588
+  },
+  {
+    "id": 9540,
+    "title": "Dead Ringers",
+    "vote_average": 7.1,
+    "vote_count": 771,
+    "revenue": 8038508,
+    "budget": 13000000,
+    "profit": -4961492,
+    "ROI": -0.38165323076923074
+  },
+  {
+    "id": 44549,
+    "title": "Peepli Live",
+    "vote_average": 7.2,
+    "vote_count": 60,
+    "revenue": 6900000,
+    "budget": 2270000,
+    "profit": 4630000,
+    "ROI": 2.039647577092511
+  },
+  {
+    "id": 9682,
+    "title": "Pulse",
+    "vote_average": 5.009,
+    "vote_count": 462,
+    "revenue": 29907685,
+    "budget": 38000000,
+    "profit": -8092315,
+    "ROI": -0.21295565789473683
+  },
+  {
+    "id": 12647,
+    "title": "Billy Bathgate",
+    "vote_average": 5.747,
+    "vote_count": 194,
+    "revenue": 15565363,
+    "budget": 48000000,
+    "profit": -32434637,
+    "ROI": -0.6757216041666667
+  },
+  {
+    "id": 22309,
+    "title": "The Fighting Temptations",
+    "vote_average": 5.729,
+    "vote_count": 120,
+    "revenue": 30238577,
+    "budget": 15000000,
+    "profit": 15238577,
+    "ROI": 1.0159051333333333
+  },
+  {
+    "id": 15660,
+    "title": "Mommie Dearest",
+    "vote_average": 6.395,
+    "vote_count": 177,
+    "revenue": 5000000,
+    "budget": 19032261,
+    "profit": -14032261,
+    "ROI": -0.7372881761131796
+  },
+  {
+    "id": 9729,
+    "title": "Where the Truth Lies",
+    "vote_average": 6.163,
+    "vote_count": 251,
+    "revenue": 3500000,
+    "budget": 25000000,
+    "profit": -21500000,
+    "ROI": -0.86
+  },
+  {
+    "id": 14902,
+    "title": "1776",
+    "vote_average": 6.977,
+    "vote_count": 65,
+    "revenue": 2800000,
+    "budget": 6000000,
+    "profit": -3200000,
+    "ROI": -0.5333333333333333
+  },
+  {
+    "id": 20825,
+    "title": "I Hate Valentine's Day",
+    "vote_average": 5.4,
+    "vote_count": 251,
+    "revenue": 4243957,
+    "budget": 3000000,
+    "profit": 1243957,
+    "ROI": 0.41465233333333334
+  },
+  {
+    "id": 27791,
+    "title": "Strangeland",
+    "vote_average": 4.888,
+    "vote_count": 112,
+    "revenue": 631221,
+    "budget": 1100000,
+    "profit": -468779,
+    "ROI": -0.42616272727272725
+  },
+  {
+    "id": 210994,
+    "title": "Army Daze",
+    "vote_average": 7.0,
+    "vote_count": 2,
+    "revenue": 1160000,
+    "budget": 507000,
+    "profit": 653000,
+    "ROI": 1.2879684418145956
+  },
+  {
+    "id": 11145,
+    "title": "The Electric Horseman",
+    "vote_average": 6.06,
+    "vote_count": 126,
+    "revenue": 61801971,
+    "budget": 12500000,
+    "profit": 49301971,
+    "ROI": 3.94415768
+  },
+  {
+    "id": 20701,
+    "title": "Tales from the Darkside: The Movie",
+    "vote_average": 6.201,
+    "vote_count": 334,
+    "revenue": 16324573,
+    "budget": 3500000,
+    "profit": 12824573,
+    "ROI": 3.6641637142857144
+  },
+  {
+    "id": 24982,
+    "title": "Ghosts of the Abyss",
+    "vote_average": 6.851,
+    "vote_count": 174,
+    "revenue": 17040871,
+    "budget": 13000000,
+    "profit": 4040871,
+    "ROI": 0.3108362307692308
+  },
+  {
+    "id": 9685,
+    "title": "Igby Goes Down",
+    "vote_average": 6.578,
+    "vote_count": 258,
+    "revenue": 4777465,
+    "budget": 9000000,
+    "profit": -4222535,
+    "ROI": -0.46917055555555554
+  },
+  {
+    "id": 11528,
+    "title": "The Sandlot",
+    "vote_average": 7.521,
+    "vote_count": 1048,
+    "revenue": 34348444,
+    "budget": 7000000,
+    "profit": 27348444,
+    "ROI": 3.9069205714285715
+  },
+  {
+    "id": 205133,
+    "title": "Pickled Pink",
+    "vote_average": 6.727,
+    "vote_count": 11,
+    "revenue": 2436635,
+    "budget": 2436635,
+    "profit": 0,
+    "ROI": 0.0
+  },
+  {
+    "id": 14554,
+    "title": "Bad Day at Black Rock",
+    "vote_average": 7.288,
+    "vote_count": 326,
+    "revenue": 3788000,
+    "budget": 1271000,
+    "profit": 2517000,
+    "ROI": 1.9803304484657749
+  },
+  {
+    "id": 926,
+    "title": "Galaxy Quest",
+    "vote_average": 7.062,
+    "vote_count": 1991,
+    "revenue": 90683916,
+    "budget": 45000000,
+    "profit": 45683916,
+    "ROI": 1.0151981333333333
+  },
+  {
+    "id": 37641,
+    "title": "Elvis Has Left the Building",
+    "vote_average": 5.281,
+    "vote_count": 48,
+    "revenue": 152547,
+    "budget": 11500000,
+    "profit": -11347453,
+    "ROI": -0.9867350434782609
+  },
+  {
+    "id": 66530,
+    "title": "Gentleman",
+    "vote_average": 7.2,
+    "vote_count": 14,
+    "revenue": 2200000,
+    "budget": 720000,
+    "profit": 1480000,
+    "ROI": 2.0555555555555554
+  },
+  {
+    "id": 82469,
+    "title": "The Kick",
+    "vote_average": 5.132,
+    "vote_count": 34,
+    "revenue": 517069,
+    "budget": 3500000,
+    "profit": -2982931,
+    "ROI": -0.852266
+  },
+  {
+    "id": 9306,
+    "title": "The Island of Dr. Moreau",
+    "vote_average": 4.863,
+    "vote_count": 477,
+    "revenue": 49627779,
+    "budget": 40000000,
+    "profit": 9627779,
+    "ROI": 0.240694475
+  },
+  {
+    "id": 11546,
+    "title": "Police Academy: Mission to Moscow",
+    "vote_average": 4.5,
+    "vote_count": 769,
+    "revenue": 126247,
+    "budget": 10000000,
+    "profit": -9873753,
+    "ROI": -0.9873753
+  },
+  {
+    "id": 6278,
+    "title": "Reign of Fire",
+    "vote_average": 6.163,
+    "vote_count": 2050,
+    "revenue": 82150183,
+    "budget": 60000000,
+    "profit": 22150183,
+    "ROI": 0.36916971666666665
+  },
+  {
+    "id": 77948,
+    "title": "The Cold Light of Day",
+    "vote_average": 5.258,
+    "vote_count": 801,
+    "revenue": 16863583,
+    "budget": 20000000,
+    "profit": -3136417,
+    "ROI": -0.15682085
+  },
+  {
+    "id": 69413,
+    "title": "Ji",
+    "vote_average": 5.1,
+    "vote_count": 6,
+    "revenue": 500000,
+    "budget": 500000,
+    "profit": 0,
+    "ROI": 0.0
+  },
+  {
+    "id": 35849,
+    "title": "Hangover Square",
+    "vote_average": 6.8,
+    "vote_count": 52,
+    "revenue": 1798500,
+    "budget": 1154000,
+    "profit": 644500,
+    "ROI": 0.5584922010398613
+  },
+  {
+    "id": 22597,
+    "title": "The Broken Hearts Club: A Romantic Comedy",
+    "vote_average": 6.533,
+    "vote_count": 76,
+    "revenue": 1744858,
+    "budget": 1000000,
+    "profit": 744858,
+    "ROI": 0.744858
+  },
+  {
+    "id": 11067,
+    "title": "Major League II",
+    "vote_average": 5.717,
+    "vote_count": 292,
+    "revenue": 30626182,
+    "budget": 25000000,
+    "profit": 5626182,
+    "ROI": 0.22504728
+  },
+  {
+    "id": 69424,
+    "title": "Unnai Kodu Ennai Tharuven",
+    "vote_average": 5.0,
+    "vote_count": 2,
+    "revenue": 500000,
+    "budget": 500000,
+    "profit": 0,
+    "ROI": 0.0
+  },
+  {
+    "id": 463317,
+    "title": "Barood",
+    "vote_average": 7.2,
+    "vote_count": 3,
+    "revenue": 10000000,
+    "budget": 6200000,
+    "profit": 3800000,
+    "ROI": 0.6129032258064516
+  },
+  {
+    "id": 42121,
+    "title": "Tender Mercies",
+    "vote_average": 6.579,
+    "vote_count": 108,
+    "revenue": 8400000,
+    "budget": 4500000,
+    "profit": 3900000,
+    "ROI": 0.8666666666666667
+  },
+  {
+    "id": 138370,
+    "title": "Luv Shuv Tey Chicken Khurana",
+    "vote_average": 6.3,
+    "vote_count": 15,
+    "revenue": 1600000,
+    "budget": 460000,
+    "profit": 1140000,
+    "ROI": 2.4782608695652173
+  },
+  {
+    "id": 2044,
+    "title": "The Lake House",
+    "vote_average": 6.989,
+    "vote_count": 2507,
+    "revenue": 114830111,
+    "budget": 40000000,
+    "profit": 74830111,
+    "ROI": 1.870752775
+  },
+  {
+    "id": 30593,
+    "title": "Heavy Traffic",
+    "vote_average": 6.3,
+    "vote_count": 58,
+    "revenue": 1500000,
+    "budget": 950000,
+    "profit": 550000,
+    "ROI": 0.5789473684210527
+  },
+  {
+    "id": 33055,
+    "title": "Murphy's Law",
+    "vote_average": 6.046,
+    "vote_count": 130,
+    "revenue": 9947631,
+    "budget": 6000000,
+    "profit": 3947631,
+    "ROI": 0.6579385
+  },
+  {
+    "id": 152992,
+    "title": "The Wayward Bus",
+    "vote_average": 6.333,
+    "vote_count": 12,
+    "revenue": 1750000,
+    "budget": 1465000,
+    "profit": 285000,
+    "ROI": 0.1945392491467577
+  },
+  {
+    "id": 74465,
+    "title": "We Bought a Zoo",
+    "vote_average": 6.765,
+    "vote_count": 2502,
+    "revenue": 120081841,
+    "budget": 50000000,
+    "profit": 70081841,
+    "ROI": 1.40163682
+  },
+  {
+    "id": 22256,
+    "title": "Without Limits",
+    "vote_average": 6.414,
+    "vote_count": 64,
+    "revenue": 777423,
+    "budget": 25000000,
+    "profit": -24222577,
+    "ROI": -0.96890308
+  },
+  {
+    "id": 4638,
+    "title": "Hot Fuzz",
+    "vote_average": 7.554,
+    "vote_count": 6929,
+    "revenue": 80573774,
+    "budget": 12000000,
+    "profit": 68573774,
+    "ROI": 5.714481166666666
+  },
+  {
+    "id": 42669,
+    "title": "Five Star Final",
+    "vote_average": 6.8,
+    "vote_count": 27,
+    "revenue": 822000,
+    "budget": 310000,
+    "profit": 512000,
+    "ROI": 1.6516129032258065
+  },
+  {
+    "id": 13405,
+    "title": "The Children of Huang Shi",
+    "vote_average": 6.719,
+    "vote_count": 139,
+    "revenue": 7785317,
+    "budget": 40000000,
+    "profit": -32214683,
+    "ROI": -0.805367075
+  },
+  {
+    "id": 23574,
+    "title": "What a Way to Go!",
+    "vote_average": 7.1,
+    "vote_count": 66,
+    "revenue": 13298000,
+    "budget": 20000000,
+    "profit": -6702000,
+    "ROI": -0.3351
+  },
+  {
+    "id": 12763,
+    "title": "Take the Lead",
+    "vote_average": 6.9,
+    "vote_count": 642,
+    "revenue": 65742992,
+    "budget": 30000000,
+    "profit": 35742992,
+    "ROI": 1.1914330666666666
+  },
+  {
+    "id": 39264,
+    "title": "Godzilla vs. Megalon",
+    "vote_average": 6.161,
+    "vote_count": 168,
+    "revenue": 980000,
+    "budget": 760000,
+    "profit": 220000,
+    "ROI": 0.2894736842105263
+  },
+  {
+    "id": 3176,
+    "title": "Battle Royale",
+    "vote_average": 7.289,
+    "vote_count": 3080,
+    "revenue": 30600000,
+    "budget": 4500000,
+    "profit": 26100000,
+    "ROI": 5.8
+  },
+  {
+    "id": 104221,
+    "title": "Emma",
+    "vote_average": 6.4,
+    "vote_count": 9,
+    "revenue": 1972000,
+    "budget": 350000,
+    "profit": 1622000,
+    "ROI": 4.634285714285714
+  },
+  {
+    "id": 20306,
+    "title": "Swimming with Sharks",
+    "vote_average": 6.617,
+    "vote_count": 278,
+    "revenue": 382928,
+    "budget": 700000,
+    "profit": -317072,
+    "ROI": -0.45296
+  },
+  {
+    "id": 70388,
+    "title": "Josh",
+    "vote_average": 5.3,
+    "vote_count": 6,
+    "revenue": 6909775,
+    "budget": 1919382,
+    "profit": 4990393,
+    "ROI": 2.599999895799794
+  },
+  {
+    "id": 14517,
+    "title": "MirrorMask",
+    "vote_average": 6.462,
+    "vote_count": 299,
+    "revenue": 973613,
+    "budget": 4000000,
+    "profit": -3026387,
+    "ROI": -0.75659675
+  },
+  {
+    "id": 13991,
+    "title": "College",
+    "vote_average": 4.7,
+    "vote_count": 144,
+    "revenue": 6265483,
+    "budget": 7000000,
+    "profit": -734517,
+    "ROI": -0.104931
+  },
+  {
+    "id": 11798,
+    "title": "This Is England",
+    "vote_average": 7.5,
+    "vote_count": 1128,
+    "revenue": 8176544,
+    "budget": 2380000,
+    "profit": 5796544,
+    "ROI": 2.43552268907563
+  },
+  {
+    "id": 11244,
+    "title": "The Meteor Man",
+    "vote_average": 5.719,
+    "vote_count": 155,
+    "revenue": 8016708,
+    "budget": 20000000,
+    "profit": -11983292,
+    "ROI": -0.5991646
+  },
+  {
+    "id": 27786,
+    "title": "Steel Dawn",
+    "vote_average": 5.0,
+    "vote_count": 92,
+    "revenue": 562187,
+    "budget": 3520000,
+    "profit": -2957813,
+    "ROI": -0.8402877840909091
+  },
+  {
+    "id": 86719,
+    "title": "Bodyguard",
+    "vote_average": 5.0,
+    "vote_count": 6,
+    "revenue": 9000000,
+    "budget": 8000000,
+    "profit": 1000000,
+    "ROI": 0.125
+  },
+  {
+    "id": 10133,
+    "title": "Cypher",
+    "vote_average": 6.654,
+    "vote_count": 505,
+    "revenue": 898365,
+    "budget": 7500000,
+    "profit": -6601635,
+    "ROI": -0.880218
+  },
+  {
+    "id": 41630,
+    "title": "No Strings Attached",
+    "vote_average": 6.289,
+    "vote_count": 4381,
+    "revenue": 149228077,
+    "budget": 25000000,
+    "profit": 124228077,
+    "ROI": 4.96912308
+  },
+  {
+    "id": 2054,
+    "title": "Mr. Holland's Opus",
+    "vote_average": 6.972,
+    "vote_count": 370,
+    "revenue": 106269971,
+    "budget": 31000000,
+    "profit": 75269971,
+    "ROI": 2.428063580645161
+  },
+  {
+    "id": 33454,
+    "title": "Scaramouche",
+    "vote_average": 7.049,
+    "vote_count": 82,
+    "revenue": 6746000,
+    "budget": 3005000,
+    "profit": 3741000,
+    "ROI": 1.2449251247920132
+  },
+  {
+    "id": 115873,
+    "title": "The Angrez",
+    "vote_average": 7.2,
+    "vote_count": 7,
+    "revenue": 300000,
+    "budget": 50000,
+    "profit": 250000,
+    "ROI": 5.0
+  },
+  {
+    "id": 10514,
+    "title": "The Andromeda Strain",
+    "vote_average": 7.042,
+    "vote_count": 613,
+    "revenue": 12376563,
+    "budget": 6500000,
+    "profit": 5876563,
+    "ROI": 0.9040866153846154
+  },
+  {
+    "id": 9691,
+    "title": "Assassins",
+    "vote_average": 6.48,
+    "vote_count": 1406,
+    "revenue": 30303072,
+    "budget": 50000000,
+    "profit": -19696928,
+    "ROI": -0.39393856
+  },
+  {
+    "id": 48482,
+    "title": "Thief of Hearts",
+    "vote_average": 5.347,
+    "vote_count": 36,
+    "revenue": 10364904,
+    "budget": 9000000,
+    "profit": 1364904,
+    "ROI": 0.151656
+  },
+  {
+    "id": 3309,
+    "title": "Mildred Pierce",
+    "vote_average": 7.597,
+    "vote_count": 349,
+    "revenue": 5638000,
+    "budget": 1453000,
+    "profit": 4185000,
+    "ROI": 2.8802477632484513
+  },
+  {
+    "id": 193388,
+    "title": "The Nightingale's Prayer",
+    "vote_average": 7.8,
+    "vote_count": 25,
+    "revenue": 200000,
+    "budget": 150000,
+    "profit": 50000,
+    "ROI": 0.3333333333333333
+  },
+  {
+    "id": 32519,
+    "title": "Kiss Me, Guido",
+    "vote_average": 5.096,
+    "vote_count": 26,
+    "revenue": 1918497,
+    "budget": 740000,
+    "profit": 1178497,
+    "ROI": 1.5925635135135134
+  },
+  {
+    "id": 50099,
+    "title": "Break Ke Baad",
+    "vote_average": 5.833,
+    "vote_count": 36,
+    "revenue": 427628,
+    "budget": 2600000,
+    "profit": -2172372,
+    "ROI": -0.8355276923076923
+  },
+  {
+    "id": 11470,
+    "title": "Jason X",
+    "vote_average": 4.834,
+    "vote_count": 1200,
+    "revenue": 16951798,
+    "budget": 11000000,
+    "profit": 5951798,
+    "ROI": 0.5410725454545454
+  },
+  {
+    "id": 909,
+    "title": "Meet Me in St. Louis",
+    "vote_average": 7.005,
+    "vote_count": 323,
+    "revenue": 7566000,
+    "budget": 1707561,
+    "profit": 5858439,
+    "ROI": 3.430881239381785
+  },
+  {
+    "id": 37495,
+    "title": "Four Lions",
+    "vote_average": 6.955,
+    "vote_count": 1031,
+    "revenue": 6149356,
+    "budget": 967686,
+    "profit": 5181670,
+    "ROI": 5.3547018350994025
+  },
+  {
+    "id": 1265,
+    "title": "Bridge to Terabithia",
+    "vote_average": 7.292,
+    "vote_count": 4366,
+    "revenue": 137587063,
+    "budget": 60000000,
+    "profit": 77587063,
+    "ROI": 1.2931177166666667
+  },
+  {
+    "id": 13001,
+    "title": "Stargate: The Ark of Truth",
+    "vote_average": 7.143,
+    "vote_count": 435,
+    "revenue": 8900000,
+    "budget": 7000000,
+    "profit": 1900000,
+    "ROI": 0.2714285714285714
+  },
+  {
+    "id": 49014,
+    "title": "Cosmopolis",
+    "vote_average": 5.719,
+    "vote_count": 1142,
+    "revenue": 6063556,
+    "budget": 20500000,
+    "profit": -14436444,
+    "ROI": -0.7042167804878049
+  },
+  {
+    "id": 1089,
+    "title": "Point Break",
+    "vote_average": 7.133,
+    "vote_count": 3202,
+    "revenue": 83531958,
+    "budget": 24000000,
+    "profit": 59531958,
+    "ROI": 2.48049825
+  },
+  {
+    "id": 64852,
+    "title": "London After Midnight",
+    "vote_average": 6.457,
+    "vote_count": 23,
+    "revenue": 1000000,
+    "budget": 151666,
+    "profit": 848334,
+    "ROI": 5.593435575540991
+  },
+  {
+    "id": 14172,
+    "title": "Wake of Death",
+    "vote_average": 5.842,
+    "vote_count": 209,
+    "revenue": 521918,
+    "budget": 14000000,
+    "profit": -13478082,
+    "ROI": -0.9627201428571428
+  },
+  {
+    "id": 11036,
+    "title": "The Notebook",
+    "vote_average": 7.88,
+    "vote_count": 10629,
+    "revenue": 115603229,
+    "budget": 29000000,
+    "profit": 86603229,
+    "ROI": 2.98631824137931
+  },
+  {
+    "id": 3558,
+    "title": "Girl, Interrupted",
+    "vote_average": 7.552,
+    "vote_count": 3433,
+    "revenue": 48350205,
+    "budget": 40000000,
+    "profit": 8350205,
+    "ROI": 0.208755125
+  },
+  {
+    "id": 12618,
+    "title": "Random Hearts",
+    "vote_average": 5.5,
+    "vote_count": 332,
+    "revenue": 74608570,
+    "budget": 64000000,
+    "profit": 10608570,
+    "ROI": 0.16575890625
+  },
+  {
+    "id": 9718,
+    "title": "Talladega Nights: The Ballad of Ricky Bobby",
+    "vote_average": 6.346,
+    "vote_count": 1514,
+    "revenue": 162966177,
+    "budget": 72500000,
+    "profit": 90466177,
+    "ROI": 1.2478093379310344
+  },
+  {
+    "id": 59201,
+    "title": "Kinjite: Forbidden Subjects",
+    "vote_average": 5.449,
+    "vote_count": 69,
+    "revenue": 3416846,
+    "budget": 5000000,
+    "profit": -1583154,
+    "ROI": -0.3166308
+  },
+  {
+    "id": 7984,
+    "title": "In the Name of the Father",
+    "vote_average": 7.896,
+    "vote_count": 1585,
+    "revenue": 65796862,
+    "budget": 13000000,
+    "profit": 52796862,
+    "ROI": 4.0612970769230765
+  },
+  {
+    "id": 11232,
+    "title": "Kate & Leopold",
+    "vote_average": 6.328,
+    "vote_count": 1232,
+    "revenue": 76019048,
+    "budget": 48000000,
+    "profit": 28019048,
+    "ROI": 0.5837301666666667
+  },
+  {
+    "id": 50318,
+    "title": "Go Go Tales",
+    "vote_average": 5.674,
+    "vote_count": 43,
+    "revenue": 907456,
+    "budget": 4000000,
+    "profit": -3092544,
+    "ROI": -0.773136
+  },
+  {
+    "id": 9381,
+    "title": "Babylon A.D.",
+    "vote_average": 5.572,
+    "vote_count": 1858,
+    "revenue": 72109200,
+    "budget": 70000000,
+    "profit": 2109200,
+    "ROI": 0.030131428571428573
+  },
+  {
+    "id": 2657,
+    "title": "Pleasantville",
+    "vote_average": 7.243,
+    "vote_count": 1526,
+    "revenue": 49805462,
+    "budget": 60000000,
+    "profit": -10194538,
+    "ROI": -0.16990896666666666
+  },
+  {
+    "id": 327,
+    "title": "Brother",
+    "vote_average": 7.159,
+    "vote_count": 399,
+    "revenue": 15250000,
+    "budget": 12000000,
+    "profit": 3250000,
+    "ROI": 0.2708333333333333
+  },
+  {
+    "id": 25183,
+    "title": "Paper Heart",
+    "vote_average": 5.823,
+    "vote_count": 99,
+    "revenue": 1296971,
+    "budget": 1000000,
+    "profit": 296971,
+    "ROI": 0.296971
+  },
+  {
+    "id": 11549,
+    "title": "Invasion of the Body Snatchers",
+    "vote_average": 7.475,
+    "vote_count": 952,
+    "revenue": 3000000,
+    "budget": 417000,
+    "profit": 2583000,
+    "ROI": 6.194244604316546
+  },
+  {
+    "id": 14271,
+    "title": "Beyond the Mat",
+    "vote_average": 7.348,
+    "vote_count": 79,
+    "revenue": 500000,
+    "budget": 2053648,
+    "profit": -1553648,
+    "ROI": -0.7565308173552624
+  },
+  {
+    "id": 13484,
+    "title": "The Foot Fist Way",
+    "vote_average": 5.857,
+    "vote_count": 122,
+    "revenue": 245000,
+    "budget": 79000,
+    "profit": 166000,
+    "ROI": 2.1012658227848102
+  },
+  {
+    "id": 8764,
+    "title": "Top Secret!",
+    "vote_average": 7.071,
+    "vote_count": 1029,
+    "revenue": 20458340,
+    "budget": 9000000,
+    "profit": 11458340,
+    "ROI": 1.2731488888888889
+  },
+  {
+    "id": 83903,
+    "title": "Vaah! Life Ho Toh Aisi!",
+    "vote_average": 5.25,
+    "vote_count": 26,
+    "revenue": 4308390,
+    "budget": 2721088,
+    "profit": 1587302,
+    "ROI": 0.5833335783333725
+  },
+  {
+    "id": 30072,
+    "title": "Possession",
+    "vote_average": 5.904,
+    "vote_count": 157,
+    "revenue": 10113733,
+    "budget": 25000000,
+    "profit": -14886267,
+    "ROI": -0.59545068
+  },
+  {
+    "id": 898,
+    "title": "Birdman of Alcatraz",
+    "vote_average": 7.455,
+    "vote_count": 255,
+    "revenue": 3100000,
+    "budget": 2650000,
+    "profit": 450000,
+    "ROI": 0.16981132075471697
+  },
+  {
+    "id": 21241,
+    "title": "Cannonball",
+    "vote_average": 5.516,
+    "vote_count": 91,
+    "revenue": 1500000,
+    "budget": 780000,
+    "profit": 720000,
+    "ROI": 0.9230769230769231
+  },
+  {
+    "id": 871,
+    "title": "Planet of the Apes",
+    "vote_average": 7.643,
+    "vote_count": 3086,
+    "revenue": 32589624,
+    "budget": 5800000,
+    "profit": 26789624,
+    "ROI": 4.618900689655172
+  },
+  {
+    "id": 9024,
+    "title": "For Love or Money",
+    "vote_average": 6.214,
+    "vote_count": 313,
+    "revenue": 11146270,
+    "budget": 30000000,
+    "profit": -18853730,
+    "ROI": -0.6284576666666667
+  },
+  {
+    "id": 38153,
+    "title": "Shadow Conspiracy",
+    "vote_average": 4.9,
+    "vote_count": 77,
+    "revenue": 2154540,
+    "budget": 45000000,
+    "profit": -42845460,
+    "ROI": -0.9521213333333334
+  },
+  {
+    "id": 1966,
+    "title": "Alexander",
+    "vote_average": 5.911,
+    "vote_count": 3024,
+    "revenue": 167298192,
+    "budget": 155000000,
+    "profit": 12298192,
+    "ROI": 0.07934317419354839
+  },
+  {
+    "id": 9414,
+    "title": "The Man Who Knew Too Little",
+    "vote_average": 6.321,
+    "vote_count": 434,
+    "revenue": 13801755,
+    "budget": 20000000,
+    "profit": -6198245,
+    "ROI": -0.30991225
+  },
+  {
+    "id": 26201,
+    "title": "The Sea Hawk",
+    "vote_average": 7.2,
+    "vote_count": 108,
+    "revenue": 2000000,
+    "budget": 1700000,
+    "profit": 300000,
+    "ROI": 0.17647058823529413
+  },
+  {
+    "id": 1251,
+    "title": "Letters from Iwo Jima",
+    "vote_average": 7.457,
+    "vote_count": 1858,
+    "revenue": 68673228,
+    "budget": 19000000,
+    "profit": 49673228,
+    "ROI": 2.6143804210526316
+  },
+  {
+    "id": 41201,
+    "title": "The Illusionist",
+    "vote_average": 7.28,
+    "vote_count": 533,
+    "revenue": 6007194,
+    "budget": 18000000,
+    "profit": -11992806,
+    "ROI": -0.666267
+  },
+  {
+    "id": 58760,
+    "title": "Jackboots on Whitehall",
+    "vote_average": 4.727,
+    "vote_count": 22,
+    "revenue": 20776,
+    "budget": 6000000,
+    "profit": -5979224,
+    "ROI": -0.9965373333333334
+  },
+  {
+    "id": 8832,
+    "title": "Il Divo",
+    "vote_average": 7.65,
+    "vote_count": 1033,
+    "revenue": 11260366,
+    "budget": 7275000,
+    "profit": 3985366,
+    "ROI": 0.5478166323024055
+  },
+  {
+    "id": 21970,
+    "title": "The Watcher in the Woods",
+    "vote_average": 6.004,
+    "vote_count": 124,
+    "revenue": 5000000,
+    "budget": 9000000,
+    "profit": -4000000,
+    "ROI": -0.4444444444444444
+  },
+  {
+    "id": 9930,
+    "title": "Legal Eagles",
+    "vote_average": 6.0,
+    "vote_count": 191,
+    "revenue": 93151591,
+    "budget": 40000000,
+    "profit": 53151591,
+    "ROI": 1.328789775
+  },
+  {
+    "id": 11121,
+    "title": "Tess",
+    "vote_average": 7.0,
+    "vote_count": 293,
+    "revenue": 20101247,
+    "budget": 12000000,
+    "profit": 8101247,
+    "ROI": 0.6751039166666667
+  },
+  {
+    "id": 257,
+    "title": "Oliver Twist",
+    "vote_average": 6.738,
+    "vote_count": 1094,
+    "revenue": 42580321,
+    "budget": 50000000,
+    "profit": -7419679,
+    "ROI": -0.14839358
+  },
+  {
+    "id": 37430,
+    "title": "Conan the Barbarian",
+    "vote_average": 5.306,
+    "vote_count": 1736,
+    "revenue": 63523283,
+    "budget": 90000000,
+    "profit": -26476717,
+    "ROI": -0.29418574444444445
+  },
+  {
+    "id": 58648,
+    "title": "Closet Land",
+    "vote_average": 6.847,
+    "vote_count": 36,
+    "revenue": 259012,
+    "budget": 4000000,
+    "profit": -3740988,
+    "ROI": -0.935247
+  },
+  {
+    "id": 63493,
+    "title": "The Ledge",
+    "vote_average": 6.1,
+    "vote_count": 313,
+    "revenue": 610986,
+    "budget": 10000000,
+    "profit": -9389014,
+    "ROI": -0.9389014
+  },
+  {
+    "id": 5857,
+    "title": "I Know Who Killed Me",
+    "vote_average": 4.524,
+    "vote_count": 340,
+    "revenue": 9620399,
+    "budget": 12000000,
+    "profit": -2379601,
+    "ROI": -0.19830008333333332
+  }
+]
