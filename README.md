@@ -105,8 +105,8 @@ Our approach assumes that movies sharing similar tropes likely share narrative p
 - Jianan Xu: Data preprocessing; data analysis, visualization, story from RQ 1, 2, and 3.
 - RL: Website setup; Data analysis, visualization, story from RQ 4 and 5.
 - RW: Data analysis for RQ 3.
-- AZ: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7; Website beautification.
-- AO: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7.
+- AZ: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7.
+- AO: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7; Website beautification.
 
 ## Project Structure
 
