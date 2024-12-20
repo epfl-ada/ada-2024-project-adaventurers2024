@@ -454,4 +454,4 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 ## Want to Know More?
 
-Check out our [detailed analysis](/analysis) or dive into our [methodology](/methods).
+Check out our [detailed analysis](https://github.com/epfl-ada/ada-2024-project-adaventurers2024/blob/main/results.ipynb) or dive into our [methodology](https://github.com/epfl-ada/ada-2024-project-adaventurers2024/tree/main).

@@ -1,5 +1,7 @@
 # Decoding Box-Office Bombs 🎬💣
 
+[Website](https://epfl-ada.github.io/ada-2024-project-adaventurers2024/)
+
 ## Abstract
 
 In this project, we aim to explore the reasons for a movie's failure by analyzing over 42,000 films, looking at everything from box office numbers to plot patterns. Using data from Wikipedia summaries, IMDb, and TV Tropes, we're investigating what really makes a movie stumble - whether it's poor timing, problematic storytelling, or casting choices. We're particularly interested in how factors like cast diversity, director's track records, and genre selections influence a film's success or failure. By analyzing numbers on movie budgets, audience ratings, and overused plot devices, we aim to uncover patterns that are problematic for films.
