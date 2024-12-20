@@ -20,6 +20,8 @@ author: ADAventurers2024
 navbar-links:
   Datasets:
     - CMU Movie Summary Corpus: "https://www.cs.cmu.edu/~ark/personas/"
+    - IMDb Non-Commercial: "https://developer.imdb.com/non-commercial-datasets/"
+    - TMDB (Kaggle): "https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies"
 
 ################
 # --- Logo --- #
