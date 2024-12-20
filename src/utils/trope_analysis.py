@@ -1,5 +1,6 @@
 from collections import defaultdict
 from pathlib import Path
+import math
 
 import numpy as np
 import pandas as pd
@@ -28,7 +29,7 @@ from src.utils.plot_settings import (
     get_subplot_settings
 )
 
-OUTPUT_PATH = "data/preprocessed/"
+OUTPUT_PATH = "docs/_includes/plotly/"
 
 
 def get_unique_genres(df_tropes_filtered):
@@ -201,9 +202,14 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         title=default_title,
         yaxis=dict(
             automargin=True,
-            showline=True,
+            showline=False,
             autorange="reversed",
             **AXIS_STYLE
+        ),
+        xaxis=dict(
+            showgrid=True,
+            gridwidth=1,
+            gridcolor='LightGray',
         ),
         xaxis_title='Ratio of low-rated movies to high-rated movies',
         yaxis_title='Tropes',
@@ -266,6 +272,7 @@ def rq7(df_cmu_tropes, show_plotly_charts=True):
                 showline=True,
                 **AXIS_STYLE
             ),
+            height=500,
         )
 
         fig.show()
@@ -289,6 +296,7 @@ def rq7(df_cmu_tropes, show_plotly_charts=True):
 
         plt.title("Top 10 tropes with lowest average rating")
         plt.show()
+
 
 def cluster_movies(df_cmu_tropes, df_tropes, n_clusters, n_tropes):
     trope_to_idx = {trope_id: idx for idx, trope_id in enumerate(df_tropes["TropeID"])}
@@ -314,6 +322,7 @@ def cluster_movies(df_cmu_tropes, df_tropes, n_clusters, n_tropes):
     print("Cluster centers shape:", kmeans.cluster_centers_.shape)
 
     return X_normalized, kmeans, movie_embeddings
+
 
 def plot_movie_clusters(X_normalized, kmeans):
     tsne = TSNE(n_components=2, random_state=42, perplexity=30, n_iter=1000)
@@ -345,11 +354,13 @@ def plot_movie_clusters(X_normalized, kmeans):
 
     fig.update_layout(
         title='Movie clusters by tropes',
+        title_x=0.5,
         xaxis_title='First t-SNE Component',
         yaxis_title='Second t-SNE Component',
         showlegend=True,
-        width=1000,
-        height=800
+        **COMMON_LAYOUT,
+        width=800,
+        height=600
     )
 
     fig.show()
@@ -398,11 +409,13 @@ def plot_worst_clusters(df_cmu_tmdb_filtered, X_normalized, kmeans, top_k):
 
     fig.update_layout(
         title='Top 10 Worst-Rated Clusters Visualized with t-SNE',
+        title_x=0.5,
         xaxis_title='First t-SNE Component',
         yaxis_title='Second t-SNE Component',
         showlegend=True,
-        width=1000,
-        height=800
+        **COMMON_LAYOUT,
+        width=800,
+        height=600
     )
 
     fig.show()
@@ -411,6 +424,7 @@ def plot_worst_clusters(df_cmu_tmdb_filtered, X_normalized, kmeans, top_k):
         include_plotlyjs="cdn",
         full_html=False,
     )
+
 
 def compute_worst_clusters_tropes(df_cmu_tmdb_filtered, df_cmu_tropes):
     cluster_avg_vote_average = df_cmu_tmdb_filtered.groupby("cluster")["vote_average"].mean()
@@ -423,6 +437,7 @@ def compute_worst_clusters_tropes(df_cmu_tmdb_filtered, df_cmu_tropes):
         worst_clusters_tropes[cluster] = counts.to_dict()
 
     return worst_clusters_tropes
+
 
 def plot_trope_combinations(worst_clusters_tropes):
     tab10_colors = cm.tab10.colors
@@ -448,15 +463,13 @@ def plot_trope_combinations(worst_clusters_tropes):
 
     fig = go.Figure()
 
-    colors = [f'rgb({int(tab10_colors[i][0]*255)},{int(tab10_colors[i][1]*255)},{int(tab10_colors[i][2]*255)})' for i in range(3)]  
-
     fig.add_trace(go.Bar(
         x=weights,
         y=combinations,
         orientation='h',
         marker=dict(
-            color=weights,
-            colorscale=colors,
+            color=COLORS[0],
+            line=dict(color=COLORS[0], width=1),
         ),
         hovertemplate='Weight: %{x}<br>%{y}<extra></extra>'
     ))
@@ -472,17 +485,15 @@ def plot_trope_combinations(worst_clusters_tropes):
         },
         xaxis_title='Total Weight',
         yaxis_title=None,
-        height=500,
-        width=1000,
-        margin=dict(l=20, r=20, t=60, b=40),
-        yaxis={'categoryorder': 'total ascending'}
+        yaxis={'categoryorder': 'total ascending'},
+        **COMMON_LAYOUT
     )
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
     fig.update_yaxes(
         showgrid=False,
         automargin=True,
-        tickfont={'size': 12}
+        tickfont={'size': 14}
     )
 
     fig.show()
@@ -579,10 +590,10 @@ def plot_trope_network(worst_clusters_tropes):
     fig = go.Figure(data=edge_trace + [node_trace],
                     layout=go.Layout(
                         title='Trope Co-occurrence Network in Movies',
+                        title_x=0.5,
                         titlefont=dict(size=16),
                         showlegend=False,
                         hovermode='closest',
-                        margin=dict(b=20,l=5,r=5,t=40),
                         annotations=[
                             dict(
                                 text="Node size represents trope frequency<br>Edge thickness represents co-occurrence strength",
@@ -593,8 +604,7 @@ def plot_trope_network(worst_clusters_tropes):
                         ],
                         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                        width=1200,
-                        height=1000
+                        **COMMON_LAYOUT
                     ))
 
     fig.show()

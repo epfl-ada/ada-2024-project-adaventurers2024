@@ -97,4 +97,10 @@ def apply_bar_style(fig):
             font_family='Arial, sans-serif'
         )
     )
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
+    fig.update_yaxes(
+        showgrid=False,
+        automargin=True,
+        tickfont={'size': 12}
+    )
     return fig
