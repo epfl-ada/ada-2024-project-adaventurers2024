@@ -529,8 +529,12 @@ def create_interactive_genre_distributions(df_genres, genre_colors):
     # Set y-axis range for ratings
     rating_fig.update_yaxes(range=[1, 8])
 
-    profit_fig.write_html("genre_profit_distribution.html")
-    rating_fig.write_html("genre_rating_distribution.html")
+    profit_fig.write_html(
+        "genre_profit_distribution.html", full_html=False, include_plotlyjs="cdn"
+    )
+    rating_fig.write_html(
+        "genre_rating_distribution.html", full_html=False, include_plotlyjs="cdn"
+    )
 
     return profit_fig, rating_fig
 
@@ -584,7 +588,7 @@ def create_interactive_performance_analysis(df_genres, genre_colors):
         hovermode="closest", coloraxis_colorbar_title="Profit (Millions USD)"
     )
 
-    fig.write_html("performance_analysis.html")
+    fig.write_html("performance_analysis.html", full_html=False, include_plotlyjs="cdn")
 
 
 def create_interactive_temporal_analysis(df_genres, genre_colors, unique_genres):
@@ -663,7 +667,7 @@ def create_interactive_temporal_analysis(df_genres, genre_colors, unique_genres)
         margin=dict(r=200),
     )
 
-    fig.write_html("temporal_trends.html")
+    fig.write_html("temporal_trends.html", full_html=False, include_plotlyjs="cdn")
 
     return fig
 
@@ -782,7 +786,7 @@ def create_interactive_roi_analysis(df_genres, genre_colors):
         yaxis=dict(tickmode="array", tickvals=tick_values, ticktext=tick_labels),
     )
 
-    fig.write_html("roi_analysis.html")
+    fig.write_html("roi_analysis.html", full_html=False, include_plotlyjs="cdn")
 
     return fig
 
@@ -965,7 +969,7 @@ def create_interactive_budget_analysis(df, genre_colors):
     fig.update_yaxes(title_text="Return on Investment", row=1, col=1)
     fig.update_yaxes(title_text="Profit (Millions USD)", row=1, col=2)
 
-    fig.write_html("budget_analysis.html")
+    fig.write_html("budget_analysis.html", full_html=False, include_plotlyjs="cdn")
 
     return fig
 
@@ -980,12 +984,15 @@ def create_interactive_success_matrix(performance_df):
     )
 
     fig.update_layout(xaxis_tickangle=-45, height=800)
-    fig.write_html("success_matrix.html")
+    fig.write_html("success_matrix.html", full_html=False, include_plotlyjs="cdn")
 
 
 def create_interactive_plot_genre_performance(df_genres, genre_colors):
     """Create interactive genre performance analysis plots."""
     color_map = prepare_color_map(genre_colors)
+    
+    # Filter out zero profit entries
+    df_genres = df_genres[df_genres['profit_scaled'] != 0]
 
     # Rating vs. Popularity
     fig1 = px.scatter(
@@ -1005,7 +1012,7 @@ def create_interactive_plot_genre_performance(df_genres, genre_colors):
 
     fig1.update_xaxes(type="log")
     fig1.update_layout(hovermode="closest")
-    fig1.write_html("genre_performance_popularity.html")
+    fig1.write_html("genre_performance_popularity.html", full_html=False, include_plotlyjs="cdn")
 
     # Profit-based analysis
     sample_size = min(50000, len(df_genres))
@@ -1029,7 +1036,9 @@ def create_interactive_plot_genre_performance(df_genres, genre_colors):
     fig2.update_layout(hovermode="closest")
     # set the color scale to log scale with visible non-light colors
     fig2.update_coloraxes(colorscale="emrld", cmin=-5, cmax=5)
-    fig2.write_html("genre_performance_profit.html")
+    fig2.write_html(
+        "genre_performance_profit.html", full_html=False, include_plotlyjs="cdn"
+    )
 
 
 def create_interactive_success_failure_analysis(
@@ -1056,7 +1065,7 @@ def create_interactive_success_failure_analysis(
         xaxis_tickangle=-45,
         showlegend=False,
     )
-    fig1.write_html("success_rates.html")
+    fig1.write_html("success_rates.html", full_html=False, include_plotlyjs="cdn")
 
     # Failure rates
     failure_series = performance_df["Significant Loss (>50%)"].sort_values(
@@ -1078,7 +1087,7 @@ def create_interactive_success_failure_analysis(
         xaxis_tickangle=-45,
         showlegend=False,
     )
-    fig2.write_html("failure_rates.html")
+    fig2.write_html("failure_rates.html", full_html=False, include_plotlyjs="cdn")
 
 
 from scipy import stats
@@ -1222,7 +1231,7 @@ def create_interactive_summary_statistics(df_genres):
 
     fig.update_yaxes(title_text="ROI", row=3, col=1)
 
-    fig.write_html("summary_statistics.html")
+    fig.write_html("summary_statistics.html", full_html=False, include_plotlyjs="cdn")
 
     return fig
 

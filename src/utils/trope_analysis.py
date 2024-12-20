@@ -17,10 +17,11 @@ from src.utils.plot_settings import (
     get_subplot_settings
 )
 
-OUTPUT_PATH = 'data/preprocessed/'
+OUTPUT_PATH = "data/preprocessed/"
+
 
 def get_unique_genres(df_tropes_filtered):
-    unique_str_genres = df_tropes_filtered['genres'].unique()
+    unique_str_genres = df_tropes_filtered["genres"].unique()
     unique_genres = set()
 
     for str_genres in unique_str_genres:
@@ -36,7 +37,9 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         (df_cmu_tropes[["vote_average", "revenue"]] != 0).all(axis=1)
     ]
 
-    df_tropes_filtered = df_tropes_filtered[df_tropes_filtered['vote_count'] > min_votes]
+    df_tropes_filtered = df_tropes_filtered[
+        df_tropes_filtered["vote_count"] > min_votes
+    ]
     df_tropes_filtered = df_tropes_filtered.sort_values(by="vote_average")
     df_tropes_filtered.reset_index(drop=True, inplace=True)
     print(f"Number of unique tropes: {df_tropes_filtered['trope'].nunique()}")
@@ -49,8 +52,12 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
     # Get the unique genres and the top k tropes with the highest ratio of low-rated movies
     unique_genres = get_unique_genres(df_tropes_filtered)
 
-    df_low_rated_tropes = df_tropes_filtered[df_tropes_filtered['vote_average'] < threshold]
-    df_high_rated_tropes = df_tropes_filtered[df_tropes_filtered['vote_average'] >= threshold]
+    df_low_rated_tropes = df_tropes_filtered[
+        df_tropes_filtered["vote_average"] < threshold
+    ]
+    df_high_rated_tropes = df_tropes_filtered[
+        df_tropes_filtered["vote_average"] >= threshold
+    ]
 
     # Define the figure and the updatemenus
     fig = go.Figure()
@@ -85,8 +92,12 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
             df_hr_genre_tropes = df_high_rated_tropes
         else:
             plot_title = f"Top {k} tropes for genre {genre}"
-            df_lr_genre_tropes = df_low_rated_tropes[df_low_rated_tropes['genres'].str.contains(genre)]
-            df_hr_genre_tropes = df_high_rated_tropes[df_high_rated_tropes['genres'].str.contains(genre)]
+            df_lr_genre_tropes = df_low_rated_tropes[
+                df_low_rated_tropes["genres"].str.contains(genre)
+            ]
+            df_hr_genre_tropes = df_high_rated_tropes[
+                df_high_rated_tropes["genres"].str.contains(genre)
+            ]
 
         low_rated_tropes = df_lr_genre_tropes.trope.value_counts().to_dict()
         high_rated_tropes = df_hr_genre_tropes.trope.value_counts().to_dict()
@@ -103,9 +114,13 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         if len(trope_ratios) < k:
             continue
 
-        sorted_tropes = sorted(trope_ratios.items(), key=lambda x: x[1], reverse=True)[:k]
+        sorted_tropes = sorted(trope_ratios.items(), key=lambda x: x[1], reverse=True)[
+            :k
+        ]
         df = pd.DataFrame(sorted_tropes, columns=["trope", "ratio"])
-        print(f"Genre {genre} has {len(sorted_tropes)} tropes with a ratio of low-rated movies to high-rated movies")
+        print(
+            f"Genre {genre} has {len(sorted_tropes)} tropes with a ratio of low-rated movies to high-rated movies"
+        )
 
         fig.add_trace(
             go.Bar(
@@ -269,7 +284,9 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     print(f"Initial shape: {df_cmu_tropes.shape}")
 
     df_low_rated_movies = df_cmu_tropes[df_cmu_tropes["vote_average"] <= threshold]
-    df_low_rated_movies = df_low_rated_movies.groupby("trope").filter(lambda x: len(x) > min_trope_occurrences)
+    df_low_rated_movies = df_low_rated_movies.groupby("trope").filter(
+        lambda x: len(x) > min_trope_occurrences
+    )
 
     print(f"Number of rows after filtering: {df_low_rated_movies.shape}")
 
@@ -398,7 +415,13 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     )
 
     fig_counts.show()
-    fig_counts.write_html(f'{OUTPUT_PATH}rq8_tropes_counts.html', include_plotlyjs='cdn', full_html=False)
+    fig_counts.write_html(
+        f"{OUTPUT_PATH}rq8_tropes_counts.html", include_plotlyjs="cdn", full_html=False
+    )
 
     fig_avg_scores.show()
-    fig_avg_scores.write_html(f'{OUTPUT_PATH}rq8_tropes_avg_scores.html', include_plotlyjs='cdn', full_html=False)
+    fig_avg_scores.write_html(
+        f"{OUTPUT_PATH}rq8_tropes_avg_scores.html",
+        include_plotlyjs="cdn",
+        full_html=False,
+    )

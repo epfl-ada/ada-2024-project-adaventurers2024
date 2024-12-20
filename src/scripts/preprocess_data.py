@@ -554,8 +554,16 @@ def merge_cmu_ml_ratings(df_cmu_tropes, df_ml_ratings):
         df_cmu_tropes_ratings (pd.DataFrame): merged CMU tropes and
         MovieLens ratings
     """
-    df_cmu_tropes = df_cmu_tropes[['imdb_id', 'title', 'trope', 'vote_average', 'vote_count']]
-    df_cmu_tropes = df_cmu_tropes.groupby(['imdb_id', 'title', 'vote_average', 'vote_count'])['trope'].apply(list).reset_index()
+    df_cmu_tropes = df_cmu_tropes[
+        ["imdb_id", "title", "trope", "vote_average", "vote_count"]
+    ]
+    df_cmu_tropes = (
+        df_cmu_tropes.groupby(["imdb_id", "title", "vote_average", "vote_count"])[
+            "trope"
+        ]
+        .apply(list)
+        .reset_index()
+    )
 
     df_cmu_tropes_ratings = pd.merge(
         df_ml_ratings, df_cmu_tropes, left_on="imdbId", right_on="imdb_id"
