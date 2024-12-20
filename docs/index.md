@@ -78,11 +78,9 @@ This project is part of the Applied Data Analysis course at EPFL. We've analyzed
 
 ## Key Evidence 🔍
 
-Preliminary investigation has brought a number of suspects into the frame, including suspicious release dates that share a correlation with box office deaths, repeated genre-of-origin casualties, and a web of narrative decisions that seem to seal a movie's fate before it ever reaches the box office. Most intriguingly, financial autopsies show how some of our biggest-budget victims died spectacular deaths while smaller productions somehow survived similar circumstances.
+Hey there, movie fans! Come join us to discover why some movies fail. We've been looking at Hollywood's past and found lots of movies that didn't succeed. As we looked closer, we found some interesting clues - like movies that came out at the wrong time (imagine opening your movie the same day as a new superhero film!), or movies that had stories people just didn't want to watch.
 
-But here's where it gets interesting: poor ratings and weak opening weekends are the usual suspects, but they don't tell the whole story. There's something deeper at work here, a complex conspiracy of factors that turns promising projects into box office bombs. The clues are in the data, and we're going to crack this case wide open.
-
-We find smoking guns aplenty within the evidence room, at least; all we had to do was connect the dots. Take your magnifying glasses and follow me into the morgue of movie failures.
+But wait, there's more to this story! It's like a puzzle we need to solve! So grab some popcorn and join us as we figure out why some movies fail.
 
 <div class="text-center">
     <img src="https://media4.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif?cid=6c09b952mg94u2g7aq1pcnj1sxdidnzdsm6as1z4c55nx3bs&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
