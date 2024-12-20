@@ -106,6 +106,17 @@ From the radar plots, we observe a consistent pattern: high ethnicity diversity 
 
 ### Part III: The Director's Enigma
 
+<div class="plotly-visualization">
+  {% include plotly/rq3_genres_to_ratings.html %}
+</div>
+
+The Sankey diagram visualizes the relationship between the number of genres explored by directors and the average ratings of their films, with the thickness of the connecting links representing the average revenue associated with these films. On the left side, we have the number of genres that directors engage with, ordered from 1 to 19, and on the right, the ratings are grouped into ranges (5.5-6, 6-6.5, 6.5-7, 7-7.5). Each link between these two sides represents a group of directors sharing a specific number of genres and their corresponding rating range, with thicker links indicating higher average revenue.
+
+From the visualization, it appears that directors who work across fewer genres (e.g., 1-5 genres) tend to produce films with lower ratings on average. Conversely, directors who explore a moderate or larger range of genres (e.g., 7-15 genres) often produce films in higher rating ranges, such as 6.5-7 or even 7-7.5. This might because directors working with fewer genres tend to specialize in niche areas, which may appeal to a limited audience but lack the broad appeal needed for financial success.
+
+The thickness of the links, which reflects the revenue, shows the directors explored a few (1 or 2) genres or a lot (19) genres have relatively low revenue. This may because excessive diversification (as seen in the case of 19 genres) dilute the director's expertise.
+
+Overall, Overly specializing in a narrow range of genres or overextending across too many genres leads to movie failure, as it limits audience appeal or dilutes storytelling expertise.
 
 
 ### Part IV: The Genre Gamble
