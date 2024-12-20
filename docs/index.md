@@ -227,20 +227,18 @@ _Case File Note: The evidence points to a fundamental truth in Hollywood - genre
 
 #### The Heat Map of Hollywood Heartbreak 🎯
 
+The performance heat map before us reads like a crime scene analysis of Hollywood's financial casualties. The dark purple bands stretching across the left side of the visualization tell a sobering story - every genre, without exception, has its share of total losses and severe failures. This isn't just data; it's a graveyard of creative ambitions and financial investments. The deepest purple zones, particularly prominent in TV Movies and Westerns, represent areas where movies go to die, rarely emerging from the red zone of financial loss.
+
 <div class="row">
     <div class="col-sm-12 col-md-4">
-        The performance heat map before us reads like a crime scene analysis of Hollywood's financial casualties. The dark purple bands stretching across the left side of the visualization tell a sobering story - every genre, without exception, has its share of total losses and severe failures. This isn't just data; it's a graveyard of creative ambitions and financial investments. The deepest purple zones, particularly prominent in TV Movies and Westerns, represent areas where movies go to die, rarely emerging from the red zone of financial loss.
+        Moving towards the center, we encounter what might be called "Hollywood's Purgatory" - the break-even zone. Here, the colors begin to warm slightly, but the predominant purple tones reveal an uncomfortable truth: most films barely manage to recoup their investments. This vast middle ground isn't merely a neutral zone; it represents thousands of projects that failed to achieve their financial potential, languishing in what industry veterans darkly call "development hell." The transition from deep purple to lighter shades in this region maps the thin line between failure and mere survival.
+
+        The right side of the heat map provides the most striking contrast - and perhaps the most painful insight into the industry's brutal economics. Those rare yellow hotspots in Adventure, Fantasy, and Science Fiction genres represent the elusive blockbuster territory, but their very brightness serves to highlight the darkness surrounding them. These aren't just success stories; they're statistical anomalies that tantalize studios into continued risk-taking, even as the surrounding purple zones warn of the far more common outcome - financial disaster. The pattern is particularly cruel in genres like Thrillers, where the extreme color variation from deep purple to bright yellow illustrates the genre's tendency to either soar or crash spectacularly, with little middle ground.
     </div>
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_9_success_matrix.html %}
     </div>
 </div>
-
-#### The Heat Map of Hollywood Heartbreak 🎯
-
-Moving towards the center, we encounter what might be called "Hollywood's Purgatory" - the break-even zone. Here, the colors begin to warm slightly, but the predominant purple tones reveal an uncomfortable truth: most films barely manage to recoup their investments. This vast middle ground isn't merely a neutral zone; it represents thousands of projects that failed to achieve their financial potential, languishing in what industry veterans darkly call "development hell." The transition from deep purple to lighter shades in this region maps the thin line between failure and mere survival.
-
-The right side of the heat map provides the most striking contrast - and perhaps the most painful insight into the industry's brutal economics. Those rare yellow hotspots in Adventure, Fantasy, and Science Fiction genres represent the elusive blockbuster territory, but their very brightness serves to highlight the darkness surrounding them. These aren't just success stories; they're statistical anomalies that tantalize studios into continued risk-taking, even as the surrounding purple zones warn of the far more common outcome - financial disaster. The pattern is particularly cruel in genres like Thrillers, where the extreme color variation from deep purple to bright yellow illustrates the genre's tendency to either soar or crash spectacularly, with little middle ground.
 
 _Case File Note: The heat map reveals Hollywood's darkest secret - in the pursuit of those rare yellow zones of success, the industry has normalized a landscape dominated by failure. The purple vastness isn't just a background; it's the industry's default state._
 
