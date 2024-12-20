@@ -234,10 +234,10 @@ _Case File Note: The evidence points to a fundamental truth in Hollywood - genre
 The performance heat map before us reads like a crime scene analysis of Hollywood's financial casualties. The dark purple bands stretching across the left side of the visualization tell a sobering story - every genre, without exception, has its share of total losses and severe failures. This isn't just data; it's a graveyard of creative ambitions and financial investments. The deepest purple zones, particularly prominent in TV Movies and Westerns, represent areas where movies go to die, rarely emerging from the red zone of financial loss.
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 d-flex align-items-center">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         Moving towards the center, we encounter what might be called "Hollywood's Purgatory" - the break-even zone. Here, the colors begin to warm slightly, but the predominant purple tones reveal an uncomfortable truth: most films barely manage to recoup their investments. This vast middle ground isn't merely a neutral zone; it represents thousands of projects that failed to achieve their financial potential, languishing in what industry veterans darkly call "development hell." The transition from deep purple to lighter shades in this region maps the thin line between failure and mere survival.
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_9_success_matrix.html %}
     </div>
 </div>
