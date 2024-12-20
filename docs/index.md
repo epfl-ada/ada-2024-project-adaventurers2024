@@ -66,11 +66,11 @@ Let the autopsy begin... 🎬
 ## Behind the Investigation 🕵️
 
 This project is part of the Applied Data Analysis course at EPFL. We've analyzed:
+
 - 42,000+ movie plots from Wikipedia
 - Cast and crew data from IMDb
 - 30,000+ narrative tropes
 - Box office numbers that would make studio executives cry
-
 
 ## Key Evidence 🔍
 
@@ -82,11 +82,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 </div>
 
 ### Part I: Signals of Failure
+
 <div class="container">
   {% include plotly/rq1_metrics_distribution.html %}
 </div>
 
-We begin our exploration of the metrics associated with movie failures by analyzing three key indicators: average vote, revenue, and ROI (Return on Investment). The first step is to uncover patterns and relationships between these metrics to better understand the causes of poor movie performance. 
+We begin our exploration of the metrics associated with movie failures by analyzing three key indicators: average vote, revenue, and ROI (Return on Investment). The first step is to uncover patterns and relationships between these metrics to better understand the causes of poor movie performance.
 
 The scatterplot mattrix provides an overview of the relationships between three metrics. Along the diagonal, histograms display the distributions of each metric. Movie ratings are approximately normally distributed, with most falling between 6 and 7, peaking near 6.5. Revenue, however, is heavily skewed to the right, with the majority of movies earning less than $50 million, though a few outliers exceed $150 million. ROI follows a similar trend, with most values concentrated below 2, indicating that a majority of films generate modest returns relative to their costs.
 
@@ -94,8 +95,8 @@ The off-diagonal scatter plots reveal the pairwise correlations between these me
 
 Overall, the plot underscores that while better ratings slightly correlate with higher revenue and ROI, these relationships are nuanced, with significant variability and a concentration of movies in lower revenue and ROI ranges.
 
+### Part II: The Actor's code:
 
-### Part II: The Actor's code: 
 To measure actor diversity in movies, We focused on four key factors: age, gender, height, and ethnicity, each capturing distinct aspects of diversity within the cast. Age diversity and height diversity, as continuous variables, were measured using the standard deviation, where higher values indicate a broader range of ages or physical stature among the cast. In contrast, gender diversity and ethnicity diversity, as categorical variables, were quantified using Shannon's entropy, which effectively measures the balance of categories. Higher entropy for gender represents a more equal distribution between male and female actors, while higher entropy for ethnicity indicates greater representation of diverse ethnic backgrounds. These metrics were analyzed in relation to each movie's average rating and box office revenue to explore how actor diversity impacts audience engagement and financial success.
 
 <div class="row">
@@ -115,7 +116,7 @@ The the rating plot, Movies with "Low" gender diversity show a lowest median rat
 
 Overall, "Very High" ethnicity diversity and age diversity or "Low" gender diversity can be regarded as factors leading to the failure of the film, but the heatmap of diversity metrics and movie failure metrics shows that the impact is very small, less than 0.005. This shows that the audience may pay more attention to the actors' acting skills or other factors than the diversity of the actors.
 
-Based on the heatmap, the highest absolute correlation between diversity metrics and revenue is 0.044 (from height diversity), and the highest absolute correlation between diversity metrics and average rating is 0.045 (from gender diversity). 
+Based on the heatmap, the highest absolute correlation between diversity metrics and revenue is 0.044 (from height diversity), and the highest absolute correlation between diversity metrics and average rating is 0.045 (from gender diversity).
 
 <div class="container">
     <div class="row justify-content-center">
@@ -163,16 +164,6 @@ Overall, Overly specializing in a narrow range of genres or overextending across
 
 #### Genre Face-Off: The Anatomy of Box Office Disasters 🎭
 
-Let's decode what our data reveals about where and why movies fail financially:
-
-- 🎯 **The High-Risk Zones**: Adventure and Animation show the widest loss margins in their failure cases - when these big-budget genres fail, they fail spectacularly. Those massive error bars aren't just statistics; they're financial bloodbaths.
-
-- 🏆 **The Critics' Curse**: High ratings offer no safety net. Animation and Family films maintain strong ratings (6.0+/10) but can still bomb catastrophically. Some of the biggest financial disasters came with critical acclaim attached.
-
-- 💸 **The Genre Trap**: Documentaries and Westerns face chronic failure patterns - consistent critical respect but systematic financial underperformance. Meanwhile, Action films demonstrate how mediocre ratings don't necessarily predict financial failure.
-
-*Key Failure Pattern: Critical acclaim and financial disaster aren't mutually exclusive - some genres are structurally prone to failure regardless of quality.*
-
 <div class="viz-container">
     <div class="plotly-visualization">
         {% include plotly/rq4_1_genre_profit_distribution.html %}
@@ -182,55 +173,39 @@ Let's decode what our data reveals about where and why movies fail financially:
     </div>
 </div>
 
+The first clue in our investigation of Hollywood failures lies in the stark contrast between profit distributions and ratings across genres. Looking at the profit distribution chart, we immediately notice the treacherous terrain of high-stakes genres like Adventure and Animation. These genres display alarmingly wide error bars stretching deep into negative territory - silent witnesses to some of cinema's most spectacular financial disasters. When these movies fail, they don't just disappoint; they create financial sinkholes that can swallow entire studio budgets.
+
+Digging deeper into the ratings distribution, we uncover a puzzling paradox. Animation and Family films consistently achieve critical acclaim, clustering above the 6.0 rating mark. Yet this critical success offers no immunity against financial failure. The evidence suggests that some of the industry's most painful losses came wrapped in glowing reviews - a reminder that audience appreciation doesn't always translate into box office success. This disconnect between critical reception and financial performance reveals a fundamental flaw in the assumption that good movies naturally find their audience.
+
+Perhaps most telling is the fate of genres like Documentaries and Westerns. Despite maintaining respectable average ratings, these genres show a systematic pattern of financial underperformance. Their profit distributions tell a story of chronic struggle, rarely breaking into significant positive territory. Meanwhile, Action films present an interesting counter-narrative - their middling ratings don't prevent them from achieving financial stability. This pattern suggests that certain genres are structurally disadvantaged in the modern marketplace, regardless of their artistic merit. The data points to an uncomfortable truth: in Hollywood's high-stakes game, quality and commercial success often operate in entirely separate dimensions.
+
+_Case File Note: Our investigation reveals that no genre is truly safe from failure - even those with the strongest critical foundations can crumble at the box office._
+
 #### The ROI Riddle: Where Movies Go to Lose Money 💸
-
-The return-on-investment patterns reveal Hollywood's hidden risk landscape:
-
-- 📉 **The Budget Paradox**: "Very High" budget films show dismally low ROI (barely 1x) despite massive profits. More money, more problems?
-
-- 🎯 **The Documentary Gambit**: 900% ROI variance tells a fascinating story - minimal losses, occasional massive wins. It's anti-blockbuster economics in action.
-
-- ⚠️ **Risk Indicators**:
-  - Higher budgets = tighter ROI spreads
-  - Horror/Documentary maintain better ROI despite smaller budgets
-  - High-budget failures hit hardest
-
-*Key Pattern: The biggest financial disasters often come wrapped in the biggest budgets.*
 
 <div class="row">
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_5_roi_analysis.html %}
     </div>
     <div class="col-sm-12 col-md-4">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. m Ipsum is
+        A closer examination of the ROI distribution chart reveals a troubling pattern across genres. Documentaries stand out with their extreme variance, showing ROI swings from -216% to a staggering 9900%. This volatility tells a story of a genre where financial outcomes are wildly unpredictable. Horror films follow a similar pattern, with their error bars stretching far into both positive and negative territories, suggesting an industry segment where financial planning becomes more art than science.
     </div>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-
 <div class="row">
     <div class="col-sm-12 col-md-4">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+        The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
     </div>
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_6_budget_analysis.html %}
     </div>
 </div>
 
+Looking at both plots together reveals the full scope of Hollywood's risk paradox. Very Low budget productions show the highest ROI potential (reaching over 10x returns) but minimal absolute profits, while Very High budget films display the opposite pattern - substantial absolute profits but anemic ROI figures. This creates a cruel dilemma for studios: chase higher absolute profits at the cost of efficiency, or maintain better ROI while accepting limited profit potential. The data suggests that the safest path - balancing ROI and absolute profits - lies somewhere in the middle budget categories, though even these show significant potential for failure.
+
+_Case File Note: The evidence points to a fundamental inefficiency in Hollywood's business model - the more money invested, the harder it becomes to generate proportional returns, creating a perfect storm for spectacular financial failures._
+
 #### The Success-Failure Paradox: When Genres Betray Their Promise 🎭
-
-Our data reveals some fascinating contradictions in genre performance:
-
-- 🎢 **The Volatility Champions**: Adventure and Sci-Fi lead with ~13% success rates but carry 3-4% failure rates. Welcome to Hollywood's "go big or go home" genres.
-
-- 🔍 **The Thriller Enigma**: Leading 11% success potential paired with 4.5% failure rate makes Thrillers Hollywood's most volatile investment.
-
-- 🎯 **The Conservative Players**: 
-  - Animation/TV Movies: Low failure rates (<1%)
-  - Documentaries: Rare catastrophic failures
-  - The catch? Limited breakout potential
-
-*The Pattern: Genre success often comes packaged with proportional risk of spectacular failure.*
 
 <div class="viz-container">
     <div class="plotly-visualization">
@@ -243,38 +218,36 @@ Our data reveals some fascinating contradictions in genre performance:
 
 <div class="section-divider"></div>
 
+The failure rate chart reveals a disturbing truth about Hollywood's riskiest genres. Thrillers emerge as the industry's most treacherous territory, with a startling 4.5% of productions ending in catastrophic losses (defined as losing over 50% of their investment). This is closely followed by Science Fiction films at 4%, painting a picture of genres where ambition and disaster walk hand in hand. These aren't just statistics - they represent hundreds of millions in lost investments and countless careers derailed.
+
+Looking at the success rate chart might initially seem to offer hope, with Adventure and Science Fiction films showing impressive peaks of around 13% success (defined as achieving over 100% ROI). However, this apparent silver lining reveals a darker truth when viewed alongside the failure rates. The very genres that promise the highest rewards also harbor the highest risks of catastrophic failure. It's a classic case of double-edged sword economics, where the path to potential triumph is littered with financial casualties.
+
+The intersection of these two metrics exposes the full scope of Hollywood's genre-based risk landscape. While genres like Animation and TV Movies show admirably low failure rates (under 1%), they also demonstrate limited success potential, rarely breaking past the 5% success rate threshold. This creates a cruel dynamic where playing it safe leads to stagnation, while pursuing bigger returns inevitably increases exposure to catastrophic failure. The data suggests that in Hollywood's high-stakes game, there are no truly safe harbors - only varying degrees of risk and compromise.
+
+_Case File Note: The evidence points to a fundamental truth in Hollywood - genres that promise the highest returns are often the same ones that harbor the greatest potential for devastating failure. This isn't just coincidence; it's the DNA of the industry's risk structure._
+
 <!-- ## Part II: The Deeper Patterns -->
 
 #### The Heat Map of Hollywood Heartbreak 🎯
 
-Let's decode the performance matrix that reveals the true anatomy of success and failure:
-
-- 🔥 **The Purple Valley**: That dominant purple zone isn't just a color - it's the baseline of Hollywood performance, showing how most movies cluster around modest outcomes.
-
-- 🌟 **Success Hotspots**: The bright yellow patches in Adventure, Fantasy, and Sci-Fi reveal the narrow band where blockbusters live. Like finding gold, it's rare but valuable.
-
-- 💀 **Genre Graveyards**:
-  - TV Movies/Documentaries: Consistently dark colors show limited upside
-  - Thrillers: Color extremes confirm their high-risk profile
-  - Westerns: Fading colors tell the story of a genre in decline
-
-*Pattern Recognition: Success in Hollywood follows a power law - mediocrity is common, excellence is rare, and total failure leaves lasting scars.*
-
-<div class="plotly-visualization full-width">
-    {% include plotly/rq4_9_success_matrix.html %}
+<div class="row">
+    <div class="col-sm-12 col-md-4">
+        The performance heat map before us reads like a crime scene analysis of Hollywood's financial casualties. The dark purple bands stretching across the left side of the visualization tell a sobering story - every genre, without exception, has its share of total losses and severe failures. This isn't just data; it's a graveyard of creative ambitions and financial investments. The deepest purple zones, particularly prominent in TV Movies and Westerns, represent areas where movies go to die, rarely emerging from the red zone of financial loss.
+    </div>
+    <div class="col-sm-12 col-md-8">
+        {% include plotly/rq4_9_success_matrix.html %}
+    </div>
 </div>
 
+#### The Heat Map of Hollywood Heartbreak 🎯
+
+Moving towards the center, we encounter what might be called "Hollywood's Purgatory" - the break-even zone. Here, the colors begin to warm slightly, but the predominant purple tones reveal an uncomfortable truth: most films barely manage to recoup their investments. This vast middle ground isn't merely a neutral zone; it represents thousands of projects that failed to achieve their financial potential, languishing in what industry veterans darkly call "development hell." The transition from deep purple to lighter shades in this region maps the thin line between failure and mere survival.
+
+The right side of the heat map provides the most striking contrast - and perhaps the most painful insight into the industry's brutal economics. Those rare yellow hotspots in Adventure, Fantasy, and Science Fiction genres represent the elusive blockbuster territory, but their very brightness serves to highlight the darkness surrounding them. These aren't just success stories; they're statistical anomalies that tantalize studios into continued risk-taking, even as the surrounding purple zones warn of the far more common outcome - financial disaster. The pattern is particularly cruel in genres like Thrillers, where the extreme color variation from deep purple to bright yellow illustrates the genre's tendency to either soar or crash spectacularly, with little middle ground.
+
+_Case File Note: The heat map reveals Hollywood's darkest secret - in the pursuit of those rare yellow zones of success, the industry has normalized a landscape dominated by failure. The purple vastness isn't just a background; it's the industry's default state._
+
 #### The Popularity Puzzle: A Beautiful Mess 📊
-
-Now that we understand the basic patterns, let's explore how audience reception shapes success:
-
-- 🎨 **The Genre Spectrum**: Our first scatter plot looks chaotic because it is - it's the true face of Hollywood's constant genre experimentation.
-
-- 📈 **The Convergence Effect**: Watch how ratings stabilize as vote counts increase. It's like watching audience opinions find their true north.
-
-- 💰 **The Money Trail**: When we switch to profit coloring, the chaos resolves into clear patterns - successful movies cluster in the high-rating, high-popularity zone.
-
-*Key Insight: Popularity and quality aren't just metrics - they're the twin engines of sustainable success.*
 
 <div class="viz-container">
     <div class="plotly-visualization">
@@ -285,6 +258,14 @@ Now that we understand the basic patterns, let's explore how audience reception 
     </div>
 </div>
 
+The scatter plots before us reveal the brutal democracy of audience reception, where failure leaves its most visible scars. The left plot's apparent chaos isn't random noise - it's a map of creative casualties. In the low-vote regions (below 100 votes), we see the industry's killing fields: films that didn't just fail financially, but failed to even capture enough attention to generate significant audience response. These data points represent countless projects that died in obscurity, their ratings scattered across the spectrum like debris after a storm.
+
+The right plot, coded by profit, exposes an even darker truth. The lighter shades dominating the lower-vote regions tell a story of financial bloodletting - movies that not only failed to find their audience but hemorrhaged money in the process. As we move rightward along the vote count axis, we see how profitability (darker colors) tends to cluster in the upper regions of the rating scale, but the path there is littered with failures. The most painful revelation comes from those rare high-vote, low-rating examples - massive marketing campaigns that drew audiences to critically panned films, resulting in spectacular financial disasters.
+
+What's particularly fascinating is how these plots capture the industry's cruel mathematics. The funnel shape that emerges as vote counts increase isn't just a statistical phenomenon - it's the visualization of audience consensus crushing creative ambitions. While individual opinions may vary wildly for obscure films, increased exposure tends to push ratings toward a harsh middle ground. This convergence effect is especially brutal for genres like Horror and Comedy, where we can see their distinctive patterns dissolve into the general mass as vote counts rise, suggesting that even genre-specific appeal offers little protection against the broader market's judgment.
+
+_Case File Note: These scatter plots aren't just data visualizations - they're obituaries for thousands of creative ventures that failed to thread the needle between artistic merit and commercial viability. The pattern suggests that while quality doesn't guarantee success, its absence almost certainly ensures failure._
+
 <div class="section-divider">
     🎬
 </div>
@@ -293,69 +274,37 @@ Now that we understand the basic patterns, let's explore how audience reception 
 
 #### Seasonal Patterns in Movie Failures: When Timing Meets Trouble 📊
 
-Beyond genre and popularity, timing proves crucial in the success equation:
-
-- 🌨️ **The Winter Challenge**: 
-  - $0-9M mean profit range reveals seasonal struggles
-  - High ROI volatility suggests increased risk
-  - Critical acclaim doesn't guarantee winter warmth
-
-- 🌸 **Spring's Double Edge**:
-  - Peak average profits come with significant variance
-  - Perfect example of high risk/high reward dynamics
-
-- 🌞 **Summer Complexities**:
-  - Traditional "blockbuster season" shows surprising vulnerability
-  - ROI swings from -5 to +10 tell a story of extremes
-  - Higher production costs create pressure
-
-*The Calendar Effect: Each season brings its unique risk profile.*
-
 <div class="plotly-visualization full-width">
     {% include plotly/rq5_1_seasonal_analysis.html %}
 </div>
 
+The seasonal performance charts reveal a complex temporal landscape where timing can either salvage a troubled project or doom a promising one. Winter emerges as perhaps the most treacherous season, with mean profits hovering cautiously around the $0-9M mark. But the real story lies in those dramatic error bars stretching from $-9M to $99M - a range that represents countless holiday releases that aimed for Oscar glory but found only financial ruin. The winter months create a particularly cruel paradox: while audiences are most available during the holiday season, they're also most selective with their entertainment choices.
+
+Spring presents itself as a season of extremes, displaying the highest average profits but accompanied by the widest profit variance. This isn't just statistical noise - it's the visualization of an industry-wide gamble. The spring release window has become a high-stakes poker game where studios push their chips all in, hoping to capture audiences emerging from their winter hibernation. The ROI statistics for spring tell an equally volatile story, with those towering error bars representing both spectacular successes and catastrophic failures that often occur within weeks of each other.
+
+Summer, traditionally Hollywood's golden season, reveals a troubling pattern when we examine all four metrics simultaneously. While average profits remain stable, the combination of lower ROI and steadily climbing ratings suggests an industry caught in a spending trap. Studios pour ever-larger budgets into summer blockbusters, chasing audiences with spectacular effects and marketing campaigns, yet the return on these massive investments continues to shrink. The performance metrics chart shows this disconnect most clearly - as ratings climb through the summer, profits fail to keep pace.
+
+Fall emerges as a season of missed opportunities and modest consolations. The relatively stable profit margins and ROI figures might suggest a "safe" release window, but this stability comes at the cost of limited upside potential. What's particularly striking is how the average rating line continues its upward trend through fall, even as profits decline from their spring peaks. This disconnect between critical reception and financial performance paints a picture of a season where good movies go to die quietly - earning critical acclaim but failing to translate that success into box office results.
+
+_Case File Note: The seasonal data exposes how timing has become both weapon and weakness in Hollywood's arsenal. Each season presents its own path to failure, whether through winter's selective audiences, spring's high-stakes gambling, summer's budget bloat, or fall's quiet disappointments._
+
 #### Monthly Deep Dive: The Anatomy of Movie Failures 📈
-
-Let's zoom in to see exactly when movies are most vulnerable:
-
-- 🥶 **January's Risk Trifecta**:
-  - 2.3% high success rate (lowest)
-  - 0.8% severe loss rate (highest)
-  - Consistently poor ROI metrics
-  - Hollywood's notorious "dump month"
-
-- 🌞 **The Summer Paradox**:
-  - June-July: 8-8.2% peak success rates
-  - Accompanied by 0.8-1% severe loss rates
-  - Maximum profit variance
-
-*Monthly Insight: Success and failure peaks often align, creating seasonal risk hotspots.*
 
 <div class="plotly-visualization full-width">
     {% include plotly/rq5_2_monthly_analysis.html %}
 </div>
 
+The monthly profit statistics reveal a cruel calendar where timing can be as decisive as quality. The notorious "January dump" shows up clearly in our data, with the month posting a devastating combination of the year's lowest high success rate (2.3%) and highest severe loss rate (0.8%). This isn't just a bad month - it's a graveyard shift where studios often abandon their troubled projects, creating a self-fulfilling prophecy of failure. The profit variance bars for January tell an especially grim story, stretching deep into negative territory with rare upward breaks.
+
+Summer's data exposes what might be called the "blockbuster paradox." June and July show impressive high success rates of 8-8.2%, but these peaks come with a dangerous caveat - they're matched by significant severe loss rates around 1%. The monthly ROI trends heat map reveals the full picture: while success rates peak, the deep red zones in the "Severe Loss" column remain stubbornly present. This suggests that summer's higher box office potential comes at the cost of higher risk exposure, creating a high-wire act where the difference between triumph and disaster often comes down to opening weekend performance.
+
+The transitional months tell their own story of industry vulnerability. March and September emerge as particularly treacherous, showing moderate success rates but disproportionately high failure rates (1.2-1.9% severe losses). The monthly success metrics graph reveals how these shoulder seasons create false hope - the success rate line climbing hopefully before plummeting, creating what industry insiders might call "trap months" where studios are lured into releases that seem promising but often end in financial disaster.
+
+December presents perhaps the most fascinating case study in risk versus reward. The month shows an impressive 8.1% high success rate, but the ROI trends reveal a complex underlying reality. The heat map shows significant percentages across all performance categories, from severe losses to high success, suggesting December is less a "good" month than a highly volatile one. This volatility is further confirmed by the widest profit variance bars of any month, stretching from deep losses to spectacular gains. It's a month that perfectly encapsulates Hollywood's gambling nature - where the biggest winners and losers are often decided within the same few weeks.
+
+_Case File Note: The monthly data exposes how Hollywood's calendar isn't just a scheduling tool - it's a risk management battlefield where timing mistakes can doom even promising projects. Each month presents its own unique combination of threats and opportunities, creating a complex temporal maze that studios must navigate to avoid financial disaster._
+
 #### Historical Failure Patterns: A Century of Cinema Risk 📽️
-
-Our final visualization shows how these patterns evolved over 100+ years:
-
-- 🌅 **1880s-1910s: The Pioneer's Curse**:
-  - Near-zero success rates
-  - High-risk experimental period
-  - Industry fundamentals still forming
-
-- 📈 **1920s-1960s: The Learning Years**:
-  - Steady success rate improvement
-  - Winter remained the challenging season
-  - Fall emergence as a viable release window
-
-- 💡 **1970s-2010s: The Modern Era**:
-  - Volume and success rates reached new heights
-  - Spring 1970s breakthrough (7.2% success)
-  - Winter finally caught up (10.1% in 2010s)
-
-*Historical Perspective: While success rates have improved, fundamental seasonal patterns persist.*
 
 <div class="container">
     <div class="row justify-content-center">
@@ -365,7 +314,15 @@ Our final visualization shows how these patterns evolved over 100+ years:
     </div>
 </div>
 
-*Interactive visualization showing the relationship between budget and ROI*
+The heat map before us isn't just data - it's a century-long autopsy of Hollywood's learning curve. The deep red zones of the 1880s-1910s reveal an industry essentially operating blind, with success rates hovering near zero across all seasons. This wasn't just failure - it was systematic failure, with hundreds of productions venturing into an untested market with no playbook for success. The sparse number of movies (0-5 per season) tells a story of an industry where survival, not success, was the primary metric.
+
+The middle decades (1920s-1960s) document Hollywood's painful education in risk management. The gradual warming of colors from deep red to lighter shades tracks the industry's growing sophistication, but the persistent winter weakness (staying below 2% success rate until the 1970s) reveals how deeply seasonal vulnerabilities were embedded in the industry's DNA. The fall season's emergence as a viable release window (reaching 4.9% in the 1960s) wasn't just a scheduling shift - it was the industry's first successful attempt to engineer its way around seasonal failure patterns.
+
+The modern era (1970s-2010s) presents a fascinating paradox. While overall success rates reached unprecedented heights (peaking at 12.6% in 2010s spring), the sheer volume of releases (564 fall movies in the 2000s alone) created a new kind of risk landscape. The data suggests that higher success rates came with a cruel twist - more absolute failures than ever before. The brightening blues of the 2010s might look like triumph, but they mask an industry where the sheer scale of production meant that even improved success rates translated to hundreds of failed projects.
+
+What's particularly striking is how the seasonal patterns, while less severe, have never truly disappeared. Even in the 2010s, with all our modern analytics and market research, winter releases still underperform spring by 2.5 percentage points (10.1% vs 12.6%). The persistence of these patterns across decades suggests something fundamental about audience behavior that even a century of industry evolution hasn't been able to fully overcome. The modern era hasn't eliminated failure - it's just made it more expensive and more frequent in absolute terms.
+
+_Case File Note: The historical data reveals that while Hollywood has gotten better at success, it has never truly solved the problem of failure. Instead, it has simply scaled up both success and failure to unprecedented levels, creating a modern industry where the sheer volume of production ensures a steady stream of casualties regardless of improved success rates._
 
 <div class="section-divider"></div>
 
@@ -400,14 +357,12 @@ Analyzing the average score of low-rated tropes across different periods reveals
     <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
 </div>
 
-
 - Add cluster
 - Add network
 
 <div class="section-divider"></div>
 
 ## Conclusion 🎬
-
 
 <div class="section-divider"></div>
 <section class="container py-5">
@@ -423,7 +378,7 @@ Analyzing the average score of low-rated tropes across different periods reveals
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
-                <h5 class="fw-bold mb-2">Rizhong Li</h5>
+                <h5 class="fw-bold mb-2">Rizhong Lin</h5>
                 <p class="text-muted fst-italic">"Truth hides in plain sight"</p>
             </div>
         </div>
@@ -453,6 +408,6 @@ Analyzing the average score of low-rated tropes across different periods reveals
 
 <div class="section-divider"></div>
 
-## Want to Know More? 
+## Want to Know More?
 
 Check out our [detailed analysis](/analysis) or dive into our [methodology](/methods).
