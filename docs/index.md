@@ -150,7 +150,7 @@ In short, while casting diversity might influence a film’s performance in subt
 Next, we turn our attention to directors. Is thematic consistency or variety in their filmography related to poor performance?
 
 <div class="row">
-    <div class="col-sm-12 col-md-4" style="margin-top: 150px;">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         The Sankey diagram compares the number of genres directors work with to their films’ ratings and average revenue. Directors who stick to just one genre generally cluster in lower rating categories, 5.5–6.0. This suggests that overly rigid thematic focus may limit a film’s appeal. In contrast, directors who explore a moderate range of genres—around 6 to 13—tend to produce films with higher ratings (above 6.4). 
         <br><br>
         Revenue patterns follow a similar trend. Directors who either confine themselves to very few genres (e.g., 1) or attempt too many (e.g. 18) show lower average revenues (lower than $30 million). Those who maintain a middle ground, exploring a moderate but not overwhelming range of genres, tend to see better financial returns. 
@@ -193,13 +193,13 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_5_roi_analysis.html %}
     </div>
-    <div class="col-sm-12 col-md-4" style="margin-top: 130px;">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         A closer examination of the ROI distribution chart reveals a troubling pattern across genres. Documentaries stand out with their extreme variance, showing ROI swings from -216% to a staggering 9900%. This volatility tells a story of a genre where financial outcomes are wildly unpredictable. Horror films follow a similar pattern, with their error bars stretching far into both positive and negative territories, suggesting an industry segment where financial planning becomes more art than science.
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-4" style="margin-top: 170px;">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
     </div>
     <div class="col-sm-12 col-md-8">
@@ -237,15 +237,15 @@ _Case File Note: The evidence points to a fundamental truth in Hollywood - genre
 The performance heat map before us reads like a crime scene analysis of Hollywood's financial casualties. The dark purple bands stretching across the left side of the visualization tell a sobering story - every genre, without exception, has its share of total losses and severe failures. This isn't just data; it's a graveyard of creative ambitions and financial investments. The deepest purple zones, particularly prominent in TV Movies and Westerns, represent areas where movies go to die, rarely emerging from the red zone of financial loss.
 
 <div class="row">
-    <div class="col-sm-12 col-md-4" style="margin-top: 100px;">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         Moving towards the center, we encounter what might be called "Hollywood's Purgatory" - the break-even zone. Here, the colors begin to warm slightly, but the predominant purple tones reveal an uncomfortable truth: most films barely manage to recoup their investments. This vast middle ground isn't merely a neutral zone; it represents thousands of projects that failed to achieve their financial potential, languishing in what industry veterans darkly call "development hell." The transition from deep purple to lighter shades in this region maps the thin line between failure and mere survival.
-        <br><br>
-        The right side of the heat map provides the most striking contrast - and perhaps the most painful insight into the industry's brutal economics. Those rare yellow hotspots in Adventure, Fantasy, and Science Fiction genres represent the elusive blockbuster territory, but their very brightness serves to highlight the darkness surrounding them. These aren't just success stories; they're statistical anomalies that tantalize studios into continued risk-taking, even as the surrounding purple zones warn of the far more common outcome - financial disaster. The pattern is particularly cruel in genres like Thrillers, where the extreme color variation from deep purple to bright yellow illustrates the genre's tendency to either soar or crash spectacularly, with little middle ground.
     </div>
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_9_success_matrix.html %}
     </div>
 </div>
+
+The right side of the heat map provides the most striking contrast - and perhaps the most painful insight into the industry's brutal economics. Those rare yellow hotspots in Adventure, Fantasy, and Science Fiction genres represent the elusive blockbuster territory, but their very brightness serves to highlight the darkness surrounding them. These aren't just success stories; they're statistical anomalies that tantalize studios into continued risk-taking, even as the surrounding purple zones warn of the far more common outcome - financial disaster. The pattern is particularly cruel in genres like Thrillers, where the extreme color variation from deep purple to bright yellow illustrates the genre's tendency to either soar or crash spectacularly, with little middle ground.
 
 _Case File Note: The heat map reveals Hollywood's darkest secret - in the pursuit of those rare yellow zones of success, the industry has normalized a landscape dominated by failure. The purple vastness isn't just a background; it's the industry's default state._
 
