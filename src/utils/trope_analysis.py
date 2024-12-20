@@ -8,8 +8,10 @@ import math
 from pathlib import Path
 from plotly.subplots import make_subplots
 from src.utils.plot_settings import (
-    COLORS, COMMON_LAYOUT,
-    AXIS_STYLE, 
+    COLORS,
+    COMMON_LAYOUT,
+    AXIS_STYLE,
+    BAR_STYLE,
     get_title_style,
     create_hover_template, 
     get_subplot_settings
@@ -60,14 +62,16 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
             xanchor='left',
             yanchor='top',
             showactive=True,
+            active=0,
         ),
         dict(
             type="buttons",
             buttons=[],
-            x=1.15,
+            x=1.13,
             xanchor='left',
             yanchor='top',
-            showactive=False,
+            showactive=True,
+            active=-1,
         )
     ]
     default_title = f"Top {k} tropes with the highest ratio of low-rated movies for All Genres"
@@ -110,7 +114,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
                 name=genre,
                 orientation='h',
                 visible=False if genre != "All" else True,
-                marker=dict(color='rgba(11, 127, 1271, 0.7)'),
+                **BAR_STYLE
             )
         )
 
@@ -144,7 +148,20 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         },
         {
             "title": default_title if valid_buttons[i]['label'] == "All" else f"Top {k} tropes with the highest ratio of low-rated movies for genre {valid_buttons[i]['label']}",
-            "annotations": [dict(text="Choose a genre:", x=1.13, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)],
+            "annotations": [dict(
+                text="Choose a genre:",
+                x=1.13,
+                xref="paper",
+                y=1.1,
+                yref="paper",
+                align="right",
+                showarrow=False,
+                font=dict(
+                    family='Arial, sans-serif',
+                    size=14,
+                    color='#1F1F1F'
+                )
+            )],
             "updatemenus[0].active": button_index if column == 0 else -1,  # Reset other column
             "updatemenus[1].active": button_index if column == 1 else -1   # Reset other column
         }
@@ -152,18 +169,32 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
 
 
     fig.update_layout(
+        **COMMON_LAYOUT,
         updatemenus=updatemenus,
         showlegend=False,
         title=default_title,
         yaxis=dict(
             automargin=True,
             showline=True,
-            showgrid=False,
             autorange="reversed",
+            **AXIS_STYLE
         ),
         xaxis_title='Ratio of low-rated movies to high-rated movies',
         yaxis_title='Tropes',
-        annotations=[dict(text="Choose a genre:", x=1.13, xref="paper", y=1.1, yref="paper", align="right", showarrow=False)]
+        annotations=[dict(
+            text="Choose a genre:",
+            x=1.13,
+            xref="paper",
+            y=1.1,
+            yref="paper",
+            align="right",
+            showarrow=False,
+            font=dict(
+                family='Arial, sans-serif',
+                size=14,
+                color='#1F1F1F'
+            )
+        )]
     )
 
     fig.show()
@@ -291,16 +322,14 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
         )
     
     fig_counts.update_yaxes(
-        title_text="Number of Movies", 
-        title_standoff=15,
-        range=[0, max_count * 1.1],  # Add 10% padding to the maximum value
+        title_text="Number of Movies",
+        range=[0, max_count * 1.1],
         **AXIS_STYLE
     )
 
     fig_avg_scores.update_yaxes(
         title_text="Average Score", 
-        title_standoff=15,
-        range=[0, max_avg_score * 1.1],  # Add 10% padding to the maximum value
+        range=[0, max_avg_score * 1.1],
         **AXIS_STYLE
     )
 
