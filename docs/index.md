@@ -325,9 +325,11 @@ _Case File Note: The historical data reveals that while Hollywood has gotten bet
 
 ### Part VI: The Tropes of Trouble
 
+In our search for what makes movies fail, we've found something interesting: tropes. Think of tropes as storytelling patterns that keep showing up in movies - like when the hero gets rescued at the last minute, or when there's a mad scientist character, or even when characters travel through time and mess things up. While tropes aren't necessarily good or bad on their own, how they're used can make or break a movie. We suspect certain tropes might be behind negative audience reactions and box office failures.
+
 #### The Tropes of Failure: When Narrative Patterns Predict Disaster 📜
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+To understand what's going on, we first need to find which tropes show up most often in movies people don't like. We're looking at movies that got scores lower than 6.0 and were rated by at least 100 people (after all, we need enough people to have watched the movie to be sure). But here's something interesting - just because we find a trope in bad movies doesn't automatically make it bad. Maybe it appears in lots of good movies too! That's why we look at how often it shows up in low rated movies compared to high rated ones. The higher this ratio, the more likely the trope is connected to low ratings. Let's examine our first piece of evidence in the chart below:
 
 <div class="container-fluid">
     <div class="row">
@@ -337,32 +339,26 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+Our investigation shows three main suspects across all genres: "NotScreenedForCritics" which is typically seen as a red flag for poor quality, "ActionDressRip" which is used as a visual appealing element but can be seen as very dramatic, and "HellOnEarth" which is a trope that many horror movies overuse to show apocalyctic scenarios. When we look at just drama movies, we found some other interesting patterns like "BTeamSequel" (when they make a sequel without the original stars), "DisneyVillainDeath" (when the villain dies dramatically), and "BlondBrunetteRedHead" (when they put three hair colors characters together). The chart above shows even more examples from different types of movies.
+
+But which tropes get the worst ratings? Let's look at the top 10 tropes with the lowest ratings in our files:
 
 <div class="container">
   {% include plotly/rq7_tropes_boxplot.html %}
 </div>
 
-### 🎭 **The "Unhappy Ending" Curse**: Consistently low ratings across years
+Looking at this box plot which shows the median, the interquartile range and the distribution of the average rating for the top 10 tropes identified in movies. The plot reveals that these tropes usually get ratings between 4 and 6. "BMovie" and "SlasherFilm" have some unusual cases - "BMovie" sometimes gets really low scores below 2.5, while in the case of "SlasherFilm" sometimes it is love or sometimes is hate it by the audience. "MonsterMisogyny" seems to be our biggest troublemaker, getting the lowest typical ratings, probably because audiences don't like movies that show harmful ideas about violence against women.
 
-Different tropes have been used in movies over the years, and some have consistently led to negative reception by audiences. Analyzing the frequency of these tropes across genres reveals interesting patterns. For example, the "Unhappy Ending" trope is prevalent in Drama and Romance films, while the "Love Triangle" trope is common in Romance and Comedy genres. By examining the distribution of these tropes across genres, we can identify which narrative elements are associated with negative audience reactions and box office failures.
+### Tropes working together: Combinations of tropes that lead to failure
 
-Analyzing the average score of low-rated tropes across different periods reveals interesting trends. While some tropes have consistently low ratings over time, others show significant variation. For example, the "Unhappy Ending" trope has maintained a low average score of around 5.5 since the 1920s, indicating a consistent negative reception from audiences. In contrast, the "Love Triangle" trope experienced a notable decline in average rating from the 1920s to the 1980s, followed by a slight recovery in the 1990s and 2000s. This suggests changing audience preferences and storytelling trends over the decades.
-
-<div class="container">
-  {% include plotly/rq8_tropes_avg_scores.html %}
-</div>
-
-### Combinations of tropes that lead to failure
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+But wait - what happens when these tropes combine forces? To solve this mystery, we used k-means clustering to group movies based on their tropes. It's like finding out which ingredients often get used in the same recipe. Interestingly, the clustering reveals that many movies share common trope patterns, and we can also observe some regions where certain cluster dominates like the cluster 19 and 20. The tse plot allow us to visualize these clusters in a 2D space, where each point represents a movie and the color represents the cluster to which it belongs.
 
 <div class="text-center">
     <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
     <figcaption class="mt-2 text-muted">From the animated series: <em>The Simpsons</em></figcaption>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+We are interested in the clusters with the lowest average ratings as they represents the tropes that were not well received by the audience. Thus, let's check out which groups of movies got the worst ratings:
 
 <div class="container">
     <div class="row justify-content-center">
@@ -372,7 +368,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+Clearly clusters 9, 13 and 20 highlight in these top, they are our prime suspects. We also can see some movies stand alone at the edges, showing that sometimes even unusual combinations of tropes can lead to bad ratings.
 
 <div class="container">
     <div class="row justify-content-center">
@@ -382,17 +378,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            {% include plotly/rq7_trope_network.html %}
-        </div>
-    </div>
-</div>
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+To have a better look of these combinations, the following bar chart reveals the most frequently trope combinations in our worst-rated movie clusters. The combination of "HorrorFilms + ShoutOut + AssholeVictim" appears most frequently, followed by other horror-related combinations involving B-movies, SciFiHorror and slasher films movies. This suggests that certain horror movie formulas, particularly those that rely heavily on traditional tropes, tend to be perceived as repetitive or unoriginal by audiences, leading to poor ratings. Beyond horror, we see recurring patterns in other genres: dirty cop narratives, recursive or self-referential storytelling (as shown by "AlliterativeTitle + RecursiveCanon + RecursiveFiction"), and psychological thrillers with specific social themes. The presence of "BigBad + FilmsOfThe1980s + TheDragon" suggests that dated villain archetypes from the 1980s may not do well with modern audiences. These combinations point to potential narrative fatigue, where audiences may be responding negatively to overly familiar or poorly executed trope patterns
 
 <div class="container">
     <div class="row justify-content-center">
@@ -402,7 +388,29 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
 </div>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+Finally, let's look at how these tropes connect to each other:
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            {% include plotly/rq7_trope_network.html %}
+        </div>
+    </div>
+</div>
+
+Our network visualization reveals the connection between tropes in poorly-rated movies, with "HorrorFilms" emerging as the central node with the largest size, indicating its high frequency. The thickness of the connecting lines reveals particularly strong co-occurrences between certain tropes, highlighting common but potentially problematic narrative combinations in these lower-rated films. We can notice strong connections between horror-related tropes, forming a dense cluster that includes "SlasherFilm," "BMovie," and "SciFiHorror." This central cluster connects to more specific tropes like "FinalGirl," "DeathBySex," and "TooDumbToLive," suggesting that these narrative elements frequently appear together in poorly-received films. Moreover, there's another interesting pattern in our evidence: "FilmsOfThe1980s" connecting with "TheDragon" and "BigBad" shows a combination that probably are too simple or outdated for audiences that prefer more complex and original narratives. 
+
+### 🎭 The Historical Record: Tropes with consistently low ratings across years
+
+Our next clue in the investigation is to look at how tropes have performed over time. Particularly, we're interested in tropes that have consistently led to negative audience reception and are the ones that are in the following plot. We decided to look back through time to see the average ratings of these tropes over the years.
+
+<div class="container">
+  {% include plotly/rq8_tropes_avg_scores.html %}
+</div>
+
+These tropes show average ratings fluctuating between 4 and 6. Moreover, in the early years of this analysis, we noticed that "ChekhovsGun" and "OhCrap" are actually gotten better over time, having scores around 5.5 recently. Looks like filmmakers have figured out how to use better these tropes. However, "HorrorFilms" and "BMovie" have stayed pretty much the same over the years, usually getting between 4 and 5 stars. And here's something funny - "FilmsOfThe1980s" did best during... you guessed it, the 1980s! Thus, it seems that some tropes might have a better reception over time, probably because they are used in a more creative and innovative way. While other tropes, like horror films, might have a more consistent performance, suggesting that audiences have certain expectations for these tropes.
+
+_Case File Note: This section of our investigation reveals that while individual tropes like "NotScreenedForCritics" and "MonsterMisogyny" are red flags for low ratings, the most dangerous patterns emerge when some tropes combine, particularly the combination of horror films. This genre has a tendency to group certain tropes (like "SlasherFilm" + "BMovie" + "SciFiHorror"), a pattern that consistently leads to poor audience reception and suggests filmmakers should focus on new ideas that avoid trying to combine these narrative formulas._
 
 <div class="section-divider"></div>
 
@@ -416,35 +424,30 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Jianan Xu</h5>
-                <p class="text-muted fst-italic">"Logic never fails"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Rizhong Lin</h5>
-                <p class="text-muted fst-italic">"Truth hides in plain sight"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Angel Zenteno</h5>
-                <p class="text-muted fst-italic">"Every case tells a story"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♀️</div>
                 <h5 class="fw-bold mb-2">Adriana Orellana</h5>
-                <p class="text-muted fst-italic">"Details make perfection"</p>
             </div>
         </div>
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
                 <h5 class="fw-bold mb-2">Raph Wegmann</h5>
-                <p class="text-muted fst-italic">"Mystery loves company"</p>
             </div>
         </div>
     </div>
