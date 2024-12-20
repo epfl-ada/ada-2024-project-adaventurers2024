@@ -330,13 +330,19 @@ _Case File Note: The historical data reveals that while Hollywood has gotten bet
 
 #### The Tropes of Failure: When Narrative Patterns Predict Disaster 📜
 
-Some tropes are box office poison - let's decode the narrative DNA of failure:
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
 
-<div class="plotly-visualization">
-  {% include plotly/rq6_tropes.html %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            {% include plotly/rq6_tropes.html %}
+        </div>
+    </div>
 </div>
 
-<div class="plotly-visualization">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+<div class="container">
   {% include plotly/rq7_tropes_boxplot.html %}
 </div>
 
@@ -346,19 +352,60 @@ Different tropes have been used in movies over the years, and some have consiste
 
 Analyzing the average score of low-rated tropes across different periods reveals interesting trends. While some tropes have consistently low ratings over time, others show significant variation. For example, the "Unhappy Ending" trope has maintained a low average score of around 5.5 since the 1920s, indicating a consistent negative reception from audiences. In contrast, the "Love Triangle" trope experienced a notable decline in average rating from the 1920s to the 1980s, followed by a slight recovery in the 1990s and 2000s. This suggests changing audience preferences and storytelling trends over the decades.
 
-<div class="plotly-visualization">
+<div class="container">
   {% include plotly/rq8_tropes_avg_scores.html %}
 </div>
 
 ### Combinations of tropes that lead to failure
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
 
 <div class="text-center">
     <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
     <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
 </div>
 
-- Add cluster
-- Add network
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            {% include plotly/rq7_movie_clusters.html %}
+        </div>
+    </div>
+</div>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            {% include plotly/rq7_worst_clusters.html %}
+        </div>
+    </div>
+</div>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            {% include plotly/rq7_trope_network.html %}
+        </div>
+    </div>
+</div>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            {% include plotly/rq7_trope_combinations.html %}
+        </div>
+    </div>
+</div>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
 
 <div class="section-divider"></div>
 
