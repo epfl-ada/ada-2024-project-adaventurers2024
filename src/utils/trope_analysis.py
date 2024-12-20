@@ -201,6 +201,70 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
     fig.write_html(f'{OUTPUT_PATH}rq6_tropes.html', full_html=False, include_plotlyjs='cdn')
 
 
+def rq7(df_cmu_tropes, show_plotly_charts=True):
+    # Filter all tropes that appear in less than 15 movies
+    df_cmu_tropes_filtered = df_cmu_tropes.groupby("trope").filter(
+        lambda x: len(x) >= 15
+    )
+
+    # Get the top 10 tropes with the lowest average rating
+    worst_tropes = (
+        df_cmu_tropes_filtered[["trope", "vote_average"]]
+        .groupby("trope")
+        .mean()
+        .sort_values(by="vote_average", ascending=True)
+        .head(10)
+    )
+
+    # Create a boxplot with the top 10 tropes with the lowest average rating
+
+    if show_plotly_charts:
+        fig = px.box(
+            df_cmu_tropes_filtered[
+                df_cmu_tropes_filtered["trope"].isin(worst_tropes.index)
+            ],
+            y="trope",
+            x="vote_average",
+            title="Top 10 tropes with lowest average rating",
+            color="trope",
+            color_discrete_sequence=COLORS,
+        )
+        fig.update_layout(
+            **COMMON_LAYOUT,
+            xaxis_title="Average rating",
+            yaxis_title="Tropes",
+            legend_title="Tropes",
+            title_x=0.5,
+            yaxis=dict(
+                automargin=True,
+                showline=True,
+                **AXIS_STYLE
+            ),
+        )
+
+        fig.show()
+        fig.write_html(
+            f"{OUTPUT_PATH}rq7_tropes_boxplot.html",
+            include_plotlyjs="cdn",
+            full_html=False,
+        )
+    else:
+        plt.figure(figsize=(8, 5))
+        sns.boxplot(
+            data=df_cmu_tropes_filtered[
+                df_cmu_tropes_filtered["trope"].isin(worst_tropes.index)
+            ],
+            x="vote_average",
+            y="trope",
+            palette="viridis",
+        )
+        plt.xlabel("Average rating")
+        plt.ylabel("Tropes")
+
+        plt.title("Top 10 tropes with lowest average rating")
+        plt.show()
+
+
 def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
     print(f"Initial shape: {df_cmu_tropes.shape}")
 
