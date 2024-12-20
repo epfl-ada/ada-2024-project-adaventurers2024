@@ -66,9 +66,10 @@ def get_subplot_settings(num_rows, tropes):
     return {
         'rows': num_rows,
         'cols': 3,
-        'subplot_titles': tropes,
-        'vertical_spacing': 0.12,  # Increased spacing
-        'horizontal_spacing': 0.08,  # Increased spacing
+        'subplot_titles': [f'<b>{trope} vs. Year</b>' for trope in tropes],
+        'vertical_spacing': 0.13,
+        'horizontal_spacing': 0.1,
+        'row_heights': [0.8/num_rows] * num_rows,
     }
 
 

@@ -348,8 +348,7 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
         )
 
     fig_counts.update_layout(
-        height=300 * num_rows,
-        width=1200,
+        height=260 * num_rows,
         title=get_title_style("Evolution of Tropes Use Over Time"),
         showlegend=False,
         title_x=0.5,
@@ -385,8 +384,7 @@ def rq8(df_cmu_tropes, threshold=6.0, min_trope_occurrences=100):
 
     # Update layout for average scores
     fig_avg_scores.update_layout(
-        height=300 * num_rows,
-        width=1200,
+        height=260 * num_rows,
         title=get_title_style("Evolution of Tropes Average Scores Over Time"),
         showlegend=False,
         title_x=0.5,
