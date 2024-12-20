@@ -33,15 +33,7 @@ OUTPUT_PATH = "docs/_includes/plotly/"
 
 
 def get_unique_genres(df_tropes_filtered):
-    unique_str_genres = df_tropes_filtered["genres"].unique()
-    unique_genres = set()
-
-    for str_genres in unique_str_genres:
-        for genre in str_genres.split(","):
-            unique_genres.add(genre.strip())
-
-    ordered_genres = ['All'] + sorted([genre for genre in unique_genres if genre != 'All'])
-    return ordered_genres
+    return ['All', 'Action', 'Adventure', 'Comedy', 'Drama', 'Horror', 'Romance', 'Science Fiction']
 
 
 def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
@@ -82,15 +74,6 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
             yanchor='top',
             showactive=True,
             active=0,
-        ),
-        dict(
-            type="buttons",
-            buttons=[],
-            x=1.07,
-            xanchor='left',
-            yanchor='top',
-            showactive=True,
-            active=-1,
         )
     ]
     default_title = f"Top {k} tropes with the highest ratio of low-rated movies for All Genres"
@@ -158,18 +141,15 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
             )
         )
 
-    midpoint = math.ceil(len(valid_buttons) / 2)
-    updatemenus[0]['buttons'] = valid_buttons[:midpoint]
-    updatemenus[1]['buttons'] = valid_buttons[midpoint:]
+    updatemenus[0]['buttons'] = valid_buttons
 
     for i in range(len(valid_buttons)):
-        column = i // midpoint
-        button_index = i % midpoint
+        button_index = i
 
         visibility = [False] * len(valid_buttons)
         visibility[i] = True
 
-        updatemenus[column]['buttons'][button_index]['args'] = [
+        updatemenus[0]['buttons'][button_index]['args'] = [
         {
             "visible": visibility
         },
@@ -189,8 +169,6 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
                     color='#1F1F1F'
                 )
             )],
-            "updatemenus[0].active": button_index if column == 0 else -1,  # Reset other column
-            "updatemenus[1].active": button_index if column == 1 else -1   # Reset other column
         }
     ]
 
@@ -468,8 +446,9 @@ def plot_trope_combinations(worst_clusters_tropes):
         y=combinations,
         orientation='h',
         marker=dict(
-            color=COLORS[0],
-            line=dict(color=COLORS[0], width=1),
+            color=weights, 
+            colorscale='Reds',
+            line=dict(width=1),
         ),
         hovertemplate='Weight: %{x}<br>%{y}<extra></extra>'
     ))
