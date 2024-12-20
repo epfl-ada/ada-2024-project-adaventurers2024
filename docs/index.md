@@ -78,7 +78,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <div class="text-center">
     <img src="https://media4.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif?cid=6c09b952mg94u2g7aq1pcnj1sxdidnzdsm6as1z4c55nx3bs&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the movie: <em>Detective Pikachu</em></figcaption>
 </div>
 
 <div class="section-divider"></div>
@@ -144,7 +144,7 @@ In short, while casting diversity might influence a film’s performance in subt
 
 <div class="text-center">
     <img src="https://media2.giphy.com/media/eQabXVbbLW63K/200.gif?cid=6c09b952h6xy4fkwj27ehe3n3g9bm294agh7j44b1s6pdrp0&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Director Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the animated series: <em>Peanuts</em></figcaption>
 </div>
 
 Next, we turn our attention to directors. Is thematic consistency or variety in their filmography related to poor performance?
@@ -153,7 +153,7 @@ Next, we turn our attention to directors. Is thematic consistency or variety in 
     <div class="col-sm-12 col-md-4 d-flex align-items-center">
         The Sankey diagram compares the number of genres directors work with to their films’ ratings and average revenue. Directors who stick to just one genre generally cluster in lower rating categories, 5.5–6.0. This suggests that overly rigid thematic focus may limit a film’s appeal. In contrast, directors who explore a moderate range of genres—around 6 to 13—tend to produce films with higher ratings (above 6.4). 
         <br><br>
-        Revenue patterns follow a similar trend. Directors who either confine themselves to very few genres (e.g., 1) or attempt too many (e.g. 18) show lower average revenues (lower than $30 million). Those who maintain a middle ground, exploring a moderate but not overwhelming range of genres, tend to see better financial returns. 
+        Revenue patterns follow a similar trend. Directors who either confine themselves to very few genres (e.g., 1) or attempt too many (e.g., 18) show lower average revenues (lower than $30 million). Those who maintain a middle ground, exploring a moderate but not overwhelming range of genres, tend to see better financial returns. 
     </div>
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq3_genres_to_ratings.html %}
@@ -198,13 +198,10 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-md-4 d-flex align-items-center">
-        The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
-    </div>
-    <div class="col-sm-12 col-md-8">
-        {% include plotly/rq4_6_budget_analysis.html %}
-    </div>
+The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
+
+<div class="container" style="margin-right: 300px;">
+  {% include plotly/rq4_6_budget_analysis.html %}
 </div>
 
 Looking at both plots together reveals the full scope of Hollywood's risk paradox. Very Low budget productions show the highest ROI potential (reaching over 10x returns) but minimal absolute profits, while Very High budget films display the opposite pattern - substantial absolute profits but anemic ROI figures. This creates a cruel dilemma for studios: chase higher absolute profits at the cost of efficiency, or maintain better ROI while accepting limited profit potential. The data suggests that the safest path - balancing ROI and absolute profits - lies somewhere in the middle budget categories, though even these show significant potential for failure.
@@ -362,7 +359,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <div class="text-center">
     <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the animated series: <em>The Simpsons</em></figcaption>
 </div>
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
