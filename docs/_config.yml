@@ -18,7 +18,6 @@ author: ADAventurers2024
 ###############################################
 
 navbar-links:
-  About Us: "aboutus"
   Datasets:
     - CMU Movie Summary Corpus: "https://www.cs.cmu.edu/~ark/personas/"
 

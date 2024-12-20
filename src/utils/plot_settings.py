@@ -20,7 +20,8 @@ COMMON_LAYOUT = {
         family="Arial, sans-serif",
         size=13,
         color="#2F2F2F"
-    )
+    ),
+    'autosize': True,
 }
 
 # Enhanced axis styling
@@ -29,14 +30,14 @@ AXIS_STYLE = {
     'gridwidth': 1,
     'gridcolor': '#F0F0F0',
     'zeroline': True,
-    'zerolinewidth': 2,
+    'zerolinewidth': 1,
     'zerolinecolor': '#CCCCCC',
     'linecolor': '#2F2F2F',
-    'linewidth': 2,
+    'linewidth': 1,
     'ticks': 'outside',
-    'tickwidth': 2,
+    'tickwidth': 1,
     'tickcolor': '#2F2F2F',
-    'ticklen': 6,
+    'ticklen': 4,
     'tickfont': dict(
         family='Arial, sans-serif',
         size=14,
@@ -70,7 +71,7 @@ def get_subplot_settings(num_rows, tropes):
         'rows': num_rows,
         'cols': 3,
         'subplot_titles': tropes,
-        'vertical_spacing': 0.15,  # Increased spacing
+        'vertical_spacing': 0.12,  # Increased spacing
         'horizontal_spacing': 0.08,  # Increased spacing
     }
 

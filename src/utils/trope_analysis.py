@@ -65,7 +65,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         dict(
             type="buttons",
             buttons=[],
-            x=1.05,
+            x=1,
             xanchor='left',
             yanchor='top',
             showactive=True,
@@ -74,7 +74,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         dict(
             type="buttons",
             buttons=[],
-            x=1.13,
+            x=1.07,
             xanchor='left',
             yanchor='top',
             showactive=True,
@@ -165,7 +165,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
             "title": default_title if valid_buttons[i]['label'] == "All" else f"Top {k} tropes with the highest ratio of low-rated movies for genre {valid_buttons[i]['label']}",
             "annotations": [dict(
                 text="Choose a genre:",
-                x=1.13,
+                x=1.05,
                 xref="paper",
                 y=1.1,
                 yref="paper",
@@ -198,7 +198,7 @@ def rq6(df_cmu_tropes, threshold=6.0, k=10, min_votes=100):
         yaxis_title='Tropes',
         annotations=[dict(
             text="Choose a genre:",
-            x=1.13,
+            x=1.05,
             xref="paper",
             y=1.1,
             yref="paper",
