@@ -5,28 +5,6 @@ subtitle: "Unraveling the 🧬 DNA of Failed Films"
 cover-img: /assets/img/cover.jpeg
 ---
 
-<div class="mt-5"></div>
-
-# Welcome to the Movie Morgue 🔍
-
-Ever wondered why some movies crash and burn at the box office? Like how 'John Carter' lost Disney $200 million, or how 'Cats' became the stuff of Hollywood nightmares? We're not just talking about obvious flops - we're conducting a forensic analysis of over 42,000 films to uncover the hidden patterns behind cinematic disasters.
-
-## The Case File 📁
-
-Our investigation digs deep, from forgotten B-movies to high-budget catastrophes. Using state-of-the-art data analysis and visualization techniques, we're cracking open the vault on:
-
-- 💰 **The Money Trail**: Following the financial failures - from modest mishaps to billion-dollar blunders
-- 🎭 **The Cast Chronicles**: Identifying patterns in star power and ensemble dynamics
-- 📅 **The Timing Trap**: Uncovering how release dates can make or break a film's success
-- 📖 **The Plot Patterns**: Discovering which story elements are red flags for disaster
-
-Join us as we piece together the clues and uncover the formula for box office failure. Whether you're a film buff, data enthusiast, or just curious about Hollywood's biggest misses, this investigation will change how you see the movie industry.
-
-Let the autopsy begin... 🎬
-
-
-## Key Evidence 🔍
-
 <style>
 .viz-container {
   display: grid;
@@ -59,7 +37,49 @@ Let the autopsy begin... 🎬
   margin-bottom: 1rem;
 }
 
+.gif {
+  width: 40%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 </style>
+
+<div class="mt-5"></div>
+# Welcome to the Movie Morgue 🔍
+
+Ever wondered why some movies crash and burn at the box office? Like how 'John Carter' lost Disney $200 million, or how 'Cats' became the stuff of Hollywood nightmares? We're not just talking about obvious flops - we're conducting a forensic analysis of over 42,000 films to uncover the hidden patterns behind cinematic disasters.
+
+## The Case File 📁
+
+Our investigation digs deep, from forgotten B-movies to high-budget catastrophes. Using state-of-the-art data analysis and visualization techniques, we're cracking open the vault on:
+
+- 💰 **The Money Trail**: Following the financial failures - from modest mishaps to billion-dollar blunders
+- 🎭 **The Cast Chronicles**: Identifying patterns in star power and ensemble dynamics
+- 📅 **The Timing Trap**: Uncovering how release dates can make or break a film's success
+- 📖 **The Plot Patterns**: Discovering which story elements are red flags for disaster
+
+Join us as we piece together the clues and uncover the formula for box office failure. Whether you're a film buff, data enthusiast, or just curious about Hollywood's biggest misses, this investigation will change how you see the movie industry.
+
+Let the autopsy begin... 🎬
+
+## Behind the Investigation 🕵️
+
+This project is part of the Applied Data Analysis course at EPFL. We've analyzed:
+- 42,000+ movie plots from Wikipedia
+- Cast and crew data from IMDb
+- 30,000+ narrative tropes
+- Box office numbers that would make studio executives cry
+
+
+## Key Evidence 🔍
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+<div class="text-center">
+    <img src="https://media4.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif?cid=6c09b952mg94u2g7aq1pcnj1sxdidnzdsm6as1z4c55nx3bs&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
+    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+</div>
 
 ### Part I: Signals of Failure
 <div class="container">
@@ -79,10 +99,10 @@ Overall, the plot underscores that while better ratings slightly correlate with 
 To measure actor diversity in movies, We focused on four key factors: age, gender, height, and ethnicity, each capturing distinct aspects of diversity within the cast. Age diversity and height diversity, as continuous variables, were measured using the standard deviation, where higher values indicate a broader range of ages or physical stature among the cast. In contrast, gender diversity and ethnicity diversity, as categorical variables, were quantified using Shannon's entropy, which effectively measures the balance of categories. Higher entropy for gender represents a more equal distribution between male and female actors, while higher entropy for ethnicity indicates greater representation of diverse ethnic backgrounds. These metrics were analyzed in relation to each movie's average rating and box office revenue to explore how actor diversity impacts audience engagement and financial success.
 
 <div class="row">
-    <div class="plotly-visualization">
+    <div class="col-sm-12 col-md-6">
       {% include plotly/rq2_revenue_boxplot.html %}
     </div>
-    <div class="plotly-visualization">
+    <div class="col-sm-12 col-md-6">
       {% include plotly/rq2_rating_boxplot.html %}
     </div>
 </div>
@@ -97,30 +117,39 @@ Overall, "Very High" ethnicity diversity and age diversity or "Low" gender diver
 
 Based on the heatmap, the highest absolute correlation between diversity metrics and revenue is 0.044 (from height diversity), and the highest absolute correlation between diversity metrics and average rating is 0.045 (from gender diversity). 
 
-<div class="plotly-visualization">
-  {% include plotly/rq2_correlation_heatmap.html %}
-</div>
-
-<div class="viz-container">
-    <div class="plotly-visualization">
-        {% include plotly/rq2_revenue_radar_chart.html %}
-    </div>
-    <div class="plotly-visualization">
-        {% include plotly/rq2_rating_radar_chart.html %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            {% include plotly/rq2_correlation_heatmap.html %}
+        </div>
     </div>
 </div>
 
 The two radar plots provide a comprehensive view of how diversity metrics—age, gender, height, and ethnicity—correlate with movie revenue and average rating. Each plot visualizes the diversity metrics for two groups: one representing movies with high performance (high revenue or high rating) and the other with low performance (low revenue or low rating). The radial axis represents the normalized values of the diversity factors, ranging from 0 to 1, while the filled areas of each group illustrate the relative contributions of each diversity factor.
 
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        {% include plotly/rq2_revenue_radar_chart.html %}
+    </div>
+    <div class="col-sm-12 col-md-6">
+        {% include plotly/rq2_rating_radar_chart.html %}
+    </div>
+</div>
+
 From the radar plots, we observe a consistent pattern: high ethnicity diversity and high age diversity are associated with lower revenue, while low gender diversity correlates with lower average rating. However, the influence of these diversity factors on movie failure appears to be small. In particular, the impact of low gender diversity on average rating is notably small. This suggests that while diversity metrics may play a role in movie outcomes, their contribution to failure is relatively limited compared to other factors that might influence audience reception, such as the quality of storytelling, acting skills.
 
 ### Part III: The Director's Enigma
 
+<div class="text-center">
+    <img src="https://media2.giphy.com/media/eQabXVbbLW63K/200.gif?cid=6c09b952h6xy4fkwj27ehe3n3g9bm294agh7j44b1s6pdrp0&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Director Gif" class="gif">
+    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+</div>
+
+Some directors seem to have a knack for picking problematic projects, the Sankey diagram visualizes the relationship between the number of genres explored by directors and the average ratings of their films, with the thickness of the connecting links representing the average revenue associated with these films. On the left side, we have the number of genres that directors engage with, ordered from 1 to 19, and on the right, the ratings are grouped into ranges (5.5-6, 6-6.5, 6.5-7, 7-7.5). Each link between these two sides represents a group of directors sharing a specific number of genres and their corresponding rating range, with thicker links indicating higher average revenue.
+
 <div class="plotly-visualization">
   {% include plotly/rq3_genres_to_ratings.html %}
 </div>
-
-The Sankey diagram visualizes the relationship between the number of genres explored by directors and the average ratings of their films, with the thickness of the connecting links representing the average revenue associated with these films. On the left side, we have the number of genres that directors engage with, ordered from 1 to 19, and on the right, the ratings are grouped into ranges (5.5-6, 6-6.5, 6.5-7, 7-7.5). Each link between these two sides represents a group of directors sharing a specific number of genres and their corresponding rating range, with thicker links indicating higher average revenue.
 
 From the visualization, it appears that directors who work across fewer genres (e.g., 1-5 genres) tend to produce films with lower ratings on average. Conversely, directors who explore a moderate or larger range of genres (e.g., 7-15 genres) often produce films in higher rating ranges, such as 6.5-7 or even 7-7.5. This might because directors working with fewer genres tend to specialize in niche areas, which may appeal to a limited audience but lack the broad appeal needed for financial success.
 
@@ -128,6 +157,7 @@ The thickness of the links, which reflects the revenue, shows the directors expl
 
 Overall, Overly specializing in a narrow range of genres or overextending across too many genres leads to movie failure, as it limits audience appeal or dilutes storytelling expertise.
 
+<div class="section-divider"></div>
 
 ### Part IV: The Genre Gamble
 
@@ -167,11 +197,22 @@ The return-on-investment patterns reveal Hollywood's hidden risk landscape:
 
 *Key Pattern: The biggest financial disasters often come wrapped in the biggest budgets.*
 
-<div class="viz-container">
-    <div class="plotly-visualization">
+<div class="row">
+    <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_5_roi_analysis.html %}
     </div>
-    <div class="plotly-visualization">
+    <div class="col-sm-12 col-md-4">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. m Ipsum is
+    </div>
+</div>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+
+<div class="row">
+    <div class="col-sm-12 col-md-4">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+    </div>
+    <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_6_budget_analysis.html %}
     </div>
 </div>
@@ -200,9 +241,7 @@ Our data reveals some fascinating contradictions in genre performance:
     </div>
 </div>
 
-<div class="section-divider">
-    ⭐️
-</div>
+<div class="section-divider"></div>
 
 <!-- ## Part II: The Deeper Patterns -->
 
@@ -250,7 +289,7 @@ Now that we understand the basic patterns, let's explore how audience reception 
     🎬
 </div>
 
-### Part IV: The Temporal Dimension
+### Part V: The Temporal Dimension
 
 #### Seasonal Patterns in Movie Failures: When Timing Meets Trouble 📊
 
@@ -318,61 +357,35 @@ Our final visualization shows how these patterns evolved over 100+ years:
 
 *Historical Perspective: While success rates have improved, fundamental seasonal patterns persist.*
 
-<div class="plotly-visualization full-width">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
     {% include plotly/rq5_4_seasonal_success_patterns.html %}
+        </div>
+    </div>
 </div>
 
 *Interactive visualization showing the relationship between budget and ROI*
 
-### The Diversity Deficit
-Our analysis reveals some surprising patterns in casting choices and box office performance.
+<div class="section-divider"></div>
 
-[PLOTLY-VISUALIZATION-2]
-*Interactive visualization of cast diversity metrics vs. movie success*
+### Part VI: The Tropes of Trouble
 
-### The Director's Curse
-Some directors seem to have a knack for picking problematic projects...
+#### The Tropes of Failure: When Narrative Patterns Predict Disaster 📜
 
-[PLOTLY-VISUALIZATION-3]
-*Interactive visualization of director track records*
-
-### Genre Graveyards
-Certain genres are more likely to fail in specific seasons...
-
-[PLOTLY-VISUALIZATION-4]
-*Interactive visualization of genre performance by release timing*
-
-## Behind the Investigation 🕵️
-
-This project is part of the Applied Data Analysis course at EPFL. We've analyzed:
-- 42,000+ movie plots from Wikipedia
-- Cast and crew data from IMDb
-- 30,000+ narrative tropes
-- Box office numbers that would make studio executives cry
-
-[PLOTLY-VISUALIZATION-5]
-*Interactive visualization of trope combinations and their impact on ratings*
-
-Questions:
-### 6. Which tropes consistently lead to negative reception by genre?
+Some tropes are box office poison - let's decode the narrative DNA of failure:
 
 <div class="plotly-visualization">
   {% include plotly/rq6_tropes.html %}
 </div>
 
-### 7. What plots are the most common in movies that fail?
-
 <div class="plotly-visualization">
   {% include plotly/rq7_tropes_boxplot.html %}
 </div>
 
-### 8. How have low-rated tropes evolved over time, and what trends can be observed in their average ratings across different periods?
+### 🎭 **The "Unhappy Ending" Curse**: Consistently low ratings across years
 
 Different tropes have been used in movies over the years, and some have consistently led to negative reception by audiences. Analyzing the frequency of these tropes across genres reveals interesting patterns. For example, the "Unhappy Ending" trope is prevalent in Drama and Romance films, while the "Love Triangle" trope is common in Romance and Comedy genres. By examining the distribution of these tropes across genres, we can identify which narrative elements are associated with negative audience reactions and box office failures.
-
-<div class="plotly-visualization">
-  {% include plotly/rq8_tropes_counts.html %}
-</div>
 
 Analyzing the average score of low-rated tropes across different periods reveals interesting trends. While some tropes have consistently low ratings over time, others show significant variation. For example, the "Unhappy Ending" trope has maintained a low average score of around 5.5 since the 1920s, indicating a consistent negative reception from audiences. In contrast, the "Love Triangle" trope experienced a notable decline in average rating from the 1920s to the 1980s, followed by a slight recovery in the 1990s and 2000s. This suggests changing audience preferences and storytelling trends over the decades.
 
@@ -380,15 +393,23 @@ Analyzing the average score of low-rated tropes across different periods reveals
   {% include plotly/rq8_tropes_avg_scores.html %}
 </div>
 
-### 9. Which combinations of tropes are most likely to lead to box office failure?
+### Combinations of tropes that lead to failure
+
+<div class="text-center">
+    <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
+    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+</div>
+
 
 - Add cluster
 - Add network
 
+<div class="section-divider"></div>
+
 ## Conclusion 🎬
 
 
-
+<div class="section-divider"></div>
 <section class="container py-5">
     <h2 class="text-center mb-5 fw-bold">About Our Detective Team</h2>
     <div class="row text-center g-4">
@@ -420,7 +441,6 @@ Analyzing the average score of low-rated tropes across different periods reveals
                 <p class="text-muted fst-italic">"Details make perfection"</p>
             </div>
         </div>
-        <!-- Detective 5 -->
         <div class="col">
             <div class="p-3 h-100 border-0 shadow-sm rounded">
                 <div class="emoji-large">🕵️‍♂️</div>
@@ -431,10 +451,8 @@ Analyzing the average score of low-rated tropes across different periods reveals
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 ## Want to Know More? 
 
 Check out our [detailed analysis](/analysis) or dive into our [methodology](/methods).
-
----
-
-*This is an ongoing investigation. Last updated: November 2024*
