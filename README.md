@@ -90,14 +90,14 @@ Using these binary vectors, we performed k-means clustering with k=50 to identif
 To understand what makes movies poorly received, we identified the 10 clusters with lowest average ratings, analyzed common trope combinations in these clusters, created a co-occurrence network to visualize how tropes appear together, and examined the evolution of trope usage and ratings over time (1920-present).
 Our approach assumes that movies sharing similar tropes likely share narrative patterns, allowing us to identify potentially problematic storytelling combinations through their trope signatures.
 
-## Organization within the team
+## Team contribution
 
 - Jianan Xu: Developed and calculated financial metrics (ROI, profit); created visualizations for movie failure metrics through scatterplots and correlation analyses; conducted actor diversity analysis using multiple metrics; contributed to director filmography analysis methodology; final document story and revision.
 - Rizhong Lin: Set up project website infrastructure; analyzed genre influence through profit distributions, rating-popularity relationships and trends; studied release timing impacts using seasonal distributions and temporal trend analysis; final document story and revision.
 - Raph Wegmann: Preliminary data analysis for RQ 3.
 - Angel Zenteno: Data preprocessing; established trope analysis methodology and rating thresholds; conducted genre-specific trope analysis for multiple genres; implemented clustering analysis and visualizations for trope patterns; developed trope co-occurrence network; final story proofreading and revision.
 - Adriana Orellana: Data preprocessing by merging movie datasets; data preprocessing; historical evolution analysis; enhanced website aesthetics and user experience; contributed to all sections by adding relevant images, GIFs, and complementary media content; unified the visual style to ensure a cohesive story; final story proofreading and revision.
-- 
+  
 ## Project Structure
 
 ```bash
