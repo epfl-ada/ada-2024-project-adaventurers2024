@@ -198,13 +198,10 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-md-4 d-flex align-items-center">
-        The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
-    </div>
-    <div class="col-sm-12 col-md-8">
-        {% include plotly/rq4_6_budget_analysis.html %}
-    </div>
+The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
+
+<div class="container" style="margin-right: 300px;">
+  {% include plotly/rq4_6_budget_analysis.html %}
 </div>
 
 Looking at both plots together reveals the full scope of Hollywood's risk paradox. Very Low budget productions show the highest ROI potential (reaching over 10x returns) but minimal absolute profits, while Very High budget films display the opposite pattern - substantial absolute profits but anemic ROI figures. This creates a cruel dilemma for studios: chase higher absolute profits at the cost of efficiency, or maintain better ROI while accepting limited profit potential. The data suggests that the safest path - balancing ROI and absolute profits - lies somewhere in the middle budget categories, though even these show significant potential for failure.
