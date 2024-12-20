@@ -184,13 +184,13 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
     <div class="col-sm-12 col-md-8">
         {% include plotly/rq4_5_roi_analysis.html %}
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         A closer examination of the ROI distribution chart reveals a troubling pattern across genres. Documentaries stand out with their extreme variance, showing ROI swings from -216% to a staggering 9900%. This volatility tells a story of a genre where financial outcomes are wildly unpredictable. Horror films follow a similar pattern, with their error bars stretching far into both positive and negative territories, suggesting an industry segment where financial planning becomes more art than science.
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
         The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
     </div>
     <div class="col-sm-12 col-md-8">
