@@ -359,14 +359,7 @@ Looking at this box plot which shows the median, the interquartile range and the
 
 ### Tropes working together: Combinations of tropes that lead to failure
 
-But wait - what happens when these tropes combine forces? To solve this mystery, we used k-means clustering to group movies based on their tropes. It's like finding out which ingredients often get used in the same recipe. Interestingly, the clustering reveals that many movies share common trope patterns, and we can also observe some regions where certain cluster dominates like the cluster 19 and 20. The tse plot allow us to visualize these clusters in a 2D space, where each point represents a movie and the color represents the cluster to which it belongs.
-
-<div class="text-center">
-    <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
-    <figcaption class="mt-2 text-muted">From the animated series: <em>The Simpsons</em></figcaption>
-</div>
-
-We are interested in the clusters with the lowest average ratings as they represents the tropes that were not well received by the audience. Thus, let's check out which groups of movies got the worst ratings:
+But wait - what happens when these tropes combine forces? To solve this mystery, we used k-means clustering to group movies based on their tropes. It's like finding out which ingredients often get used in the same recipe.
 
 <div class="container">
     <div class="row justify-content-center">
@@ -376,7 +369,9 @@ We are interested in the clusters with the lowest average ratings as they repres
     </div>
 </div>
 
-Clearly clusters 9, 13 and 20 highlight in these top, they are our prime suspects. We also can see some movies stand alone at the edges, showing that sometimes even unusual combinations of tropes can lead to bad ratings.
+Interestingly, the clustering reveals that many movies share common trope patterns, and we can also observe some regions where certain cluster dominates like the cluster 19 and 20. The tse plot allow us to visualize these clusters in a 2D space, where each point represents a movie and the color represents the cluster to which it belongs.
+
+We are interested in the clusters with the lowest average ratings as they represents the tropes that were not well received by the audience. Thus, let's check out which groups of movies got the worst ratings:
 
 <div class="container">
     <div class="row justify-content-center">
@@ -385,6 +380,8 @@ Clearly clusters 9, 13 and 20 highlight in these top, they are our prime suspect
         </div>
     </div>
 </div>
+
+Clearly clusters 9, 13 and 20 highlight in these top, they are our prime suspects. We also can see some movies stand alone at the edges, showing that sometimes even unusual combinations of tropes can lead to bad ratings.
 
 To have a better look of these combinations, the following bar chart reveals the most frequently trope combinations in our worst-rated movie clusters. The combination of "HorrorFilms + ShoutOut + AssholeVictim" appears most frequently, followed by other horror-related combinations involving B-movies, SciFiHorror and slasher films movies. This suggests that certain horror movie formulas, particularly those that rely heavily on traditional tropes, tend to be perceived as repetitive or unoriginal by audiences, leading to poor ratings. Beyond horror, we see recurring patterns in other genres: dirty cop narratives, recursive or self-referential storytelling (as shown by "AlliterativeTitle + RecursiveCanon + RecursiveFiction"), and psychological thrillers with specific social themes. The presence of "BigBad + FilmsOfThe1980s + TheDragon" suggests that dated villain archetypes from the 1980s may not do well with modern audiences. These combinations point to potential narrative fatigue, where audiences may be responding negatively to overly familiar or poorly executed trope patterns
 
@@ -407,6 +404,11 @@ Finally, let's look at how these tropes connect to each other:
 </div>
 
 Our network visualization reveals the connection between tropes in poorly-rated movies, with "HorrorFilms" emerging as the central node with the largest size, indicating its high frequency. The thickness of the connecting lines reveals particularly strong co-occurrences between certain tropes, highlighting common but potentially problematic narrative combinations in these lower-rated films. We can notice strong connections between horror-related tropes, forming a dense cluster that includes "SlasherFilm," "BMovie," and "SciFiHorror." This central cluster connects to more specific tropes like "FinalGirl," "DeathBySex," and "TooDumbToLive," suggesting that these narrative elements frequently appear together in poorly-received films. Moreover, there's another interesting pattern in our evidence: "FilmsOfThe1980s" connecting with "TheDragon" and "BigBad" shows a combination that probably are too simple or outdated for audiences that prefer more complex and original narratives. 
+
+<div class="text-center">
+    <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
+    <figcaption class="mt-2 text-muted">From the animated series: <em>The Simpsons</em></figcaption>
+</div>
 
 ### 🎭 The Historical Record: Tropes with consistently low ratings across years
 
