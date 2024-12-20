@@ -200,7 +200,7 @@ _Case File Note: Our investigation reveals that no genre is truly safe from fail
 
 The relationship between budget categories and financial outcomes presents perhaps the most counterintuitive finding in our investigation. While Very High budget films command the largest absolute profits, their ROI tells a drastically different story. These blockbusters barely achieve a 1x return on investment, with their error bars suggesting frequent dips into negative territory. The data paints a picture of an inverse relationship: as budgets climb, ROI potential consistently diminishes, creating a tension between absolute returns and investment efficiency.
 
-<div class="container" style="margin-right: 300px;">
+<div class="plotly-visualization" style="width: 100%;">
   {% include plotly/rq4_6_budget_analysis.html %}
 </div>
 
