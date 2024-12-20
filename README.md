@@ -61,19 +61,15 @@ We first calculated key financial metrics. Return on Investment (ROI) was comput
 
 #### Metrics for Movie Failure (RQ1)
 
-Current analysis examines metric distributions (ratings, revenue, profit ratios) through histograms and kernel density estimation, investigates relationships through scatter plots of audience metrics versus financial performance, and quantifies correlations between vote_average, vote_count, revenue, budget, and profit through matrix analysis. Future work could develop a composite failure score combining financial and reception metrics, employ clustering and machine learning for pattern identification.
+We chose average vote(i.e., rating/score), revenue, and ROI (Return on Investment) as the metrics of movie failure. We used a scatterplot matrix to uncover patterns and relationships between these metrics, displaying histograms along the diagonal to visualize their distributions. Off-diagonal scatter plots with trendlines reveal the pairwise correlations between the indicators. 
 
 #### Impact of Actors' Demographic Diversity on Movie Failure (RQ2)
 
-To address how actors' demographics diversity impacts movie failure, we plan to use multiple regression analysis to quantify the impact of gender, ethnicity, and age diversity on failure metrics (revenue and average rating), expressed mathematically as
-
-$\text{Failure Metric} = \beta_0 + \beta_1 \times \text{Gender Diversity} + \beta_2 \times \text{Ethnic Diversity} + \beta_3 \times \text{Age Diversity} + \epsilon$.
-
-Clustering algorithms (e.g., k-means) will group movies based on diversity metrics, identifying clusters linked to high failure rates. For visualization, we will use interactive parallel coordinates plots to simultaneously visualize multiple diversity metrics alongside failure indicators and identify trends or patterns across movies. The interactivity will enable highlighting specific movie samples.
+To measure actor diversity in movies, we focused on four key factors: age, gender, height, and ethnicity. We used standard deviation to quantify age and height diversity, while using Shannon's entropy to measure gender and ethnicity diversity. We then analyzed these metrics in relation to each movie's average rating and box office revenue using box plots, heatmaps, and radar charts. The box plots visualize the distribution of revenue and average rating across different diversity levels, the heatmap shows the correlations between diversity metrics and movie failure indicators, and the radar plots illustrate how different diversity factors contribute to high and low performance in terms of revenue and ratings.
 
 #### Impact of Directors' Filmography on Film Failure (RQ3)
 
-A director's filmography can be characterized by the diversity of genres in their films. A failure indicator for each director can be constructed by averaging the revenues or ratings of their films across genres. The first phase of the analysis involves assembling these profiles. The next step is to perform clustering on them to identify patterns in film failure related to directors' filmographies. Clustering techniques such as the K-Nearest Neighbours (KNN) algorithm are employed to classify directors based on their filmographies. The silhouette score is used to evaluate the quality of the clusters, helping to determine distinct career patterns. Cluster centroids and medoids are displayed to illustrate the typical patterns or trends found within each group.
+A director's filmography can be characterized by the diversity of genres in their films. To investigate the relationship between the number of genres explored by directors and their films' success, we create a Sankey diagram. The diagram visualizes the connections between the number of genres directors engage with and the average ratings of their films, with the thickness of the links representing the average revenue associated with these films. By analyzing the patterns in the Sankey diagram, we explore how directors' thematic diversification influences their films' critical reception and financial performance.
 
 #### Genre Influence on Movie Failure (RQ4)
 
@@ -92,9 +88,9 @@ Using these binary vectors, we performed k-means clustering with k=50 to identif
 To understand what makes movies poorly received, we identified the 10 clusters with lowest average ratings, analyzed common trope combinations in these clusters, created a co-occurrence network to visualize how tropes appear together, and examined the evolution of trope usage and ratings over time (1920-present).
 Our approach assumes that movies sharing similar tropes likely share narrative patterns, allowing us to identify potentially problematic storytelling combinations through their trope signatures.
 
-## Proposed Timeline
+## Timeline
 
-| Deliverable                     | Expected Date |
+| Deliverable                     | Delivery Date |
 | ------------------------------- | ------------- |
 | Data preprocessing              | 13/11/2024    |
 | Data analysis                   | 14/11/2024    |
@@ -104,11 +100,11 @@ Our approach assumes that movies sharing similar tropes likely share narrative p
 
 ## Organization within the team
 
-- Jianan Xu: Data preprocessing; data analysis, visulization, story from RQ 1, 2, and 3.
-- RL: Website setup; data analysis, visulization, story from RQ 4, 5, and 6.
+- Jianan Xu: Data preprocessing; data analysis, visualization, story from RQ 1, 2, and 3.
+- RL: Website setup; Data analysis, visualization, story from RQ 4 and 5.
 - RW: Data analysis for RQ 3.
-- AZ: Data preprocessing; Data analysis, visulization, story from RQ 7 and 8; Website beautification.
-- AO: Data preprocessing; Data analysis, visulization, story from RQ 7 and 8.
+- AZ: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7; Website beautification.
+- AO: Data preprocessing; Data analysis, visualization, story from RQ 6 and 7.
 
 ## Project Structure
 
