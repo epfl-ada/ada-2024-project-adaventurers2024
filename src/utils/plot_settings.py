@@ -11,7 +11,6 @@ COLORS = [
     '#008080'   # Teal
 ]
 
-# Enhanced common layout settings
 COMMON_LAYOUT = {
     'plot_bgcolor': 'white',
     'paper_bgcolor': 'white',
@@ -24,7 +23,6 @@ COMMON_LAYOUT = {
     'autosize': True,
 }
 
-# Enhanced axis styling
 AXIS_STYLE = {
     'showgrid': True,
     'gridwidth': 1,
@@ -45,7 +43,6 @@ AXIS_STYLE = {
     )
 }
 
-# Enhanced title styling
 def get_title_style(text):
     return {
         'text': text,
@@ -53,11 +50,11 @@ def get_title_style(text):
             'family': 'Arial, sans-serif',
             'color': '#1F1F1F'
         },
-        'y': 0.95,  # Slightly lower position for better spacing
+        'y': 0.95,
         'pad': dict(b=20)  # Add padding below title
     }
 
-# Enhanced hover template
+
 def create_hover_template(x_label="Year", y_label="Value", y_format=".2f"):
     return (
         f'<b>{x_label}</b>: %{{x}}<br>'
@@ -65,7 +62,6 @@ def create_hover_template(x_label="Year", y_label="Value", y_format=".2f"):
         '<extra></extra>'
     )
 
-# Enhanced subplot settings
 def get_subplot_settings(num_rows, tropes):
     return {
         'rows': num_rows,
@@ -87,7 +83,6 @@ BAR_STYLE = {
     )
 }
 
-# Function to apply bar style
 def apply_bar_style(fig):
     fig.update_traces(
         marker=dict(
