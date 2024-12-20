@@ -78,7 +78,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <div class="text-center">
     <img src="https://media4.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif?cid=6c09b952mg94u2g7aq1pcnj1sxdidnzdsm6as1z4c55nx3bs&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the movie: <em>Detective Pikachu</em></figcaption>
 </div>
 
 <div class="section-divider"></div>
@@ -144,18 +144,21 @@ In short, while casting diversity might influence a film’s performance in subt
 
 <div class="text-center">
     <img src="https://media2.giphy.com/media/eQabXVbbLW63K/200.gif?cid=6c09b952h6xy4fkwj27ehe3n3g9bm294agh7j44b1s6pdrp0&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Director Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the animated series: <em>Peanuts</em></figcaption>
 </div>
 
 Next, we turn our attention to directors. Is thematic consistency or variety in their filmography related to poor performance?
 
-<div class="plotly-visualization">
-  {% include plotly/rq3_genres_to_ratings.html %}
+<div class="row">
+    <div class="col-sm-12 col-md-4 d-flex align-items-center">
+        The Sankey diagram compares the number of genres directors work with to their films’ ratings and average revenue. Directors who stick to just one genre generally cluster in lower rating categories, 5.5–6.0. This suggests that overly rigid thematic focus may limit a film’s appeal. In contrast, directors who explore a moderate range of genres—around 6 to 13—tend to produce films with higher ratings (above 6.4). 
+        <br><br>
+        Revenue patterns follow a similar trend. Directors who either confine themselves to very few genres (e.g., 1) or attempt too many (e.g., 18) show lower average revenues (lower than $30 million). Those who maintain a middle ground, exploring a moderate but not overwhelming range of genres, tend to see better financial returns. 
+    </div>
+    <div class="col-sm-12 col-md-8">
+        {% include plotly/rq3_genres_to_ratings.html %}
+    </div>
 </div>
-
-The Sankey diagram compares the number of genres directors work with to their films’ ratings and average revenue. Directors who stick to just one genre generally cluster in lower rating categories, 5.5–6.0. This suggests that overly rigid thematic focus may limit a film’s appeal. In contrast, directors who explore a moderate range of genres—around 6 to 13—tend to produce films with higher ratings (above 6.4). 
-
-Revenue patterns follow a similar trend. Directors who either confine themselves to very few genres (e.g., 1) or attempt too many (e.g. 18) show lower average revenues (lower than $30 million). Those who maintain a middle ground, exploring a moderate but not overwhelming range of genres, tend to see better financial returns. 
 
 In summary, a director’s thematic range raises a red flag. Sticking too closely to one type of film or scattering focus across too many can contribute to lower ratings and revenue. It may be because sticking to one genre feels predictable, while too many genres dilute focus, reducing appeal.
 
@@ -265,9 +268,7 @@ What's particularly fascinating is how these plots capture the industry's cruel 
 
 _Case File Note: These scatter plots aren't just data visualizations - they're obituaries for thousands of creative ventures that failed to thread the needle between artistic merit and commercial viability. The pattern suggests that while quality doesn't guarantee success, its absence almost certainly ensures failure._
 
-<div class="section-divider">
-    🎬
-</div>
+<div class="section-divider"></div>
 
 ### Part V: The Temporal Dimension
 
@@ -308,7 +309,7 @@ _Case File Note: The monthly data exposes how Hollywood's calendar isn't just a 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-auto">
-    {% include plotly/rq5_4_seasonal_success_patterns.html %}
+            {% include plotly/rq5_4_seasonal_success_patterns.html %}
         </div>
     </div>
 </div>
@@ -361,7 +362,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <div class="text-center">
     <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
-    <figcaption class="mt-2 text-muted">Your caption text here</figcaption>
+    <figcaption class="mt-2 text-muted">From the animated series: <em>The Simpsons</em></figcaption>
 </div>
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
