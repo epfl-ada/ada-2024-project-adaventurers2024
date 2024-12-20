@@ -369,7 +369,7 @@ But wait - what happens when these tropes combine forces? To solve this mystery,
     </div>
 </div>
 
-Interestingly, the clustering reveals that many movies share common trope patterns, and we can also observe some regions where certain cluster dominates like the cluster 19 and 20. The tse plot allow us to visualize these clusters in a 2D space, where each point represents a movie and the color represents the cluster to which it belongs.
+Interestingly, the clustering reveals that many movies share common trope patterns, and we can also observe some regions where certain cluster dominates like the cluster 19 and 20. The t-SNE plot allow us to visualize these clusters in a 2D space, where each point represents a movie and the color represents the cluster to which it belongs.
 
 We are interested in the clusters with the lowest average ratings as they represents the tropes that were not well received by the audience. Thus, let's check out which groups of movies got the worst ratings:
 
