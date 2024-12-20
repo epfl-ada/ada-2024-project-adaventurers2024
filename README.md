@@ -104,11 +104,11 @@ Our approach assumes that movies sharing similar tropes likely share narrative p
 
 ## Organization within the team
 
-- JX: Questions 1, 2
-- RL: Questions 4, 5
-- RW: Questions 3
-- AZ: Questions 6, 7
-- AO: Questions 6, 7
+- Jianan Xu: Data preprocessing; data analysis, visulization, story from RQ 1, 2, and 3.
+- RL: Website setup; data analysis, visulization, story from RQ 4, 5, and 6.
+- RW: Data analysis for RQ 3.
+- AZ: Data preprocessing; Data analysis, visulization, story from RQ 7 and 8; Website beautification.
+- AO: Data preprocessing; Data analysis, visulization, story from RQ 7 and 8.
 
 ## Project Structure
 
