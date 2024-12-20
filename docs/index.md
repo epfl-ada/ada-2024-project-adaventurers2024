@@ -219,8 +219,6 @@ _Case File Note: The evidence points to a fundamental inefficiency in Hollywood'
     </div>
 </div>
 
-<div class="section-divider"></div>
-
 The failure rate chart reveals a disturbing truth about Hollywood's riskiest genres. Thrillers emerge as the industry's most treacherous territory, with a startling 4.5% of productions ending in catastrophic losses (defined as losing over 50% of their investment). This is closely followed by Science Fiction films at 4%, painting a picture of genres where ambition and disaster walk hand in hand. These aren't just statistics - they represent hundreds of millions in lost investments and countless careers derailed.
 
 Looking at the success rate chart might initially seem to offer hope, with Adventure and Science Fiction films showing impressive peaks of around 13% success (defined as achieving over 100% ROI). However, this apparent silver lining reveals a darker truth when viewed alongside the failure rates. The very genres that promise the highest rewards also harbor the highest risks of catastrophic failure. It's a classic case of double-edged sword economics, where the path to potential triumph is littered with financial casualties.
