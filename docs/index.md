@@ -48,6 +48,17 @@ html, body {
   margin-bottom: 10px;
 }
 
+.case-box {
+    background-color: #f0f8ff;
+    border: 2px solid #4682b4;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 1.1em;
+    color: #111111;
+}
+
 </style>
 
 <div class="mt-5"></div>
@@ -110,6 +121,7 @@ In short, lower ratings may lead films toward worse revenue and ROI, but they do
 <div class="section-divider"></div>
 
 ### Part II: The Cast Check: Actor Demographics
+
 Our next step is to examine the makeup of the cast—could diversity be a factor in a film’s downfall? To test this, let us measure diversity across four dimensions: age, gender, height, and ethnicity. Age and height diversity are reflected in their standard deviations (higher means more varied), while gender and ethnicity diversity are measured by Shannon’s entropy (higher means more balanced representation).
 
 <div class="row">
@@ -123,7 +135,7 @@ Our next step is to examine the makeup of the cast—could diversity be a factor
 
 The boxplots group movies into “Low,” “Medium,” “High,” and “Very High” levels of diversity and show their distributions in terms of revenue and ratings. For revenue, we notice that movies with “Very High” age and ethnicity diversity often have lower median earnings (under $0.5 million) and show greater variability than other groups. One possible explanation is that extremely diverse age ranges or ethnic mixes might lack a focused target audience. For instance, a young cast may be more appealing to children than a highly diverse cast. On the other hand, “Low” gender diversity corresponds to lower median ratings, suggesting that when a cast leans heavily toward one gender, it may not resonate well with a broad audience.
 
-However, when we look at the overall correlations, their strength is minimal. None of these diversity factors show more than a small (absolute value around 0.2) connection to revenue or ratings. Height diversity, for example, seems to have no clear impact at all. 
+However, when we look at the overall correlations, their strength is minimal. None of these diversity factors show more than a small (absolute value around 0.2) connection to revenue or ratings. Height diversity, for example, seems to have no clear impact at all.
 
 <div class="container">
     <div class="row justify-content-center">
@@ -144,7 +156,7 @@ The radar plots compare diversity factors between high-performing and low-perfor
     </div>
 </div>
 
-Radar plots further confirm that while “Very High” ethnicity and age diversity or “Low” gender diversity might push metrics down slightly, the effect is small. 
+Radar plots further confirm that while “Very High” ethnicity and age diversity or “Low” gender diversity might push metrics down slightly, the effect is small.
 
 In short, while casting diversity might influence a film’s performance in subtle ways, it doesn’t emerge as the main suspect for movie failures. Other factors—like acting skills or marketing strategies—may carry more weight in determining a film’s success or downfall. The investigation continues as we delve deeper into the true causes behind box-office bombs.
 
@@ -405,7 +417,7 @@ Finally, let's look at how these tropes connect to each other:
     </div>
 </div>
 
-Our network visualization reveals the connection between tropes in poorly-rated movies, with "HorrorFilms" emerging as the central node with the largest size, indicating its high frequency. The thickness of the connecting lines reveals particularly strong co-occurrences between certain tropes, highlighting common but potentially problematic narrative combinations in these lower-rated films. We can notice strong connections between horror-related tropes, forming a dense cluster that includes "SlasherFilm," "BMovie," and "SciFiHorror." This central cluster connects to more specific tropes like "FinalGirl," "DeathBySex," and "TooDumbToLive," suggesting that these narrative elements frequently appear together in poorly-received films. Moreover, there's another interesting pattern in our evidence: "FilmsOfThe1980s" connecting with "TheDragon" and "BigBad" shows a combination that probably are too simple or outdated for audiences that prefer more complex and original narratives. 
+Our network visualization reveals the connection between tropes in poorly-rated movies, with "HorrorFilms" emerging as the central node with the largest size, indicating its high frequency. The thickness of the connecting lines reveals particularly strong co-occurrences between certain tropes, highlighting common but potentially problematic narrative combinations in these lower-rated films. We can notice strong connections between horror-related tropes, forming a dense cluster that includes "SlasherFilm," "BMovie," and "SciFiHorror." This central cluster connects to more specific tropes like "FinalGirl," "DeathBySex," and "TooDumbToLive," suggesting that these narrative elements frequently appear together in poorly-received films. Moreover, there's another interesting pattern in our evidence: "FilmsOfThe1980s" connecting with "TheDragon" and "BigBad" shows a combination that probably are too simple or outdated for audiences that prefer more complex and original narratives.
 
 <div class="text-center">
     <img src="https://media0.giphy.com/media/l2JdYkTPVG9gRbvhK/giphy.gif?cid=6c09b952uf8lcok55y8ans5raxds0t2l0erufs0nsao0mpcf&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Detective Gif" class="gif">
@@ -429,54 +441,64 @@ _Case File Note: This section of our investigation reveals that while individual
 ## Conclusion 🎬
 
 #### Closed: The Anatomy of Box Office Failure 🎬
+
 After an exhaustive investigation into over 42,000 films, examining everything from cast diversity to seasonal patterns, we can finally close this case file on Hollywood's biggest failures. The evidence points to a complex web of factors that can doom a film to box office disaster.
 
 #### The Final Report 📋
+
 Our investigation has uncovered several key patterns that serve as warning signs for potential box office bombs:
 
-1. The Cast Conundrum 👥
+##### 1. The Cast Conundrum 👥
 
 While cast diversity itself isn't a primary culprit, our investigation found that extremes in any direction can be problematic:
 
-Very high age and ethnic diversity correlates with lower median earnings
-Low gender diversity may result in lower audience ratings
-The sweet spot appears to be moderate diversity across all metrics
+- Very high age and ethnic diversity correlates with lower median earnings
+- Low gender diversity may result in lower audience ratings
+- The sweet spot appears to be moderate diversity across all metrics
 
-2. The Director's Dilemma 🎥
+##### 2. The Director's Dilemma 🎥
 
 Our evidence points to a clear pattern in directorial careers:
 
-Directors who stick to a single genre show consistently lower ratings (5.5-6.0)
-Those who spread themselves too thin across many genres see diminished returns
-The optimal range appears to be 6-13 genres, suggesting that calculated versatility trumps both rigid specialization and excessive experimentation
+- Directors who stick to a single genre show consistently lower ratings (5.5-6.0)
+- Those who spread themselves too thin across many genres see diminished returns
+- The optimal range appears to be 6-13 genres, suggesting that calculated versatility trumps both rigid specialization and excessive experimentation
 
-3. The Genre Trap 🎭
+##### 3. The Genre Trap 🎭
+
 We've discovered that certain genres are particularly susceptible to catastrophic failure. Thrillers and Science Fiction films show the highest failure rates (4.5% and 4% respectively), while carrying the cruel irony of also offering the highest potential returns. The evidence suggests that these genres don't just fail – they fail greatly, creating a high-stakes gambling scenario for studios.
-4. The Temporal Curse ⏰
+
+##### 4. The Temporal Curse ⏰
+
 Our analysis of release timing revealed a treacherous calendar landscape:
 
-Winter emerges as the season of extremes, where holiday releases either soar or crash
-January stands as the deadliest month, with the highest severe loss rate (0.8%)
-Summer blockbuster season shows itself to be a double-edged sword, with high success rates (8-8.2%) matched by significant failure rates
+- Winter emerges as the season of extremes, where holiday releases either soar or crash
+- January stands as the deadliest month, with the highest severe loss rate (0.8%)
+- Summer blockbuster season shows itself to be a double-edged sword, with high success rates (8-8.2%) matched by significant failure rates
 
-5. The Trope Trap 📖
+##### 5. The Trope Trap 📖
 
 Perhaps our most damning evidence comes from the analysis of narrative patterns:
 
-Certain combinations of tropes, particularly in horror films, act as reliable predictors of failure
-The "NotScreenedForCritics" trope emerges as a consistent red flag
-Historical analysis shows some tropes, like "HorrorFilms" and "BMovie," have maintained their negative impact across decades
+- Certain combinations of tropes, particularly in horror films, act as reliable predictors of failure
+- The "NotScreenedForCritics" trope emerges as a consistent red flag
+- Historical analysis shows some tropes, like "HorrorFilms" and "BMovie," have maintained their negative impact across decades
 
 #### The Verdict 🔨
 
 After examining all the evidence, we can conclude that box office failures rarely result from a single fatal flaw. Instead, they emerge from a perfect storm of risk factors: poor timing, problematic genre choices, overused tropes, and suboptimal creative decisions. The data suggests that many of Hollywood's biggest failures could have been predicted – and potentially prevented – by paying attention to these warning signs.
 
 #### Case Status: CLOSED 📁
+
 While we've identified the primary factors contributing to box office failures, the entertainment industry remains an inherently risky business. No amount of data analysis can completely eliminate the possibility of failure, but understanding these patterns can help minimize the risk of creating the next legendary box office bomb.
-Remember: In Hollywood, as in any mystery, the clues are always there if you know where to look.
-Filed by: ADAdventurers
-Date: December 20, 2024
-Case Number: BOB-2024-001
+
+**Remember: In Hollywood, as in any mystery, the clues are always there if you know where to look.**
+
+<div class="case-box">
+    Filed by: ADAdventurers <br/>
+    Date: December 20, 2024 <br/> 
+    Case Number: BOB-2024-001
+</div>
 
 <div class="section-divider"></div>
 <section class="container py-5">
